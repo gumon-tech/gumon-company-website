@@ -192,3 +192,22 @@ a.mode-link{ text-decoration-color: rgb(var(--accent2) / 0.28); }
   line-height: 1.55;
   overflow-x: auto;
 }
+
+
+/* =========================================================
+   Component primitives (utility classes)
+   ========================================================= */
+@layer components{
+  .btn-base{
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition border;
+  }
+  .btn-primary{
+    @apply btn-base border-transparent bg-accent text-bg0 hover:bg-accent/90;
+  }
+  .btn-secondary{
+    @apply btn-base border-line bg-bg1 text-ink hover:bg-bg1/80;
+  }
+  .btn-ghost{
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-mist hover:text-ink hover:bg-bg1/50 transition;
+  }
+}
