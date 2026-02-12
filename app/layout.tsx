@@ -27,6 +27,7 @@ const nav = [
   { href: "/ecosystem", label: "Ecosystem" },
   { href: "/learning", label: "การเรียนรู้" },
   { href: "/resources", label: "ทรัพยากร" },
+  { href: "/team", label: "ทีม" },
   { href: "/company", label: "บริษัท" },
 ];
 
@@ -109,6 +110,8 @@ export default function RootLayout({
               <Link className="hover:text-ink transition" href="/ecosystem">Ecosystem</Link>
               <Link className="hover:text-ink transition" href="/learning">การเรียนรู้</Link>
               <Link className="hover:text-ink transition" href="/resources">ทรัพยากร</Link>
+              <Link className="hover:text-ink transition" href="/team">ทีม</Link>
+              <Link className="hover:text-ink transition" href="/company">บริษัท</Link>
               <Link className="hover:text-ink transition" href="/investors">นักลงทุน</Link>
               <Link className="hover:text-ink transition" href="/contact">ติดต่อ</Link>
             </div>
