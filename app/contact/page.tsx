@@ -20,19 +20,28 @@ export default function Page() {
             <form className="mt-6 grid gap-4">
               <label className="grid gap-2">
                 <span className="text-sm text-mist">ชื่อ-นามสกุล</span>
-                <input className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm" placeholder="ชื่อของคุณ" />
+                <input
+                  className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm transition focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/20"
+                  placeholder="ชื่อของคุณ"
+                />
               </label>
               <label className="grid gap-2">
                 <span className="text-sm text-mist">อีเมลองค์กร</span>
-                <input className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm" placeholder="name@company.com" />
+                <input
+                  className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm transition focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/20"
+                  placeholder="name@company.com"
+                />
               </label>
               <label className="grid gap-2">
                 <span className="text-sm text-mist">องค์กร</span>
-                <input className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm" placeholder="ชื่อองค์กร" />
+                <input
+                  className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm transition focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/20"
+                  placeholder="ชื่อองค์กร"
+                />
               </label>
               <label className="grid gap-2">
                 <span className="text-sm text-mist">ประเภทคำถาม</span>
-                <select className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm">
+                <select className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm transition focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/20">
                   <option>ความร่วมมือทางธุรกิจ</option>
                   <option>สนับสนุนด้านเทคนิค</option>
                   <option>ข้อมูลสำหรับนักลงทุน</option>
@@ -43,7 +52,7 @@ export default function Page() {
                 <span className="text-sm text-mist">รายละเอียด</span>
                 <textarea
                   rows={5}
-                  className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm"
+                  className="rounded-xl2 border border-line/20 bg-bg1/60 px-4 py-3 text-sm transition focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/20"
                   placeholder="เล่าบริบท ข้อจำกัด เป้าหมาย และ timeline ที่ต้องการ"
                 />
               </label>

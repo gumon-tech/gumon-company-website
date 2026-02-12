@@ -63,11 +63,11 @@ export default function RootLayout({
               ))}
             </nav>
 
-            <details className="md:hidden relative">
+            <details className="md:hidden relative z-[70]">
               <summary className="btn-ghost px-3 py-1.5 list-none cursor-pointer [&::-webkit-details-marker]:hidden">
                 เมนู
               </summary>
-              <div className="absolute right-0 top-[calc(100%+10px)] w-[260px] card p-3 shadow-soft">
+              <div className="absolute right-0 top-[calc(100%+10px)] w-[260px] rounded-xl2 border border-line/25 bg-bg0/95 p-3 shadow-soft backdrop-blur-md">
                 <div className="grid gap-1 text-sm">
                   {nav.map((n) => (
                     <Link
