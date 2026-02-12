@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+}
+
+body{
+  background: theme(colors.bg0);
+  color: theme(colors.ink);
+  overflow-x: hidden;
+}
+
+/* === Gumon: Silent Infrastructure UI System === */
+
+.ui-container{
+  @apply mx-auto max-w-7xl px-5 md:px-8;
+}
+
+.ui-section{
+  @apply py-16 md:py-24;
+}
+
+.ui-kicker{
+  @apply text-[11px] tracking-[0.28em] uppercase text-mist;
+}
+
+.ui-h1{
+  @apply mt-4 text-4xl md:text-6xl font-semibold leading-[1.05];
+}
+
+.ui-h2{
+  @apply text-2xl md:text-4xl font-semibold leading-tight;
+}
+
+.ui-p{
+  @apply text-base md:text-lg text-mist leading-relaxed;
+}
+
+.glass{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(214,219,216,0.12);
+}
+
+.grid-overlay{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(214,219,216,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(214,219,216,0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(closest-side at 50% 30%, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  opacity: 0.6;
+}
+
+.bg-veil{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(900px 460px at 22% 10%, rgba(143,175,156,0.18), rgba(0,0,0,0)),
+    radial-gradient(780px 520px at 78% 18%, rgba(214,219,216,0.10), rgba(0,0,0,0)),
+    linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);
+}
