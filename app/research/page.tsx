@@ -19,7 +19,7 @@ export default function Page() {
               />
             </div>
             <div className="relative">
-              <div className="text-[11px] tracking-[0.28em] uppercase text-olive">AI Capability</div>
+              <div className="text-[11px] tracking-[0.28em] uppercase text-accent">AI Capability</div>
               <div className="mt-4 text-lg font-semibold">Face recognition optimization</div>
               <p className="mt-3 text-sm text-mist leading-relaxed">
                 Practical improvements: latency reduction, real-world lighting calibration handling,
@@ -29,7 +29,7 @@ export default function Page() {
           </div>
 
           <div className="lg:col-span-5 glass rounded-xl2 p-7 shadow-glow">
-            <div className="text-[11px] tracking-[0.28em] uppercase text-olive">Principle</div>
+            <div className="text-[11px] tracking-[0.28em] uppercase text-accent">Principle</div>
             <div className="mt-4 text-lg font-semibold">Research → Prove → Deploy → Share</div>
             <p className="mt-3 text-sm text-mist leading-relaxed">
               This is infrastructure work: measurable proof, institutional deployment, and knowledge

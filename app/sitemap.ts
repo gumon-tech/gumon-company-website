@@ -7,5 +7,7 @@ export default function sitemap() {
     { url: `${base}/ecosystem/`, lastModified: now },
     { url: `${base}/research/`, lastModified: now },
     { url: `${base}/contact/`, lastModified: now },
+    { url: `${base}/brand/`, lastModified: now },
+    { url: `${base}/partners/`, lastModified: now },
   ];
 }

@@ -15,6 +15,42 @@ body{
   color: theme(colors.ink);
   overflow-x: hidden;
 }
+/* === Brand Modes (Context Signaling) === */
+:root{
+  --accent: #8FAF9C;         /* olive */
+  --accent2: rgba(143,175,156,0.35);
+  --veilA: rgba(143,175,156,0.18);
+  --veilB: rgba(214,219,216,0.10);
+}
+
+/* Default = Institutional */
+[data-mode="institutional"]{
+  --accent: #8FAF9C;
+  --accent2: rgba(143,175,156,0.35);
+  --veilA: rgba(143,175,156,0.18);
+  --veilB: rgba(214,219,216,0.10);
+}
+
+/* Field / Execution */
+[data-mode="field"]{
+  --accent: rgba(214,219,216,0.55);
+  --accent2: rgba(214,219,216,0.18);
+  --veilA: rgba(214,219,216,0.10);
+  --veilB: rgba(0,0,0,0.00);
+}
+
+/* Research / Lab */
+[data-mode="lab"]{
+  --accent: rgba(143,175,156,0.95);
+  --accent2: rgba(143,175,156,0.45);
+  --veilA: rgba(143,175,156,0.26);
+  --veilB: rgba(214,219,216,0.08);
+}
+
+/* Utilities based on mode */
+.text-accent{ color: var(--accent); }
+.border-accent{ border-color: var(--accent2); }
+.decoration-accent{ text-decoration-color: var(--accent2); }
 
 /* === Gumon: Silent Infrastructure UI System === */
 
@@ -65,9 +101,89 @@ body{
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(900px 460px at 22% 10%, rgba(143,175,156,0.18), rgba(0,0,0,0)),
-    radial-gradient(780px 520px at 78% 18%, rgba(214,219,216,0.10), rgba(0,0,0,0)),
+    radial-gradient(900px 460px at 22% 10%, var(--veilA), rgba(0,0,0,0)),
+    radial-gradient(780px 520px at 78% 18%, var(--veilB), rgba(0,0,0,0)),
     linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);
 }
 
+/* Logo swap (mode-aware) */
+.logo-swap{
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+}
+.logo-swap img{
+  position: absolute;
+  inset: 0;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: none;
+}
+[data-mode="institutional"] .logo-inst{ display: block; }
+[data-mode="field"] .logo-field{ display: block; }
+[data-mode="lab"] .logo-lab{ display: block; }
 
+/* Gentle mode tint for borders/links */
+a.mode-link{
+  text-decoration-color: var(--accent2);
+}
+
+/* === Motion (fast, minimal) === */
+.reveal{
+  will-change: transform, opacity;
+  transition:
+    opacity 700ms cubic-bezier(.2,.8,.2,1),
+    transform 700ms cubic-bezier(.2,.8,.2,1),
+    filter 700ms cubic-bezier(.2,.8,.2,1);
+  transition-delay: var(--revealDelay, 0ms);
+}
+.reveal-off{
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(6px);
+}
+.reveal-on{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal, .reveal-off, .reveal-on{
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Partner node map (subtle) */
+.partner-map{
+  position: relative;
+}
+.partner-map::before{
+  content:"";
+  position:absolute;
+  inset:-18px;
+  border-radius: 28px;
+  background:
+    radial-gradient(540px 220px at 14% 10%, rgba(143,175,156,0.16), rgba(0,0,0,0)),
+    radial-gradient(520px 220px at 76% 30%, rgba(214,219,216,0.10), rgba(0,0,0,0));
+  pointer-events:none;
+  opacity: .9;
+}
+.partner-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  border:1px solid rgba(214,219,216,0.14);
+  background: rgba(14,17,22,0.35);
+  padding:.55rem .85rem;
+  border-radius: 999px;
+}
+.partner-pill .dot{
+  width:8px;height:8px;border-radius:999px;background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(143,175,156,0.10);
+}

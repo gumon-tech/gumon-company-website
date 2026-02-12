@@ -23,3 +23,9 @@ npm run build
 ## Logo variants
 - `public/assets/logo/gumon-mark.png` (primary, white)
 - `public/assets/logo/gumon-slate.png`, `gumon-olive.png`, `gumon-black.png`, `gumon-rose.png`, `gumon-white.png`
+
+## Brand modes
+- Institutional (default): /, /ecosystem, /contact
+- Field / Execution: /deployments
+- Research / Lab: /research
+- Mode is applied globally via `components/ModeSync.tsx` so header/footer adopt the correct identity.

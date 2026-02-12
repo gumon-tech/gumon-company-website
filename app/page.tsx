@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import Link from "next/link";
 
 const pillars = [
@@ -24,19 +25,19 @@ export default function Page() {
     <>
       <section className="ui-section">
         <div className="ui-container">
-          <p className="ui-kicker">SOVEREIGN INFRASTRUCTURE • THAILAND → GLOBAL</p>
-          <h1 className="ui-h1">
+          <Reveal><p className="ui-kicker">SOVEREIGN INFRASTRUCTURE • THAILAND → GLOBAL</p></Reveal>
+          <Reveal delay={70}><h1 className="ui-h1">
             Engineering secure digital infrastructure
             <br className="hidden md:block" />
             for institutions that cannot fail.
-          </h1>
-          <p className="mt-6 max-w-2xl ui-p">
+          </h1></Reveal>
+          <Reveal delay={140}><p className="mt-6 max-w-2xl ui-p">
             Gumon Technology designs and controls secure event-driven microservices systems
             for healthcare, government, and enterprise environments—operating through a
             partner-led ecosystem while governing core IP.
-          </p>
+          </p></Reveal>
 
-          <div className="mt-10 flex flex-col sm:flex-row gap-3">
+          <Reveal delay={210}><div className="mt-10 flex flex-col sm:flex-row gap-3">
             <Link
               href="/deployments"
               className="glass rounded-xl2 px-5 py-3 shadow-glow hover:shadow-none transition"
@@ -49,12 +50,12 @@ export default function Page() {
             >
               View Ecosystem Model
             </Link>
-          </div>
+          </div></Reveal>
 
           <div className="mt-14 grid md:grid-cols-2 gap-5">
             {pillars.map((p) => (
               <div key={p.title} className="glass rounded-xl2 p-6 shadow-glow">
-                <div className="text-[11px] tracking-[0.28em] uppercase text-olive">
+                <div className="text-[11px] tracking-[0.28em] uppercase text-accent">
                   Pillar
                 </div>
                 <div className="mt-3 text-lg font-semibold">{p.title}</div>
@@ -81,7 +82,7 @@ export default function Page() {
                 </p>
                 <Link
                   href="/deployments"
-                  className="mt-6 inline-block text-sm text-ink underline underline-offset-4 decoration-olive/50 hover:decoration-olive transition"
+                  className="mt-6 inline-block text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-accent transition"
                 >
                   See deployments →
                 </Link>
@@ -105,7 +106,7 @@ export default function Page() {
                 </p>
                 <Link
                   href="/research"
-                  className="mt-6 inline-block text-sm text-ink underline underline-offset-4 decoration-olive/50 hover:decoration-olive transition"
+                  className="mt-6 inline-block text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-accent transition"
                 >
                   Explore research →
                 </Link>

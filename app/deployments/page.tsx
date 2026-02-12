@@ -40,7 +40,7 @@ export default function Page() {
         <div className="mt-14 space-y-14">
           {groups.map((g) => (
             <div key={g.label}>
-              <div className="text-[11px] tracking-[0.28em] uppercase text-olive">{g.label}</div>
+              <div className="text-[11px] tracking-[0.28em] uppercase text-accent">{g.label}</div>
               <div className="mt-5 grid md:grid-cols-3 gap-5">
                 {g.items.map((it) => (
                   <div key={it.title} className="glass rounded-xl2 overflow-hidden shadow-glow">

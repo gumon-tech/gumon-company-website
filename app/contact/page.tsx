@@ -11,14 +11,14 @@ export default function Page() {
 
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 glass rounded-xl2 p-7 shadow-glow">
-            <div className="text-[11px] tracking-[0.28em] uppercase text-olive">Email</div>
-            <div className="mt-3 text-lg font-semibold">contact@web.gumon.dev</div>
+            <div className="text-[11px] tracking-[0.28em] uppercase text-accent">Email</div>
+            <div className="mt-3 text-lg font-semibold"><a className="mode-link underline underline-offset-4 hover:text-ink transition" href="mailto:contact@gumon.io">contact@gumon.io</a></div>
             <p className="mt-2 text-sm text-mist leading-relaxed">
-              Replace this with your real inbox. Keep the tone quiet and institutional.
+              Primary channel for institutional inquiries. We respond with an engineering-first approach.
             </p>
 
             <div className="mt-8 border-t border-line pt-6">
-              <div className="text-[11px] tracking-[0.28em] uppercase text-olive">What to include</div>
+              <div className="text-[11px] tracking-[0.28em] uppercase text-accent">What to include</div>
               <ul className="mt-3 text-sm text-mist list-disc pl-5 space-y-2">
                 <li>Environment type (healthcare / government / enterprise)</li>
                 <li>Offline constraints, network reliability, and uptime expectations</li>
@@ -26,6 +26,15 @@ export default function Page() {
                 <li>Deployment scale and timeline</li>
               </ul>
             </div>
+          <div className="mt-8 border-t border-line pt-6">
+  <div className="text-[11px] tracking-[0.28em] uppercase text-accent">Social</div>
+  <div className="mt-3 space-y-2 text-sm text-mist">
+    <a className="mode-link underline underline-offset-4 hover:text-ink transition" href="https://www.facebook.com/gumon.tech/" target="_blank" rel="noreferrer">Facebook</a><br/>
+    <a className="mode-link underline underline-offset-4 hover:text-ink transition" href="https://www.linkedin.com/company/gumon" target="_blank" rel="noreferrer">LinkedIn</a><br/>
+    <a className="mode-link underline underline-offset-4 hover:text-ink transition" href="https://lin.ee/lPdJOxv" target="_blank" rel="noreferrer">LINE OA</a>
+  </div>
+</div>
+
           </div>
 
           <div className="lg:col-span-5 glass rounded-xl2 overflow-hidden shadow-glow">

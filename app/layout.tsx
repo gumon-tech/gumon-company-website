@@ -1,6 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
+import ModeSync from "@/components/ModeSync";
+import ModeBadge from "@/components/ModeBadge";
+import NavLink from "@/components/NavLink";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://web.gumon.dev"),
@@ -24,6 +27,8 @@ const nav = [
   { href: "/deployments", label: "Deployments" },
   { href: "/ecosystem", label: "Ecosystem" },
   { href: "/research", label: "Research" },
+  { href: "/partners", label: "Partners" },
+  { href: "/brand", label: "Brand" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -34,18 +39,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body data-mode="institutional">
+        <ModeSync />
         <div className="bg-veil" />
         <div className="grid-overlay" />
 
         <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-bg0/55 border-b border-line">
           <div className="ui-container h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              <img
-                src="/assets/logo/gumon-mark.png"
-                alt="Gumon"
-                className="h-9 w-9"
-              />
+              <span className="logo-swap" aria-label="Gumon mark">
+  <img src="/assets/logo/gumon-white.png" alt="Gumon" className="logo-inst" />
+  <img src="/assets/logo/gumon-slate.png" alt="Gumon" className="logo-field" />
+  <img src="/assets/logo/gumon-olive.png" alt="Gumon" className="logo-lab" />
+</span>
               <div className="leading-tight">
                 <div className="text-sm font-semibold">Gumon Technology</div>
                 <div className="text-[11px] tracking-[0.22em] uppercase text-mist">
@@ -55,14 +61,9 @@ export default function RootLayout({
             </Link>
 
             <nav className="hidden md:flex items-center gap-6 text-sm text-mist">
+              <ModeBadge />
               {nav.map((n) => (
-                <Link
-                  key={n.href}
-                  href={n.href}
-                  className="hover:text-ink transition-colors"
-                >
-                  {n.label}
-                </Link>
+                <NavLink key={n.href} href={n.href} label={n.label} />
               ))}
             </nav>
 
@@ -81,7 +82,11 @@ export default function RootLayout({
           <div className="ui-container py-10 text-sm text-mist flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
             <div>© {new Date().getFullYear()} Gumon Technology.</div>
             <div className="flex items-center gap-3">
-  <img src="/assets/logo/gumon-mark.png" alt="Gumon mark" className="h-6 w-6 opacity-80" />
+  <span className="relative h-6 w-6">
+  <img src="/assets/logo/gumon-white.png" alt="Gumon" className="logo-inst h-6 w-6" />
+  <img src="/assets/logo/gumon-slate.png" alt="Gumon" className="logo-field h-6 w-6" />
+  <img src="/assets/logo/gumon-olive.png" alt="Gumon" className="logo-lab h-6 w-6" />
+</span>
   <div className="text-[11px] tracking-[0.22em] uppercase">
     Research → Prove → Deploy → Share
   </div>
