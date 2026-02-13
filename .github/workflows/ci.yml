@@ -27,5 +27,5 @@ jobs:
 
       - name: Release Checks
         env:
-          NEXT_PUBLIC_SITE_URL: https://web.gumon.dev
+          NEXT_PUBLIC_SITE_URL: https://gumon.io
         run: npm run check:release

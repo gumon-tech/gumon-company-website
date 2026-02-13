@@ -32,7 +32,7 @@ jobs:
 
       - name: Release Checks (includes build)
         env:
-          NEXT_PUBLIC_SITE_URL: https://web.gumon.dev
+          NEXT_PUBLIC_SITE_URL: https://gumon.io
         run: npm run check:release
 
       - name: Upload artifact

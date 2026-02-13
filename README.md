@@ -2,7 +2,7 @@
 
 - Next.js (App Router) + Static Export (`output: "export"`)
 - GitHub Pages deployment via Actions
-- Custom domain: `web.gumon.dev`
+- Custom domain: `gumon.io`
 
 ## Local dev
 ```bash
