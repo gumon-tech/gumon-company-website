@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import TrackedLink from "@/components/TrackedLink";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -62,8 +63,8 @@ export default function Page() {
               หากเป็นคำถามเชิงเทคนิค แนะนำให้ตรวจเอกสารหลักก่อนเพื่อย่นเวลาการสื่อสารและช่วยให้ทีมตอบได้ตรงประเด็นมากขึ้น.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <a href="https://docs.gumon.io/" target="_blank" rel="noreferrer" className="btn-primary">Developer Documentation</a>
-              <a href="https://wiki.gumon.io/" target="_blank" rel="noreferrer" className="btn-secondary">Knowledge Base</a>
+              <TrackedLink href="https://docs.gumon.io/" eventName="contact_docs_click" category="docs" label="contact-docs" location="contact.knowledge" target="_blank" rel="noreferrer" className="btn-primary">Developer Documentation</TrackedLink>
+              <TrackedLink href="https://wiki.gumon.io/" eventName="contact_docs_click" category="docs" label="contact-knowledge-base" location="contact.knowledge" target="_blank" rel="noreferrer" className="btn-secondary">Knowledge Base</TrackedLink>
             </div>
           </div>
 
@@ -71,18 +72,18 @@ export default function Page() {
             <p className="ui-kicker">Direct Contact</p>
             <h2 className="mt-3 ui-h3">ช่องทางติดต่อหลัก</h2>
             <div className="mt-4 grid gap-3 text-sm">
-              <a href="mailto:contact@gumon.io" className="card p-4 hover:border-ink/30 transition">
+              <TrackedLink href="mailto:contact@gumon.io" eventName="contact_channel_click" category="contact" label="contact-email" location="contact.channels" className="card p-4 hover:border-ink/30 transition">
                 <div className="text-[11px] tracking-[0.16em] uppercase text-mist">Email</div>
                 <div className="mt-1 text-ink">contact@gumon.io</div>
-              </a>
-              <a href="https://lin.ee/BLe8er3" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
+              </TrackedLink>
+              <TrackedLink href="https://lin.ee/BLe8er3" eventName="contact_channel_click" category="contact" label="contact-line-official" location="contact.channels" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
                 <div className="text-[11px] tracking-[0.16em] uppercase text-mist">LINE Official</div>
                 <div className="mt-1 text-ink">lin.ee/BLe8er3</div>
-              </a>
-              <a href="https://www.linkedin.com/company/gumon" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
+              </TrackedLink>
+              <TrackedLink href="https://www.linkedin.com/company/gumon" eventName="contact_channel_click" category="contact" label="contact-linkedin" location="contact.channels" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
                 <div className="text-[11px] tracking-[0.16em] uppercase text-mist">LinkedIn</div>
                 <div className="mt-1 text-ink">linkedin.com/company/gumon</div>
-              </a>
+              </TrackedLink>
             </div>
           </div>
         </div>

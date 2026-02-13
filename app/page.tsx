@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import TrackedLink from "@/components/TrackedLink";
 import Image from "next/image";
-import Link from "next/link";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -64,17 +64,17 @@ export default function Page() {
       <div className="ui-container">
         <Reveal>
           <p className="ui-kicker">Open Platform for Real-World Delivery</p>
-          <h1 className="ui-h1">โครงสร้างเว็บไซต์ใหม่ของ Gumon เริ่มจากผู้ใช้และผลลัพธ์ที่ต้องการ</h1>
+          <h1 className="ui-h1">Open Platform ที่ช่วยองค์กรส่งมอบงานเทคโนโลยีได้เร็วขึ้นและขยายได้อย่างมั่นคง</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            เราปรับเว็บไซต์ให้สื่อสารชัดขึ้นใน 3 มิติ: Solution ที่ Gumon พัฒนา,
-            Audience ที่ต้องการข้อมูลเฉพาะบทบาท, และ Company ที่ใช้สร้างความน่าเชื่อถือร่วมกัน.
+            Gumon ผสาน Platform Foundation, Partner Delivery Model และระบบ Learning
+            เพื่อให้ทีมเทคนิคและทีมธุรกิจทำงานบนมาตรฐานเดียวกันตั้งแต่เริ่มโครงการจนถึงการขยายระบบ.
           </p>
         </Reveal>
 
         <Reveal delay={90}>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <Link href="/platform" className="btn-primary">เริ่มจากภาพรวมแพลตฟอร์ม</Link>
-            <Link href="/contact" className="btn-secondary">คุยกับทีมงาน</Link>
+            <TrackedLink href="/platform" eventName="home_primary_cta_click" category="cta" label="home-hero-platform" location="home.hero" className="btn-primary">เริ่มจากภาพรวมแพลตฟอร์ม</TrackedLink>
+            <TrackedLink href="/contact" eventName="home_secondary_cta_click" category="contact" label="home-hero-contact" location="home.hero" className="btn-secondary">คุยกับทีมงาน</TrackedLink>
           </div>
         </Reveal>
 
@@ -105,10 +105,10 @@ export default function Page() {
               <p className="ui-kicker">เริ่มจากเส้นทางที่ใช่</p>
               <h2 className="mt-3 ui-h3">เลือกตามบทบาทของคุณ</h2>
               <div className="mt-4 grid gap-2 text-sm">
-                <Link href="/developers" className="text-mist hover:text-ink transition">Developers →</Link>
-                <Link href="/partners" className="text-mist hover:text-ink transition">Partners →</Link>
-                <Link href="/investors" className="text-mist hover:text-ink transition">Investors →</Link>
-                <Link href="/resources" className="text-mist hover:text-ink transition">Resources →</Link>
+                <TrackedLink href="/developers" eventName="home_role_nav_click" category="navigation" label="role-developers" location="home.role-panel" className="text-mist hover:text-ink transition">Developers →</TrackedLink>
+                <TrackedLink href="/partners" eventName="home_role_nav_click" category="navigation" label="role-partners" location="home.role-panel" className="text-mist hover:text-ink transition">Partners →</TrackedLink>
+                <TrackedLink href="/investors" eventName="home_role_nav_click" category="navigation" label="role-investors" location="home.role-panel" className="text-mist hover:text-ink transition">Investors →</TrackedLink>
+                <TrackedLink href="/resources" eventName="home_role_nav_click" category="navigation" label="role-resources" location="home.role-panel" className="text-mist hover:text-ink transition">Resources →</TrackedLink>
               </div>
             </div>
           </Reveal>
@@ -125,12 +125,16 @@ export default function Page() {
                 <div className="route-card h-full">
                   <h3 className="ui-h3">{path.title}</h3>
                   <p className="mt-3 text-sm text-mist leading-relaxed">{path.body}</p>
-                  <Link
+                  <TrackedLink
                     href={path.href}
+                    eventName="home_audience_path_click"
+                    category="cta"
+                    label={`audience-${path.title.toLowerCase()}`}
+                    location="home.audience-paths"
                     className="mt-5 inline-block text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink"
                   >
                     {path.cta}
-                  </Link>
+                  </TrackedLink>
                 </div>
               </Reveal>
             ))}
@@ -145,10 +149,17 @@ export default function Page() {
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {solutionPillars.map((pillar, index) => (
               <Reveal key={pillar.title} delay={index * 80}>
-                <Link href={pillar.href} className="route-card block h-full">
+                <TrackedLink
+                  href={pillar.href}
+                  eventName="home_solution_card_click"
+                  category="navigation"
+                  label={`solution-${pillar.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  location="home.solution-cards"
+                  className="route-card block h-full"
+                >
                   <h3 className="ui-h3">{pillar.title}</h3>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{pillar.body}</p>
-                </Link>
+                </TrackedLink>
               </Reveal>
             ))}
           </div>
@@ -160,7 +171,7 @@ export default function Page() {
               <p className="ui-kicker">Trusted Network</p>
               <h2 className="mt-2 ui-h2">เครือข่ายพาร์ตเนอร์ที่ร่วมส่งมอบกับ Gumon</h2>
             </div>
-            <Link href="/partners" className="btn-secondary w-fit">ดูรายละเอียดพาร์ตเนอร์</Link>
+            <TrackedLink href="/partners" eventName="home_partner_section_click" category="navigation" label="partner-section-detail" location="home.partner-section" className="btn-secondary w-fit">ดูรายละเอียดพาร์ตเนอร์</TrackedLink>
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -180,14 +191,18 @@ export default function Page() {
                   )}
                 </div>
                 <div>
-                  <a
+                  <TrackedLink
                     href={partner.website}
+                    eventName="home_partner_outbound_click"
+                    category="cta"
+                    label={`partner-${partner.name.toLowerCase().replace(/\s+/g, "-")}`}
+                    location="home.partner-list"
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-medium leading-snug underline underline-offset-4 decoration-accent hover:decoration-ink transition"
                   >
                     {partner.name}
-                  </a>
+                  </TrackedLink>
                   <div className="text-xs text-mist mt-0.5">{partner.country}</div>
                 </div>
               </div>
@@ -204,9 +219,9 @@ export default function Page() {
               เราช่วยจัดเส้นทางเริ่มต้นตามบริบทองค์กรให้ได้.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Link href="/contact" className="btn-primary">คุยกับทีม Gumon</Link>
-              <Link href="/resources" className="btn-secondary">ดูทรัพยากรทั้งหมด</Link>
-              <Link href="/faq" className="btn-secondary">ดูคำถามที่พบบ่อย</Link>
+              <TrackedLink href="/contact" eventName="home_nextstep_click" category="contact" label="nextstep-contact" location="home.next-step" className="btn-primary">คุยกับทีม Gumon</TrackedLink>
+              <TrackedLink href="/resources" eventName="home_nextstep_click" category="navigation" label="nextstep-resources" location="home.next-step" className="btn-secondary">ดูทรัพยากรทั้งหมด</TrackedLink>
+              <TrackedLink href="/faq" eventName="home_nextstep_click" category="navigation" label="nextstep-faq" location="home.next-step" className="btn-secondary">ดูคำถามที่พบบ่อย</TrackedLink>
             </div>
           </div>
         </Reveal>

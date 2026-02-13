@@ -16,6 +16,10 @@ npm run build
 # output: /out
 ```
 
+## Content + KPI planning docs
+- `docs/content-matrix.md`: audience/goal/message/CTA structure per page
+- `docs/kpi-tracking-plan.md`: event taxonomy and KPI formulas
+
 ## GitHub Pages
 1) Repo Settings → Pages → Source: GitHub Actions
 2) Ensure CNAME is set (file `public/CNAME` already)

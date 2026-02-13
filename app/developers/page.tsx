@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import TrackedLink from "@/components/TrackedLink";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -43,9 +43,10 @@ export default function Page() {
       <div className="ui-container">
         <Reveal>
           <p className="ui-kicker">Audience / Developers</p>
-          <h1 className="ui-h1">เริ่มพัฒนาเร็วขึ้น โดยไม่เสียมาตรฐานระยะยาว</h1>
+          <h1 className="ui-h1">สำหรับทีมพัฒนา: ลดเวลาตั้งต้นและเร่งการส่งมอบโดยไม่เสียคุณภาพโครงสร้าง</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            หน้านี้จัดสำหรับทีมพัฒนาที่ต้องการเริ่มระบบใหม่หรือขยายบริการเดิมให้เป็นโครงสร้างที่ดูแลง่ายและปล่อยงานได้ต่อเนื่อง.
+            เส้นทางนี้ออกแบบสำหรับทีมที่ต้องการเริ่มโปรเจกต์ใหม่หรือขยายระบบเดิมให้รองรับหลายบริการ
+            โดยยังรักษา convention ร่วม การ review ที่สอดคล้อง และ release cadence ที่คาดการณ์ได้.
           </p>
         </Reveal>
 
@@ -70,9 +71,9 @@ export default function Page() {
               <li>- วางแผนขยายบริการได้โดยไม่เพิ่ม technical debt เร็วเกินไป</li>
             </ul>
             <div className="mt-6">
-              <Link href="/platform" className="text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink">
+              <TrackedLink href="/platform" eventName="developers_platform_reference_click" category="navigation" label="developers-platform-architecture" location="developers.value-card" className="text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink">
                 ดูภาพรวม Platform Architecture →
-              </Link>
+              </TrackedLink>
             </div>
           </div>
         </div>
@@ -81,15 +82,31 @@ export default function Page() {
           {supports.map((item, index) => (
             <Reveal key={item.title} delay={index * 70}>
               {item.href.startsWith("http") ? (
-                <a href={item.href} target="_blank" rel="noreferrer" className="route-card block h-full">
+                <TrackedLink
+                  href={item.href}
+                  eventName="developers_resource_click"
+                  category={item.title === "Learning Path" ? "navigation" : "docs"}
+                  label={`developers-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  location="developers.resources"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="route-card block h-full"
+                >
                   <h3 className="ui-h3">{item.title}</h3>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
-                </a>
+                </TrackedLink>
               ) : (
-                <Link href={item.href} className="route-card block h-full">
+                <TrackedLink
+                  href={item.href}
+                  eventName="developers_resource_click"
+                  category="navigation"
+                  label={`developers-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  location="developers.resources"
+                  className="route-card block h-full"
+                >
                   <h3 className="ui-h3">{item.title}</h3>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
-                </Link>
+                </TrackedLink>
               )}
             </Reveal>
           ))}

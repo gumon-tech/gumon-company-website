@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import TrackedLink from "@/components/TrackedLink";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -39,9 +39,10 @@ export default function Page() {
       <div className="ui-container">
         <Reveal>
           <p className="ui-kicker">Audience / Partners</p>
-          <h1 className="ui-h1">ขยายงานเชิงพาณิชย์บนระบบที่มีขอบเขตบทบาทชัดเจน</h1>
+          <h1 className="ui-h1">สำหรับพาร์ตเนอร์: เร่งการส่งมอบเชิงพาณิชย์บนมาตรฐานเดียวกันทั้งเครือข่าย</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            Gumon ยึดหลัก Partner-only ในงานส่งมอบปลายทาง เพื่อให้พาร์ตเนอร์เติบโตได้อย่างมั่นใจบนแพลตฟอร์มและมาตรฐานเดียวกัน.
+            โมเดล Partner-only ของ Gumon ช่วยให้ขอบเขตบทบาทไม่ทับซ้อน:
+            Gumon โฟกัสแพลตฟอร์มและมาตรฐาน ส่วนพาร์ตเนอร์โฟกัสผลลัพธ์เชิงธุรกิจของลูกค้า.
           </p>
         </Reveal>
 
@@ -78,8 +79,8 @@ export default function Page() {
               <li>- ฐานความรู้ร่วมสำหรับการแก้ปัญหาในงานจริง</li>
             </ul>
             <div className="mt-6 flex flex-col gap-3">
-              <a href="https://wiki.gumon.io/" target="_blank" rel="noreferrer" className="btn-secondary">เปิด Knowledge Base</a>
-              <Link href="/contact" className="btn-primary">คุยกับทีมพาร์ตเนอร์</Link>
+              <TrackedLink href="https://wiki.gumon.io/" eventName="partners_knowledge_base_click" category="docs" label="partners-knowledge-base" location="partners.enablement" target="_blank" rel="noreferrer" className="btn-secondary">เปิด Knowledge Base</TrackedLink>
+              <TrackedLink href="/contact" eventName="partners_contact_click" category="contact" label="partners-contact" location="partners.enablement" className="btn-primary">คุยกับทีมพาร์ตเนอร์</TrackedLink>
             </div>
           </div>
         </div>
