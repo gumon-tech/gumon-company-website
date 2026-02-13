@@ -1,143 +1,106 @@
-# Gumon Web Redesign: Structure + Theme
+# Gumon Web Redesign: New Structure + Dark Theme
 
-## 1) Redesign Goal
-- Make decision paths clearer for 3 core audiences: `Developers`, `Partners`, `Investors`.
-- Reduce mixed intent on each page by assigning one primary objective per page.
-- Shift visual tone from "dark-tech" to "trusted platform company" for enterprise/public-sector credibility.
+## 1) Direction
+- Rebuild website from zero with one clear identity: `Open Source Platform for real-world system delivery`
+- Remove mixed intent pages and keep only pages that support decision and action
+- Use dark visual language for technical credibility and strong brand distinction
 
 ## 2) New Information Architecture
 
-### Primary Navigation (Top)
+### Primary Navigation
 - `Platform`
-- `Solutions`
-- `Audience`
-- `Company`
+- `Developers`
+- `Partners`
 - `Resources`
-- `Contact` (highlighted CTA)
+- `Company`
+- `Contact` (primary CTA)
 
-### Secondary Navigation (inside sections)
-- Platform: `Architecture`, `Core Services`, `Delivery Model`, `Security & Governance`
-- Solutions: `Government`, `Healthcare`, `Education`, `Enterprise Modernization`
-- Audience: `Developers`, `Partners`, `Investors`
-- Company: `About`, `Team`, `Partner Network`, `FAQ`
-
-### Sitemap (recommended)
+### Live Sitemap
 - `/` Home
 - `/platform`
-- `/platform/architecture`
-- `/platform/core-services`
-- `/platform/delivery-model`
-- `/solutions`
-- `/solutions/government`
-- `/solutions/healthcare`
-- `/solutions/education`
-- `/solutions/enterprise`
 - `/developers`
 - `/partners`
-- `/investors`
-- `/company`
-- `/team`
 - `/resources`
+- `/company`
 - `/contact`
 - `/faq`
 - `/privacy`
 - `/terms`
 - `/cookies`
 
-## 3) Page Structure Blueprint
+### Removed from New Structure
+- `/ecosystem`
+- `/learning`
+- `/investors`
+- `/solutions`
+- `/team`
+- all `/solutions/*`
+
+## 3) Page Blueprint
 
 ### Home (`/`)
-- Hero: value proposition + 2 CTA (`Explore Platform`, `Talk to Team`)
-- Trust strip: partner logos + key institutional references
-- 3 role entry cards: developers/partners/investors
-- Solution preview blocks (industry-based)
-- Final CTA band: contact
+- Hero: platform value + 2 CTA (`Platform`, `Developers`)
+- Signal strip: Open Source, 3-layer architecture, CLI/Docs, partner-enabled delivery
+- Architecture block: 3 layers
+- Role paths: Developers / Partners / Executives
+- Partner proof block
+- Final CTA: Contact
 
 ### Platform (`/platform`)
-- Platform overview narrative
-- Architecture snapshot (3-layer)
-- Core services and integration model
-- Delivery lifecycle (build -> operate -> improve)
-- CTA: `Go to Developers`
+- Architecture explanation (Application / API Service / Data Stream)
+- Core services summary
+- Platform principles
+- CTA to Developers + Contact
 
-### Solutions (`/solutions`)
-- Industry cards with business outcomes
-- Each industry page includes:
-  - context/problem
-  - implementation model
-  - measurable outcomes
-  - reference visuals
-  - CTA to contact
+### Developers (`/developers`)
+- Build phases: Bootstrap / Integrate / Operate
+- Engineering outcomes checklist
+- Docs + Knowledge Base
+- CTA to technical consultation
 
-### Audience Pages
-- `Developers`: quick-start path, docs, standards, tooling
-- `Partners`: model, readiness, enablement, engagement process
-- `Investors`: growth framework, governance, request brief
+### Partners (`/partners`)
+- Collaboration model and role boundary
+- Readiness checklist
+- Partner resources
+- CTA to partnership contact
+
+### Resources (`/resources`)
+- Grouped hub: Developer / Business / Action resources
+- Direct links to docs/wiki and core internal pages
 
 ### Company (`/company`)
-- Positioning + principles
-- Operating model (platform company + partner network)
-- Team preview
-- Governance and trust points
+- Company principles
+- Operating model
+- CTA to Platform + Contact
 
-## 4) Content Rules (to keep consistency)
-- One page = one primary CTA.
-- Hero must include: `who this page is for` + `business/technical outcome`.
-- Use proof on every page: partner, process, metric, or field reference.
-- Keep Thai as primary language, English only for domain terms.
+### Contact (`/contact`)
+- Routing cards by intent
+- Knowledge channels
+- Direct contact channels
 
-## 5) Recommended Theme
+## 4) Content Rules
+- One page = one core intent
+- Every hero must state audience + outcome
+- Thai-first copy with selective English domain terms
+- No copy that implies Gumon is direct end-client delivery contractor
+
+## 5) Theme System (Dark)
 
 ### Theme Name
-`Institutional Horizon`
+`Midnight Foundry`
 
-### Why this fits Gumon
-- Supports enterprise/public-sector trust better than a full dark UI.
-- Keeps technical identity via slate + olive accents (compatible with current logo system).
-- Improves readability for long-form Thai content.
+### Visual Language
+- Background: deep navy-black
+- Accent 1: electric cyan
+- Accent 2: signal amber
+- Style: high-contrast, technical, structured
 
-### Visual Direction
-- Base: light neutral canvas
-- Accent: olive/teal for product confidence
-- Support accent: warm amber for highlights and CTA emphasis
-- Feel: clean, structured, evidence-driven (not startup flashy)
-
-### Theme Tokens (proposed)
-- `--bg0: 246 248 246` (page background)
-- `--bg1: 255 255 253` (surface)
-- `--surf: 239 243 241` (sub-surface)
-- `--ink: 22 33 33` (text)
-- `--mist: 88 106 105` (secondary text)
-- `--line: 193 206 204` (borders)
-- `--accent: 88 140 124` (primary accent)
-- `--accent2: 204 145 77` (secondary accent)
-
-### Typography
-- Heading: `Space Grotesk` (already used)
-- Body Thai/EN: `Sarabun` (already used)
-- Scale:
-  - H1: 44-60
-  - H2: 30-40
-  - H3: 20-24
-  - Body: 16-18
-
-### Motion
-- Keep reveal animation but reduce blur and distance.
-- Prefer sectional transitions over decorative motion.
-
-## 6) Component Priority for Implementation
-1. Global shell (`layout`, navbar grouping, footer quick links)
-2. Home page modules (hero, trust strip, role entry)
-3. Platform + Solutions templates
-4. Audience pages with unified section order
-5. Resources and Contact simplification
-
-## 7) Rollout Plan
-- Phase 1: IA + navigation + homepage structure
-- Phase 2: Platform/Solutions and audience pages
-- Phase 3: content proof blocks, FAQ, legal, SEO metadata refinement
-
-## 8) Success Criteria
-- Users reach role pages faster from Home.
-- Contact intent rate increases from high-intent pages.
-- Time-to-understand (first 30-60 sec) improves by clearer section hierarchy.
+### Tokens
+- `--bg0: 8 11 18`
+- `--bg1: 12 17 28`
+- `--surf: 19 28 42`
+- `--ink: 225 236 248`
+- `--mist: 133 155 183`
+- `--line: 58 78 107`
+- `--accent: 60 225 214`
+- `--accent2: 255 174 64`

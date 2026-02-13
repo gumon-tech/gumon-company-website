@@ -1,31 +1,27 @@
-# Gumon Website Content Matrix
+# Gumon Website Content Matrix (New)
 
 ## Objective
-Align page content with role-based user journeys so each page answers:
+Each page must answer:
 1. Who is this for?
-2. What value does Gumon provide?
-3. What should users do next?
+2. What problem does this page solve?
+3. What action should user take next?
 
 ## Core Pages
 
-| Page | Primary Audience | User Intent | Core Message | Primary CTA | Proof/Trust Block |
+| Page | Primary Audience | User Intent | Core Message | Primary CTA | Trust/Proof |
 |---|---|---|---|---|---|
-| `/` Home | All roles | Understand Gumon quickly | Open Platform for real-world delivery | View Platform / Contact Team | Partner logos + role paths |
-| `/platform` | CTO, Architect, Tech Lead | Assess technical foundation | 3-layer architecture + reusable core | Go to Developers | Reference architecture image |
-| `/ecosystem` | Partner leads, ecosystem stakeholders | Understand collaboration model | Shared standards + role clarity | View Partners / Contact | Field impact gallery |
-| `/learning` | Delivery leaders, L&D, Dev leads | Upskill teams | Structured tracks for operational readiness | Visit DKS Center | Outcome list |
-| `/developers` | Developers, engineering managers | Start implementation | Faster setup, stable conventions, safer scaling | Docs / Knowledge Base | Workflow checklist |
-| `/partners` | SI, consulting, delivery partners | Join/expand commercial delivery | Partner-only commercial model with enablement support | Contact partner team | Readiness checklist |
-| `/investors` | Investor, strategy stakeholders | Evaluate growth thesis | Readiness-driven scale and governance | Request Investor Brief | 3-phase roadmap |
-| `/resources` | All roles | Find materials quickly | Curated role-based knowledge hub | Navigate by role | Resource grouping |
-| `/company` | Executive, press, potential partners | Understand organization | Open-first, Partner-only, Platform-first | Team / Contact | Selected highlights |
-| `/team` | Partner, customer, talent | Build trust in capability | Cross-functional execution team | N/A | Team profile grid |
-| `/contact` | All roles | Reach right team quickly | Route request by context for faster response | Contact channels | Role-based routing cards |
-| `/faq` | All roles | Resolve common questions quickly | Answers by Developers/Partners/Investors | Contact page | Updated FAQ groups |
+| `/` Home | All roles | Understand Gumon in < 1 minute | Open source platform for scalable system delivery | Explore Platform | Partner proof + architecture model |
+| `/platform` | CTO, Architect, Tech Lead | Assess architecture | 3-layer platform + reusable services + standards | Go to Developers | Architecture reference |
+| `/developers` | Developers, Engineering leads | Start building | Standardized path to build and ship faster | Open Docs / Contact team | Technical checklist |
+| `/partners` | SI, solution partners | Evaluate collaboration model | Clear partner model and delivery boundary | Contact partner team | Readiness checklist |
+| `/resources` | All roles | Find materials quickly | Curated links for technical and business use | Navigate to needed resource | Grouped resource hub |
+| `/company` | Executives, ecosystem stakeholders | Understand organization | Principles and operating model | View Platform / Contact | Company principles |
+| `/contact` | All roles | Reach the right channel | Route inquiry by intent for fast response | Contact channels | Routing cards |
+| `/faq` | All roles | Resolve common questions | Practical answers and next steps | Contact page | Updated FAQ list |
 
 ## Content Rules
-- Hero copy must state: audience + business/technical outcome.
-- Section titles must be action/outcome-focused, not generic marketing labels.
-- One page = one primary CTA, with up to two secondary CTAs.
-- Each page should include at least one trust element (proof, process, partner, or governance).
-- Keep Thai as primary copy with selective English terms only where domain-specific.
+- One page = one primary user decision
+- Headline must include concrete outcome
+- Use evidence blocks (architecture, checklist, partner proof)
+- Avoid abstract marketing copy
+- Keep Thai-first language

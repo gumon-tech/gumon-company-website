@@ -12,12 +12,11 @@ Owner: `Name / Team`
 ## 2) KPI Snapshot
 | KPI | Current Month | Previous Month | Delta | Target | Status |
 |---|---:|---:|---:|---:|---|
-| Role-path CTR (Home -> Audience) |  |  |  |  |  |
+| Home Role-path CTR |  |  |  |  |  |
+| Platform Entry Rate |  |  |  |  |  |
 | Docs Entry Rate |  |  |  |  |  |
 | Contact Intent Rate |  |  |  |  |  |
-| Solutions Detail Entry Rate |  |  |  |  |  |
-| Solutions Contact Intent Rate |  |  |  |  |  |
-| Cross-Solution Exploration Rate |  |  |  |  |  |
+| Partner Lead Intent Rate |  |  |  |  |  |
 
 ## 3) Funnel Performance
 
@@ -27,17 +26,24 @@ Owner: `Name / Team`
 - `footer_link_click`:
 - Insight:
 
-### 3.2 Solutions Funnel
-- `solutions_card_click`:
-- `solutions_related_click`:
-- `solutions_detail_cta_click`:
-- `solutions_cta_click`:
+### 3.2 Home Conversion Funnel
+- `home_primary_cta_click`:
+- `home_secondary_cta_click`:
+- `home_audience_path_click`:
+- `home_nextstep_click`:
 - Insight:
 
 ### 3.3 Enablement Funnel (Docs)
 - `developers_resource_click`:
-- `partners_knowledge_base_click`:
 - `header_quicklink_click`:
+- `contact_docs_click`:
+- Insight:
+
+### 3.4 Contact Funnel
+- `contact_route_click`:
+- `contact_channel_click`:
+- `partners_contact_click`:
+- `developers_contact_click`:
 - Insight:
 
 ## 4) Top Performing Paths
@@ -54,14 +60,13 @@ Owner: `Name / Team`
 |---|---|---|---:|---:|---|
 |  |  |  |  |  |  |
 |  |  |  |  |  |  |
-|  |  |  |  |  |  |
 
 ## 6) Audience Breakdown
 | Audience | Key Entry Path | Top Event | Risk / Gap | Next Action |
 |---|---|---|---|---|
 | Developers |  |  |  |  |
 | Partners |  |  |  |  |
-| Investors |  |  |  |  |
+| Executives |  |  |  |  |
 
 ## 7) Experiment Log
 | Experiment | Hypothesis | Variant(s) | Result | Decision |
