@@ -7,22 +7,22 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Partners",
   description:
-    "แนวทางสำหรับพาร์ตเนอร์ที่ต้องการส่งมอบโครงการบนมาตรฐานเดียวกับ Gumon และขยายงานเชิงพาณิชย์ได้ต่อเนื่อง",
+    "แนวทางสำหรับพาร์ตเนอร์ที่ต้องการส่งมอบโครงการบนมาตรฐานเดียวกับ Gumon และขยายงานเชิงพาณิชย์ได้อย่างต่อเนื่อง",
   path: "/partners",
 });
 
 const modelBlocks = [
   {
     title: "Platform Ownership",
-    body: "Gumon ดูแล core platform, standards และ tooling กลาง",
+    body: "Gumon ดูแลแกนแพลตฟอร์ม มาตรฐานกลาง และเครื่องมือหลัก",
   },
   {
     title: "Commercial Delivery",
-    body: "พาร์ตเนอร์รับผิดชอบ solution delivery และผลลัพธ์ปลายทางของลูกค้า",
+    body: "พาร์ตเนอร์รับผิดชอบการส่งมอบงานเชิงธุรกิจและผลลัพธ์ปลายทางของลูกค้า",
   },
   {
     title: "Shared Enablement",
-    body: "ทั้งสองฝ่ายยึด playbook เดียวกันเพื่อให้คุณภาพการส่งมอบสม่ำเสมอ",
+    body: "ทั้งสองฝ่ายใช้แนวทางทำงานชุดเดียวกัน เพื่อให้คุณภาพการส่งมอบสม่ำเสมอ",
   },
 ];
 
@@ -52,11 +52,11 @@ export default function PartnersPage() {
       <BreadcrumbJsonLd items={[{ name: "Partners", path: "/partners" }]} />
       <div className="ui-container">
         <Reveal>
-          <p className="ui-kicker">Partners / Delivery Path</p>
-          <h1 className="ui-h1">โมเดลความร่วมมือสำหรับพาร์ตเนอร์ที่ต้องการส่งมอบได้เร็วและรักษามาตรฐานได้จริง</h1>
+          <p className="ui-kicker">Partners / แนวทางการทำงานร่วมกัน</p>
+          <h1 className="ui-h1">โมเดลความร่วมมือที่ช่วยให้พาร์ตเนอร์ส่งมอบได้เร็วและรักษามาตรฐานได้จริง</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            เราวางขอบเขตให้ชัดเจนตั้งแต่ต้น: Gumon สร้าง platform และมาตรฐาน
-            พาร์ตเนอร์นำไปส่งมอบเชิงพาณิชย์ในตลาดปลายทาง.
+            เราแบ่งบทบาทให้ชัดตั้งแต่ต้น: Gumon พัฒนาแพลตฟอร์มและมาตรฐานกลาง
+            ส่วนพาร์ตเนอร์นำไปส่งมอบงานในตลาดจริงได้อย่างมั่นใจ.
           </p>
         </Reveal>
 
@@ -86,7 +86,7 @@ export default function PartnersPage() {
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="ui-kicker">Trust Proof</p>
-              <h2 className="mt-2 ui-h2">เครือข่ายที่ใช้งานมาตรฐานเดียวกันในงานส่งมอบจริง</h2>
+              <h2 className="mt-2 ui-h2">หลักฐานการทำงานร่วมกันในโครงการส่งมอบจริง</h2>
             </div>
             <TrackedLink href="/company" className="btn-secondary w-fit">
               ดูภาพรวมองค์กร
@@ -133,7 +133,7 @@ export default function PartnersPage() {
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 card p-7 shadow-soft">
             <p className="ui-kicker">Partner Resources</p>
-            <h2 className="mt-3 ui-h2">ช่องทาง enablement สำหรับทีมส่งมอบ</h2>
+            <h2 className="mt-3 ui-h2">ชุดความรู้และเอกสารสำหรับทีมส่งมอบ</h2>
             <div className="mt-5 grid md:grid-cols-2 gap-4">
               <TrackedLink
                 href="https://wiki.gumon.io/"
@@ -142,7 +142,7 @@ export default function PartnersPage() {
                 className="route-card block"
               >
                 <h3 className="ui-h3">Knowledge Base</h3>
-                <p className="mt-2 text-sm text-mist leading-relaxed">แนวทางส่งมอบและ operational playbooks</p>
+                <p className="mt-2 text-sm text-mist leading-relaxed">แนวทางการส่งมอบและคู่มือปฏิบัติงาน</p>
               </TrackedLink>
               <TrackedLink
                 href="https://docs.gumon.io/"
@@ -151,21 +151,21 @@ export default function PartnersPage() {
                 className="route-card block"
               >
                 <h3 className="ui-h3">Technical Docs</h3>
-                <p className="mt-2 text-sm text-mist leading-relaxed">reference สำหรับทีมเทคนิคที่ทำงานร่วมกับแพลตฟอร์ม</p>
+                <p className="mt-2 text-sm text-mist leading-relaxed">เอกสารอ้างอิงสำหรับทีมเทคนิคที่พัฒนาร่วมกับแพลตฟอร์ม</p>
               </TrackedLink>
             </div>
           </div>
 
           <div className="lg:col-span-5 card p-7 shadow-soft">
             <p className="ui-kicker">Next Step</p>
-            <h2 className="mt-3 ui-h3">เริ่มประเมินโอกาสร่วมงานกับทีมพาร์ตเนอร์</h2>
+            <h2 className="mt-3 ui-h3">พร้อมเริ่มประเมินโอกาสร่วมงานแล้วหรือยัง</h2>
             <p className="mt-3 text-sm text-mist leading-relaxed">
               ส่งบริบทอุตสาหกรรม, โครงสร้างทีม และเป้าหมายเชิงธุรกิจของคุณมาได้
-              เพื่อเริ่มวาง collaboration path ที่เหมาะสม.
+              เพื่อให้ทีมช่วยวางแนวทางร่วมงานที่เหมาะสมได้ทันที.
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <TrackedLink href="/contact" className="btn-primary">
-                ติดต่อทีมพาร์ตเนอร์
+                ติดต่อทีมพาร์ตเนอร์ทันที
               </TrackedLink>
               <TrackedLink href="/resources" className="btn-secondary">
                 เปิด Resource Hub

@@ -7,50 +7,50 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Home",
   description:
-    "Gumon Technology คือ Open Platform สำหรับองค์กรที่ต้องการลดเวลาเริ่มต้นโครงการ คุมมาตรฐานการพัฒนา และส่งมอบระบบได้เร็วขึ้น",
+    "Gumon Technology คือแพลตฟอร์มเทคโนโลยีสำหรับองค์กรที่ต้องการเริ่มโครงการได้เร็ว คุมมาตรฐานการพัฒนา และส่งมอบระบบได้ต่อเนื่อง",
   path: "/",
 });
 
 const signalPills = [
-  { label: "OPEN SOURCE", value: "Open Core" },
-  { label: "ARCHITECTURE", value: "3-Layer Platform" },
-  { label: "TOOLING", value: "Gumon CLI + Docs" },
-  { label: "DELIVERY", value: "Partner-Enabled" },
+  { label: "รูปแบบแพลตฟอร์ม", value: "Open Core" },
+  { label: "สถาปัตยกรรม", value: "โครงสร้าง 3 ชั้น" },
+  { label: "เครื่องมือ", value: "Gumon CLI + Docs" },
+  { label: "การส่งมอบ", value: "ทำงานร่วมพาร์ตเนอร์" },
 ];
 
 const foundationBlocks = [
   {
     title: "Application Layer",
-    body: "ออกแบบ workflow ของธุรกิจให้พัฒนาและปรับปรุงได้ต่อเนื่องโดยไม่กระทบทั้งระบบ",
+    body: "ออกแบบงานธุรกิจให้ทีมพัฒนาแก้ไขและต่อยอดได้ต่อเนื่อง โดยไม่กระทบทั้งระบบ",
   },
   {
     title: "API Service Layer",
-    body: "จัดการ service contracts และการเชื่อมต่อข้ามทีมด้วยมาตรฐานเดียวกัน",
+    body: "เชื่อมต่อบริการข้ามทีมด้วยมาตรฐานเดียวกัน ลดปัญหางานชนกันและแก้ยากปลายทาง",
   },
   {
     title: "Data Stream Layer",
-    body: "รองรับ event/data pipeline สำหรับระบบที่ต้องการความเร็วและเสถียรภาพในการขยาย",
+    body: "รองรับข้อมูลที่ไหลต่อเนื่องสำหรับระบบที่ต้องโตเร็วและยังคงเสถียรภาพ",
   },
 ];
 
 const roleCards = [
   {
-    title: "Developers",
-    body: "เริ่ม project จาก baseline เดียวกัน ใช้เวลา setup น้อยลง และปล่อยงานได้สม่ำเสมอ",
+    title: "ทีมพัฒนา",
+    body: "เริ่มงานจากมาตรฐานตั้งต้นเดียวกัน ลดเวลาเตรียมระบบ และปล่อยงานได้สม่ำเสมอ",
     href: "/developers",
-    cta: "เข้าสู่ Developer Path",
+    cta: "ดูแนวทางสำหรับทีมพัฒนา",
   },
   {
-    title: "Partners",
-    body: "ต่อยอดเชิงพาณิชย์บนโครงสร้างเดียวกัน โดยมีบทบาทส่งมอบที่ชัดเจน",
+    title: "พาร์ตเนอร์",
+    body: "ต่อยอดเชิงพาณิชย์บนโครงสร้างเดียวกัน พร้อมบทบาทการส่งมอบที่ชัดเจน",
     href: "/partners",
-    cta: "เข้าสู่ Partner Path",
+    cta: "ดูแนวทางสำหรับพาร์ตเนอร์",
   },
   {
-    title: "Executives",
-    body: "ประเมินภาพรวมแพลตฟอร์ม ความพร้อมทีม และแนวทางนำไปใช้ในองค์กร",
+    title: "ผู้บริหาร",
+    body: "เห็นภาพรวมแพลตฟอร์ม ความพร้อมทีม และแนวทางใช้งานให้เหมาะกับองค์กร",
     href: "/company",
-    cta: "ดู Company Overview",
+    cta: "ดูภาพรวมองค์กร",
   },
 ];
 
@@ -72,18 +72,18 @@ export default function Page() {
       <BreadcrumbJsonLd items={[]} />
       <div className="ui-container">
         <Reveal>
-          <p className="ui-kicker">OPEN SOURCE PLATFORM FOR MODERN SYSTEM DELIVERY</p>
-          <h1 className="ui-h1">ลดเวลาเริ่มต้นโครงการและส่งมอบได้เร็วขึ้น ด้วยแพลตฟอร์มมาตรฐานเดียวกันทั้งองค์กร</h1>
+          <p className="ui-kicker">PLATFORM สำหรับการพัฒนาระบบที่ส่งมอบได้จริง</p>
+          <h1 className="ui-h1">เริ่มโครงการได้เร็วขึ้น ลดงานซ้ำซ้อน และส่งมอบระบบได้ต่อเนื่องในมาตรฐานเดียวกัน</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            Gumon ช่วยเปลี่ยนการพัฒนาแบบต่างคนต่างทำ ให้กลายเป็นระบบที่ใช้ซ้ำได้จริง
-            ตั้งแต่ baseline โครงสร้าง, service contracts ไปจนถึงการส่งมอบที่คาดการณ์ได้.
+            Gumon ช่วยรวมวิธีทำงานของทีมให้เป็นระบบเดียว ตั้งแต่การวางโครงสร้าง การเชื่อมต่อบริการ
+            ไปจนถึงการปล่อยงานในรอบที่คาดการณ์ได้.
           </p>
         </Reveal>
 
         <Reveal delay={80}>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <TrackedLink href="/platform" className="btn-primary">ดูโครงสร้าง Platform</TrackedLink>
-            <TrackedLink href="/contact" className="btn-secondary">คุยโจทย์กับทีม Gumon</TrackedLink>
+            <TrackedLink href="/contact" className="btn-primary">ปรึกษาทีม Gumon</TrackedLink>
+            <TrackedLink href="/platform" className="btn-secondary">ดูโครงสร้างแพลตฟอร์ม</TrackedLink>
           </div>
         </Reveal>
 
@@ -101,7 +101,7 @@ export default function Page() {
         <div className="mt-14 card p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">Platform Foundation</p>
-            <h2 className="mt-3 ui-h2">สถาปัตยกรรม 3 ชั้นสำหรับทีมที่ต้องการส่งมอบอย่างมีวินัย</h2>
+            <h2 className="mt-3 ui-h2">โครงสร้าง 3 ชั้นที่ช่วยให้ทีมทำงานเร็วขึ้นโดยไม่เสียมาตรฐาน</h2>
           </Reveal>
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {foundationBlocks.map((block, index) => (
@@ -118,7 +118,7 @@ export default function Page() {
         <div className="mt-14">
           <Reveal>
             <p className="ui-kicker">Role Paths</p>
-            <h2 className="mt-3 ui-h2">เลือกเส้นทางเริ่มต้นตามบทบาท เพื่อเดินงานได้เร็วตั้งแต่สัปดาห์แรก</h2>
+            <h2 className="mt-3 ui-h2">เลือกแนวทางที่ตรงกับบทบาทของคุณ แล้วเริ่มงานได้ทันที</h2>
           </Reveal>
           <div className="mt-6 grid md:grid-cols-3 gap-5">
             {roleCards.map((card, index) => (
@@ -142,7 +142,7 @@ export default function Page() {
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="ui-kicker">Trusted Partners</p>
-              <h2 className="mt-2 ui-h2">เครือข่ายพาร์ตเนอร์ที่ส่งมอบงานจริงบนมาตรฐานเดียวกัน</h2>
+              <h2 className="mt-2 ui-h2">เครือข่ายพาร์ตเนอร์ที่ทำงานบนมาตรฐานเดียวกันและส่งมอบได้จริง</h2>
             </div>
             <TrackedLink href="/partners" className="btn-secondary w-fit">ดูแนวทางการร่วมงาน</TrackedLink>
           </div>
@@ -190,14 +190,14 @@ export default function Page() {
         <Reveal delay={120}>
           <div className="mt-14 card p-7 shadow-soft">
             <p className="ui-kicker">Next Step</p>
-            <h2 className="mt-3 ui-h2">ต้องการ roadmap ที่เริ่มได้จริงภายในรอบการทำงานถัดไป</h2>
+            <h2 className="mt-3 ui-h2">พร้อมวางแผนเริ่มต้นให้โครงการเดินได้จริงในรอบถัดไปหรือยัง</h2>
             <p className="mt-3 text-sm md:text-base text-mist leading-relaxed max-w-3xl">
-              ส่งบริบททีมและระบบปัจจุบันของคุณมาได้เลย แล้วเราจะช่วยกำหนดเส้นทางเริ่มต้นที่เหมาะสม
-              ทั้งด้านโครงสร้างเทคโนโลยีและรูปแบบการส่งมอบ.
+              ส่งข้อมูลทีมและระบบปัจจุบันของคุณมาได้เลย เราจะช่วยวางแนวทางเริ่มต้นที่เหมาะกับเป้าหมายธุรกิจ
+              และข้อจำกัดขององค์กรคุณ.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <TrackedLink href="/contact" className="btn-primary">ขอนัดคุย 30 นาที</TrackedLink>
-              <TrackedLink href="/resources" className="btn-secondary">ดูเอกสารประกอบการตัดสินใจ</TrackedLink>
+              <TrackedLink href="/contact" className="btn-primary">นัดคุยกับทีมงาน</TrackedLink>
+              <TrackedLink href="/resources" className="btn-secondary">ดูข้อมูลเพิ่มเติม</TrackedLink>
             </div>
           </div>
         </Reveal>

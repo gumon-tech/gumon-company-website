@@ -12,26 +12,31 @@ export const metadata = buildPageMetadata({
 
 const routes = [
   {
-    title: "Technical Consultation",
-    body: "ต้องการประเมินสถาปัตยกรรมหรือแนวทาง migration",
-    action: "ไปที่ Developers",
-    href: "/developers",
+    title: "ปรึกษาด้านเทคนิค",
+    body: "ต้องการประเมินสถาปัตยกรรม ระบบเดิม หรือแนวทางย้ายระบบ",
+    action: "กรอกฟอร์มปรึกษา",
+    href: "#contact-form",
   },
   {
-    title: "Partner Collaboration",
-    body: "ต้องการหารือรูปแบบความร่วมมือเชิงพาณิชย์",
-    action: "ไปที่ Partners",
-    href: "/partners",
+    title: "ความร่วมมือกับพาร์ตเนอร์",
+    body: "ต้องการหารือรูปแบบความร่วมมือทางธุรกิจและการส่งมอบ",
+    action: "ส่งข้อมูลเพื่อนัดคุย",
+    href: "#contact-form",
   },
   {
-    title: "General Inquiry",
-    body: "คำถามทั่วไปเกี่ยวกับแพลตฟอร์มและการเริ่มใช้งาน",
-    action: "ไปที่ Platform",
-    href: "/platform",
+    title: "สอบถามข้อมูลทั่วไป",
+    body: "ต้องการรู้จักบริการและแนวทางเริ่มใช้งานแพลตฟอร์ม",
+    action: "ติดต่อทีมงาน",
+    href: "#contact-form",
   },
 ];
 
 const socialChannels = [
+  {
+    name: "LINE OA",
+    href: "https://lin.ee/BLe8er3",
+    handle: "lin.ee/BLe8er3",
+  },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/company/gumon",
@@ -50,9 +55,9 @@ export default function ContactPage() {
       <BreadcrumbJsonLd items={[{ name: "Contact", path: "/contact" }]} />
       <div className="ui-container">
         <p className="ui-kicker">Contact / Start Here</p>
-        <h1 className="ui-h1">คุยกับทีม Gumon เพื่อวางเส้นทางเริ่มต้นที่เหมาะกับองค์กรของคุณ</h1>
+        <h1 className="ui-h1">คุยกับทีม Gumon เพื่อเริ่มโครงการให้เร็วและตรงเป้าหมาย</h1>
         <p className="mt-6 max-w-2xl ui-p">
-          เพื่อให้ตอบได้ตรงโจทย์และรวดเร็ว กรุณาเลือกหัวข้อที่ใกล้เคียงกับเป้าหมายของคุณก่อน.
+          ระบุโจทย์ของคุณสั้น ๆ แล้วส่งผ่านฟอร์มได้ทันที ทีมจะติดต่อกลับพร้อมแนวทางที่เหมาะกับบริบทองค์กร.
         </p>
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
@@ -68,11 +73,11 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-7 card p-7 shadow-soft">
+          <div id="contact-form" className="lg:col-span-7 card p-7 shadow-soft">
             <p className="ui-kicker">Contact Form</p>
-            <h2 className="mt-3 ui-h2">ส่งบริบทโครงการเพื่อให้ทีมตอบได้ตรงประเด็น</h2>
+            <h2 className="mt-3 ui-h2">ส่งข้อมูลโครงการเพื่อให้ทีมตอบได้ตรงประเด็น</h2>
             <p className="mt-3 text-sm text-mist leading-relaxed">
-              สำหรับคำถามเชิงเทคนิคหรือการร่วมงาน แนะนำให้ส่งข้อมูลผ่านฟอร์มนี้เพื่อให้ทีมเตรียมการตอบกลับได้เร็วขึ้น.
+              ยิ่งข้อมูลชัด ทีมยิ่งประเมินและตอบกลับได้เร็ว ทั้งด้านเทคนิค แผนส่งมอบ และการร่วมงานเชิงธุรกิจ.
             </p>
             <div className="mt-6">
               <ContactLeadForm />

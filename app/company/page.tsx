@@ -6,14 +6,14 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata = buildPageMetadata({
   title: "Company",
   description:
-    "รู้จัก Gumon Technology, หลักคิดขององค์กร และแนวทางขับเคลื่อนแพลตฟอร์ม Open Source สำหรับการส่งมอบในโลกจริง",
+    "รู้จัก Gumon Technology แนวคิดขององค์กร และวิธีขับเคลื่อนแพลตฟอร์มเทคโนโลยีสำหรับงานส่งมอบจริง",
   path: "/company",
 });
 
 const principles = [
   {
     title: "Open Source by Default",
-    body: "แกนหลักของแพลตฟอร์มต้องเปิดและตรวจสอบได้ เพื่อให้ทีมใช้งานได้อย่างมั่นใจในระยะยาว",
+    body: "แกนหลักของแพลตฟอร์มต้องเปิดและตรวจสอบได้ เพื่อให้ทีมใช้งานต่อได้อย่างมั่นใจในระยะยาว",
   },
   {
     title: "Platform over Projects",
@@ -21,11 +21,11 @@ const principles = [
   },
   {
     title: "Partner-Driven Delivery",
-    body: "การส่งมอบปลายทางขับเคลื่อนโดยเครือข่ายพาร์ตเนอร์เพื่อ scale อย่างยั่งยืน",
+    body: "การส่งมอบปลายทางขับเคลื่อนโดยเครือข่ายพาร์ตเนอร์ เพื่อขยายงานได้อย่างยั่งยืน",
   },
   {
     title: "Evidence-Led Execution",
-    body: "ทุกการปรับปรุงอ้างอิงจากข้อมูลหน้างาน, feedback และผลลัพธ์ที่วัดได้",
+    body: "ทุกการปรับปรุงอ้างอิงจากข้อมูลหน้างาน ความเห็นจากผู้ใช้งาน และผลลัพธ์ที่ตรวจสอบได้",
   },
 ];
 
@@ -42,10 +42,10 @@ export default function CompanyPage() {
       <div className="ui-container">
         <Reveal>
           <p className="ui-kicker">Company / Overview</p>
-          <h1 className="ui-h1">Gumon Technology สร้างโครงสร้างพื้นฐานซอฟต์แวร์ที่ทีมใช้งานได้จริงในโลกหน้างาน</h1>
+          <h1 className="ui-h1">Gumon Technology สร้างโครงสร้างพื้นฐานซอฟต์แวร์ที่ทีมใช้งานได้จริงในงานประจำวัน</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            เราเป็นองค์กรเทคโนโลยีที่โฟกัส platform engineering และระบบมาตรฐานสำหรับการส่งมอบ
-            เพื่อให้ทีมพัฒนาและทีมธุรกิจเดินร่วมกันได้เร็วขึ้นบนโครงเดียวกัน.
+            เราเป็นองค์กรเทคโนโลยีที่โฟกัส platform engineering และมาตรฐานการทำงานร่วมกัน
+            เพื่อให้ทีมพัฒนาและทีมธุรกิจเดินไปในทิศทางเดียวกันได้เร็วขึ้น.
           </p>
         </Reveal>
 
@@ -63,7 +63,7 @@ export default function CompanyPage() {
 
         <div className="mt-12 card p-7 shadow-soft">
           <p className="ui-kicker">Operating Model</p>
-          <h2 className="mt-3 ui-h2">วิธีทำงานขององค์กรที่ออกแบบมาเพื่อ scale</h2>
+          <h2 className="mt-3 ui-h2">วิธีทำงานขององค์กรที่ออกแบบมาเพื่อขยายผลได้จริง</h2>
           <ul className="mt-5 grid gap-2 feature-list">
             {operatingModel.map((item) => (
               <li key={item}>- {item}</li>
