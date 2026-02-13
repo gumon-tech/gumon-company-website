@@ -1,12 +1,19 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import { detectLocaleFromPathname } from "@/lib/i18n";
+import { getContactFormCopy } from "@/content/locales/contactForm";
 
 function encode(value: string) {
   return encodeURIComponent(value.trim());
 }
 
 export default function ContactLeadForm() {
+  const pathname = usePathname();
+  const locale = detectLocaleFromPathname(pathname);
+  const copy = getContactFormCopy(locale);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -17,10 +24,10 @@ export default function ContactLeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const topicLabel = useMemo(() => {
-    if (topic === "partner") return "ความร่วมมือกับพาร์ตเนอร์";
-    if (topic === "business") return "สอบถามข้อมูลทั่วไป";
-    return "ปรึกษาด้านเทคนิค";
-  }, [topic]);
+    if (topic === "partner") return copy.topicPartner;
+    if (topic === "business") return copy.topicBusiness;
+    return copy.topicTechnical;
+  }, [topic, copy.topicBusiness, copy.topicPartner, copy.topicTechnical]);
 
   const buildMailtoHref = (payloadMessage: string) => {
     const subject = `[Gumon Website] ${topicLabel} - ${name.trim()}`;
@@ -33,20 +40,20 @@ export default function ContactLeadForm() {
     setSuccess("");
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setError("กรุณากรอกข้อมูลให้ครบก่อนส่งข้อความ");
+      setError(copy.requiredError);
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.trim())) {
-      setError("รูปแบบอีเมลไม่ถูกต้อง");
+      setError(copy.invalidEmailError);
       return;
     }
 
     if (phone.trim()) {
       const phonePattern = /^[0-9+\-\s()]{7,20}$/;
       if (!phonePattern.test(phone.trim())) {
-        setError("รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง");
+        setError(copy.invalidPhoneError);
         return;
       }
     }
@@ -96,7 +103,7 @@ export default function ContactLeadForm() {
         throw new Error(`Webhook failed: ${response.status}`);
       }
 
-      setSuccess("ส่งข้อความสำเร็จแล้ว ทีมจะติดต่อกลับโดยเร็วที่สุด");
+      setSuccess(copy.success);
       setName("");
       setEmail("");
       setPhone("");
@@ -111,31 +118,31 @@ export default function ContactLeadForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <div className="grid gap-2">
-        <label htmlFor="contact-name" className="text-xs tracking-[0.14em] uppercase text-mist">ชื่อผู้ติดต่อ</label>
+        <label htmlFor="contact-name" className="text-xs tracking-[0.14em] uppercase text-mist">{copy.labels.name}</label>
         <input
           id="contact-name"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="rounded-lg border border-line/40 bg-bg1/80 px-3 py-2 text-sm text-ink outline-none focus:border-accent/70"
-          placeholder="ชื่อ-นามสกุล"
+          placeholder={copy.placeholders.name}
         />
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="contact-email" className="text-xs tracking-[0.14em] uppercase text-mist">อีเมล</label>
+        <label htmlFor="contact-email" className="text-xs tracking-[0.14em] uppercase text-mist">{copy.labels.email}</label>
         <input
           id="contact-email"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="rounded-lg border border-line/40 bg-bg1/80 px-3 py-2 text-sm text-ink outline-none focus:border-accent/70"
-          placeholder="name@company.com"
+          placeholder={copy.placeholders.email}
         />
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="contact-phone" className="text-xs tracking-[0.14em] uppercase text-mist">เบอร์โทรศัพท์</label>
+        <label htmlFor="contact-phone" className="text-xs tracking-[0.14em] uppercase text-mist">{copy.labels.phone}</label>
         <input
           id="contact-phone"
           name="phone"
@@ -143,12 +150,12 @@ export default function ContactLeadForm() {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           className="rounded-lg border border-line/40 bg-bg1/80 px-3 py-2 text-sm text-ink outline-none focus:border-accent/70"
-          placeholder="08x-xxx-xxxx"
+          placeholder={copy.placeholders.phone}
         />
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="contact-topic" className="text-xs tracking-[0.14em] uppercase text-mist">หัวข้อ</label>
+        <label htmlFor="contact-topic" className="text-xs tracking-[0.14em] uppercase text-mist">{copy.labels.topic}</label>
         <select
           id="contact-topic"
           name="topic"
@@ -156,14 +163,14 @@ export default function ContactLeadForm() {
           onChange={(e) => setTopic(e.target.value)}
           className="rounded-lg border border-line/40 bg-bg1/80 px-3 py-2 text-sm text-ink outline-none focus:border-accent/70"
         >
-          <option value="technical">ปรึกษาด้านเทคนิค</option>
-          <option value="partner">ความร่วมมือกับพาร์ตเนอร์</option>
-          <option value="business">สอบถามข้อมูลทั่วไป</option>
+          <option value="technical">{copy.topicTechnical}</option>
+          <option value="partner">{copy.topicPartner}</option>
+          <option value="business">{copy.topicBusiness}</option>
         </select>
       </div>
 
       <div className="grid gap-2">
-        <label htmlFor="contact-message" className="text-xs tracking-[0.14em] uppercase text-mist">รายละเอียด</label>
+        <label htmlFor="contact-message" className="text-xs tracking-[0.14em] uppercase text-mist">{copy.labels.message}</label>
         <textarea
           id="contact-message"
           name="message"
@@ -171,7 +178,7 @@ export default function ContactLeadForm() {
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
           className="rounded-lg border border-line/40 bg-bg1/80 px-3 py-2 text-sm text-ink outline-none focus:border-accent/70"
-          placeholder="เล่าระบบปัจจุบัน ปัญหาหลัก และเป้าหมายที่ต้องการ"
+          placeholder={copy.placeholders.message}
         />
       </div>
 
@@ -179,11 +186,9 @@ export default function ContactLeadForm() {
       {success ? <p className="text-xs text-accent">{success}</p> : null}
 
       <button type="submit" disabled={isSubmitting} className="btn-primary w-full sm:w-fit disabled:opacity-70 disabled:cursor-not-allowed">
-        {isSubmitting ? "กำลังส่ง…" : "ส่งข้อความ"}
+        {isSubmitting ? copy.submitLoading : copy.submitIdle}
       </button>
-      <p className="text-xs text-mist">
-        ข้อมูลของคุณจะถูกใช้เพื่อการติดต่อกลับและการประเมินแนวทางเริ่มต้นเท่านั้น
-      </p>
+      <p className="text-xs text-mist">{copy.note}</p>
     </form>
   );
 }

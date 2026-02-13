@@ -3,23 +3,17 @@
 import { usePathname } from "next/navigation";
 import { detectLocaleFromPathname } from "@/lib/i18n";
 import { getCompanyInfo } from "@/lib/companyInfo";
+import { getFooterLegal } from "@/content/locales/footer";
 
 export default function FooterLegalLine() {
   const pathname = usePathname();
   const locale = detectLocaleFromPathname(pathname);
   const companyInfo = getCompanyInfo(locale);
-
-  if (locale === "th") {
-    return (
-      <>
-        {companyInfo.legalName} | เลขทะเบียนนิติบุคคล {companyInfo.registrationNumber}
-      </>
-    );
-  }
+  const copy = getFooterLegal(locale);
 
   return (
     <>
-      {companyInfo.legalName} | Registration No. {companyInfo.registrationNumber}
+      {companyInfo.legalName} | {copy.registrationLabel} {companyInfo.registrationNumber}
     </>
   );
 }

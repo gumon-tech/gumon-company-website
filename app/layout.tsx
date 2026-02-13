@@ -14,6 +14,8 @@ import AnalyticsBootstrap from "@/components/AnalyticsBootstrap";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FooterTagline from "@/components/FooterTagline";
 import FooterLegalLine from "@/components/FooterLegalLine";
+import { layoutCopy } from "@/content/locales/layout";
+import { footerSectionLabels } from "@/content/locales/navigation";
 import { companyInfo } from "@/lib/companyInfo";
 import { supportedLocales } from "@/lib/i18n";
 import {
@@ -41,34 +43,25 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://gumon.io"),
   title: {
-    default: "Gumon Technology | Open Platform for Delivery Teams",
-    template: "%s | Gumon Technology",
+    default: layoutCopy.metadata.defaultTitle,
+    template: layoutCopy.metadata.titleTemplate,
   },
   icons: {
     icon: "/assets/logo/gumon-mark.png",
     shortcut: "/assets/logo/gumon-mark.png",
     apple: "/assets/logo/gumon-mark.png",
   },
-  description:
-    "Open technology platform for organizations that need faster software delivery, clearer standards, and sustainable scaling.",
+  description: layoutCopy.metadata.description,
   alternates: {
     canonical: "/",
     languages: Object.fromEntries(supportedLocales.map((locale) => [locale, `/${locale}`])),
   },
-  keywords: [
-    "Gumon Technology",
-    "Open Platform",
-    "Platform Engineering",
-    "Software Delivery",
-    "Developer Platform",
-    "Technology Ecosystem",
-  ],
+  keywords: [...layoutCopy.metadata.keywords],
   openGraph: {
     type: "website",
-    siteName: "Gumon Technology",
-    title: "Gumon Technology",
-    description:
-      "An open platform designed for practical delivery, connecting technology teams, partners, and business growth.",
+    siteName: layoutCopy.siteName,
+    title: layoutCopy.siteName,
+    description: layoutCopy.metadata.openGraphDescription,
     url: "/",
     images: [
       {
@@ -79,9 +72,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gumon Technology",
-    description:
-      "An open platform designed for practical delivery, connecting technology teams, partners, and business growth.",
+    title: layoutCopy.siteName,
+    description: layoutCopy.metadata.twitterDescription,
     images: ["/assets/from-gumon/gumon_arc.png"],
   },
 };
@@ -98,7 +90,7 @@ export default function RootLayout({
       {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
-        name: "Gumon Technology",
+        name: layoutCopy.siteName,
         legalName: companyInfo.legalName,
         url: siteUrl,
         logo: `${siteUrl}/assets/logo/gumon-white.png`,
@@ -127,7 +119,7 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
-        name: "Gumon Technology",
+        name: layoutCopy.siteName,
         publisher: { "@id": `${siteUrl}/#organization` },
         inLanguage: "th-TH",
       },
@@ -155,9 +147,9 @@ export default function RootLayout({
                 <Image src="/assets/logo/gumon-olive.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-lab" />
               </span>
               <div className="leading-tight">
-                <div className="text-[13px] sm:text-sm font-semibold">Gumon Technology</div>
+                <div className="text-[13px] sm:text-sm font-semibold">{layoutCopy.siteName}</div>
                 <div className="hidden lg:block text-[10px] tracking-[0.24em] uppercase text-mist">
-                  Open Source Platform Systems
+                  {layoutCopy.siteTagline}
                 </div>
               </div>
             </TrackedLink>
@@ -174,7 +166,7 @@ export default function RootLayout({
               <LanguageSwitcher />
               <ToolsMenu />
               <TrackedLink href="/contact" className="btn-primary">
-                Contact
+                {layoutCopy.contactButton}
               </TrackedLink>
             </div>
           </div>
@@ -188,7 +180,7 @@ export default function RootLayout({
           <div className="ui-container py-12 grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-3">
               <TrackedLink href="/" className="text-sm font-semibold hover:text-ink/90 transition">
-                Gumon Technology
+                {layoutCopy.siteName}
               </TrackedLink>
               <p className="mt-3 text-sm text-mist leading-relaxed max-w-[32ch]">
                 <FooterTagline />
@@ -197,7 +189,7 @@ export default function RootLayout({
 
             <div className="lg:col-span-9 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 xl:gap-8 text-sm">
               <div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Platform</div>
+                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.platform}</div>
                 <div className="mt-3 grid gap-2">
                   {primaryNavItems.slice(0, 2).map((item) => (
                     <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
@@ -207,7 +199,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Audience</div>
+                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.audience}</div>
                 <div className="mt-3 grid gap-2">
                   {primaryNavItems.slice(2, 4).map((item) => (
                     <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
@@ -217,7 +209,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Company</div>
+                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.company}</div>
                 <div className="mt-3 grid gap-2">
                   {primaryNavItems.slice(4).map((item) => (
                     <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
@@ -227,7 +219,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Tools</div>
+                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.tools}</div>
                 <div className="mt-3 grid gap-2">
                   {workToolLinks.map((item) => (
                     <TrackedLink key={item.href} href={item.href} target="_blank" rel="noreferrer" className="text-mist hover:text-ink transition">
@@ -237,7 +229,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Community</div>
+                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.community}</div>
                 <div className="mt-3 grid gap-2">
                   {communityLinks.map((item) => (
                     <TrackedLink key={item.href} href={item.href} target="_blank" rel="noreferrer" className="text-mist hover:text-ink transition">
@@ -247,7 +239,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div>
-                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Support</div>
+                <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.support}</div>
                 <div className="mt-3 grid gap-2">
                   {supportLinks.map((item) => (
                     <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
@@ -264,22 +256,22 @@ export default function RootLayout({
               <div>
                 © {new Date().getFullYear()}{" "}
                 <TrackedLink href="/" className="hover:text-ink transition">
-                  Gumon Technology
+                  {layoutCopy.siteName}
                 </TrackedLink>
-                . All rights reserved.
+                . {layoutCopy.allRightsReserved}
                 <div className="mt-1">
                   <FooterLegalLine />
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <TrackedLink href="/faq" className="hover:text-ink transition">FAQ</TrackedLink>
-                <TrackedLink href="/company#legal-information" className="hover:text-ink transition">Company Info</TrackedLink>
+                <TrackedLink href="/faq" className="hover:text-ink transition">{layoutCopy.faqLabel}</TrackedLink>
+                <TrackedLink href="/company#legal-information" className="hover:text-ink transition">{layoutCopy.companyInfoLink}</TrackedLink>
                 {legalLinks.map((item) => (
                   <TrackedLink key={item.href} href={item.href} className="hover:text-ink transition">
                     {item.label}
                   </TrackedLink>
                 ))}
-                <TrackedLink href="mailto:contact@gumon.io" className="hover:text-ink transition">contact@gumon.io</TrackedLink>
+                <TrackedLink href="mailto:contact@gumon.io" className="hover:text-ink transition">{layoutCopy.contactEmail}</TrackedLink>
               </div>
             </div>
           </div>

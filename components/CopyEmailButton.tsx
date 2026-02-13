@@ -1,12 +1,15 @@
 "use client";
 
 import { type MouseEvent, useState } from "react";
+import { usePathname } from "next/navigation";
+import { detectLocaleFromPathname } from "@/lib/i18n";
+import { getCopyEmailButtonCopy } from "@/content/locales/components";
 
 export default function CopyEmailButton({
   email,
   className,
-  label = "คัดลอก",
-  copiedLabel = "คัดลอกแล้ว",
+  label,
+  copiedLabel,
   stopPropagation = false,
 }: {
   email: string;
@@ -15,6 +18,9 @@ export default function CopyEmailButton({
   copiedLabel?: string;
   stopPropagation?: boolean;
 }) {
+  const pathname = usePathname();
+  const locale = detectLocaleFromPathname(pathname);
+  const copy = getCopyEmailButtonCopy(locale);
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async (event: MouseEvent<HTMLButtonElement>) => {
@@ -40,9 +46,9 @@ export default function CopyEmailButton({
         className ??
         "btn-secondary w-fit"
       }
-      aria-label="Copy contact email"
+      aria-label={copy.aria}
     >
-      {copied ? copiedLabel : label}
+      {copied ? copiedLabel ?? copy.copied : label ?? copy.label}
     </button>
   );
 }

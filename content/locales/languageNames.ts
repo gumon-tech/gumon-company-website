@@ -1,0 +1,27 @@
+import type { Locale } from "@/lib/i18n";
+
+export const languageNamesByLocale: Record<Locale, string> = {
+  th: "ไทย",
+  en: "English",
+  "zh-CN": "中文 (简体)",
+  "zh-TW": "中文 (繁體)",
+  ja: "日本語",
+  ko: "한국어",
+  vi: "Tiếng Việt",
+  id: "Bahasa Indonesia",
+  ms: "Bahasa Melayu",
+  hi: "हिन्दी",
+  ar: "العربية",
+  he: "עברית",
+  es: "Español",
+  "pt-BR": "Português (Brasil)",
+  fr: "Français",
+  de: "Deutsch",
+  it: "Italiano",
+  nl: "Nederlands",
+  pl: "Polski",
+  tr: "Türkçe",
+  ru: "Русский",
+  uk: "Українська",
+  sv: "Svenska",
+};

@@ -10,32 +10,7 @@ import {
   type Locale,
   getUiCopy,
 } from "@/lib/i18n";
-
-const localeLabels: Record<Locale, string> = {
-  th: "ไทย",
-  en: "English",
-  "zh-CN": "中文 (简体)",
-  "zh-TW": "中文 (繁體)",
-  ja: "日本語",
-  ko: "한국어",
-  vi: "Tiếng Việt",
-  id: "Bahasa Indonesia",
-  ms: "Bahasa Melayu",
-  hi: "हिन्दी",
-  ar: "العربية",
-  he: "עברית",
-  es: "Español",
-  "pt-BR": "Português (Brasil)",
-  fr: "Français",
-  de: "Deutsch",
-  it: "Italiano",
-  nl: "Nederlands",
-  pl: "Polski",
-  tr: "Türkçe",
-  ru: "Русский",
-  uk: "Українська",
-  sv: "Svenska",
-};
+import { languageNamesByLocale } from "@/content/locales/languageNames";
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
@@ -60,7 +35,7 @@ export default function LanguageSwitcher() {
       >
         {supportedLocales.map((code) => (
           <option key={code} value={code}>
-            {localeLabels[code]}
+            {languageNamesByLocale[code]}
           </option>
         ))}
       </select>

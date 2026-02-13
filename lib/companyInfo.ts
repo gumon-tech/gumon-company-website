@@ -11,7 +11,7 @@ export const companyInfoByLocale: Record<"th" | "en", CompanyInfo> = {
   th: {
     legalName: "บริษัท กุมอน เทคโนโลยี จำกัด",
     registrationNumber: "0405566007844",
-    registeredAt: "December 21, 2023",
+    registeredAt: "21 ธันวาคม 2023",
     address: "33/4 หมู่ 11 เดอะไนน์ทาวเวอร์ส อาคารเอ ชั้น 35 ถนนพระราม 9 แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพมหานคร 10310 ประเทศไทย",
   },
   en: {
