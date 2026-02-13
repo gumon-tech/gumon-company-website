@@ -51,9 +51,15 @@ export const metadata: Metadata = {
     template: layoutCopy.metadata.titleTemplate,
   },
   icons: {
-    icon: "/assets/logo/gumon-mark.png",
-    shortcut: "/assets/logo/gumon-mark.png",
-    apple: "/assets/logo/gumon-mark.png",
+    icon: [
+      { url: "/assets/logo/gumon-rose.png", media: "(prefers-color-scheme: light)" },
+      { url: "/assets/logo/gumon-white.png", media: "(prefers-color-scheme: dark)" },
+    ],
+    shortcut: [
+      { url: "/assets/logo/gumon-rose.png", media: "(prefers-color-scheme: light)" },
+      { url: "/assets/logo/gumon-white.png", media: "(prefers-color-scheme: dark)" },
+    ],
+    apple: "/assets/logo/gumon-rose.png",
   },
   description: layoutCopy.metadata.description,
   alternates: {
