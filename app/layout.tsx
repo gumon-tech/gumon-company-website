@@ -47,6 +47,7 @@ const navItems = [
   { href: "/partners", label: "Partners" },
   { href: "/resources", label: "Resources" },
   { href: "/company", label: "Company" },
+  { href: "/team", label: "Team" },
 ];
 
 const legalLinks = [
@@ -188,7 +189,7 @@ export default function RootLayout({
               <div>
                 <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Audience</div>
                 <div className="mt-3 grid gap-2">
-                  {navItems.slice(2, 3).map((item) => (
+                  {navItems.slice(2, 4).map((item) => (
                     <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
                       {item.label}
                     </TrackedLink>
@@ -198,7 +199,7 @@ export default function RootLayout({
               <div>
                 <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Company</div>
                 <div className="mt-3 grid gap-2">
-                  {navItems.slice(3).map((item) => (
+                  {navItems.slice(4).map((item) => (
                     <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
                       {item.label}
                     </TrackedLink>

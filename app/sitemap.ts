@@ -13,6 +13,7 @@ export default function sitemap() {
     { url: `${base}/partners/`, lastModified: now, changeFrequency: weekly, priority: 0.9 },
     { url: `${base}/resources/`, lastModified: now, changeFrequency: weekly, priority: 0.8 },
     { url: `${base}/company/`, lastModified: now, changeFrequency: monthly, priority: 0.75 },
+    { url: `${base}/team/`, lastModified: now, changeFrequency: monthly, priority: 0.72 },
     { url: `${base}/contact/`, lastModified: now, changeFrequency: monthly, priority: 0.7 },
     { url: `${base}/faq/`, lastModified: now, changeFrequency: monthly, priority: 0.65 },
     { url: `${base}/privacy/`, lastModified: now, changeFrequency: monthly, priority: 0.5 },

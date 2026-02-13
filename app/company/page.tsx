@@ -71,6 +71,7 @@ export default function CompanyPage() {
           </ul>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link href="/platform" className="btn-primary">ดู Platform</Link>
+            <Link href="/team" className="btn-secondary">รู้จักทีม</Link>
             <Link href="/contact" className="btn-secondary">คุยกับทีม</Link>
           </div>
         </div>
