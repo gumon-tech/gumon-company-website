@@ -75,10 +75,6 @@ export default function PartnersPage() {
             <div className="mt-5 grid md:grid-cols-2 gap-4">
               <TrackedLink
                 href="https://wiki.gumon.io/"
-                eventName="partners_knowledge_base_click"
-                category="docs"
-                label="partners-wiki"
-                location="partners.resources"
                 target="_blank"
                 rel="noreferrer"
                 className="route-card block"
@@ -88,10 +84,6 @@ export default function PartnersPage() {
               </TrackedLink>
               <TrackedLink
                 href="https://docs.gumon.io/"
-                eventName="partners_docs_click"
-                category="docs"
-                label="partners-docs"
-                location="partners.resources"
                 target="_blank"
                 rel="noreferrer"
                 className="route-card block"
@@ -110,10 +102,10 @@ export default function PartnersPage() {
               เพื่อเริ่มวาง collaboration path ที่เหมาะสม.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <TrackedLink href="/contact" eventName="partners_contact_click" category="contact" label="partners-contact" location="partners.next-step" className="btn-primary">
+              <TrackedLink href="/contact" className="btn-primary">
                 ติดต่อทีมพาร์ตเนอร์
               </TrackedLink>
-              <TrackedLink href="/resources" eventName="partners_resources_click" category="navigation" label="partners-resources" location="partners.next-step" className="btn-secondary">
+              <TrackedLink href="/resources" className="btn-secondary">
                 เปิด Resource Hub
               </TrackedLink>
             </div>

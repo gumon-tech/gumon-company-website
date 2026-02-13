@@ -136,17 +136,13 @@ export default function RootLayout({
                     <TrackedLink
                       key={item.href}
                       href={item.href}
-                      eventName="site_nav_click"
-                      category="navigation"
-                      label={`mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                      location="header.nav.mobile"
                       className="rounded-lg px-3 py-2 text-mist hover:text-ink hover:bg-bg1/60 transition"
                     >
                       {item.label}
                     </TrackedLink>
                   ))}
                   <div className="hr" />
-                  <TrackedLink href="/contact" eventName="header_cta_click" category="contact" label="mobile-contact" location="header.cta.mobile" className="btn-primary w-full">
+                  <TrackedLink href="/contact" className="btn-primary w-full">
                     ติดต่อทีมงาน
                   </TrackedLink>
                 </div>
@@ -154,13 +150,13 @@ export default function RootLayout({
             </details>
 
             <div className="hidden xl:flex items-center gap-2">
-              <TrackedLink href="https://docs.gumon.io/" eventName="header_quicklink_click" category="docs" label="desktop-docs" location="header.quicklinks.desktop" target="_blank" rel="noreferrer" className="btn-ghost">
+              <TrackedLink href="https://docs.gumon.io/" target="_blank" rel="noreferrer" className="btn-ghost">
                 Docs
               </TrackedLink>
-              <TrackedLink href="https://wiki.gumon.io/" eventName="header_quicklink_click" category="docs" label="desktop-knowledge-base" location="header.quicklinks.desktop" target="_blank" rel="noreferrer" className="btn-ghost">
+              <TrackedLink href="https://wiki.gumon.io/" target="_blank" rel="noreferrer" className="btn-ghost">
                 Knowledge Base
               </TrackedLink>
-              <TrackedLink href="/contact" eventName="header_cta_click" category="contact" label="desktop-contact" location="header.quicklinks.desktop" className="btn-primary">
+              <TrackedLink href="/contact" className="btn-primary">
                 Contact
               </TrackedLink>
             </div>
@@ -183,7 +179,7 @@ export default function RootLayout({
                 <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Platform</div>
                 <div className="mt-3 grid gap-2">
                   {navItems.slice(0, 2).map((item) => (
-                    <TrackedLink key={item.href} href={item.href} eventName="site_nav_click" category="navigation" label={`footer-${item.label.toLowerCase().replace(/\s+/g, "-")}`} location="footer.nav" className="text-mist hover:text-ink transition">
+                    <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
                       {item.label}
                     </TrackedLink>
                   ))}
@@ -193,7 +189,7 @@ export default function RootLayout({
                 <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Audience</div>
                 <div className="mt-3 grid gap-2">
                   {navItems.slice(2, 3).map((item) => (
-                    <TrackedLink key={item.href} href={item.href} eventName="site_nav_click" category="navigation" label={`footer-${item.label.toLowerCase().replace(/\s+/g, "-")}`} location="footer.nav" className="text-mist hover:text-ink transition">
+                    <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
                       {item.label}
                     </TrackedLink>
                   ))}
@@ -203,7 +199,7 @@ export default function RootLayout({
                 <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Company</div>
                 <div className="mt-3 grid gap-2">
                   {navItems.slice(3).map((item) => (
-                    <TrackedLink key={item.href} href={item.href} eventName="site_nav_click" category="navigation" label={`footer-${item.label.toLowerCase().replace(/\s+/g, "-")}`} location="footer.nav" className="text-mist hover:text-ink transition">
+                    <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
                       {item.label}
                     </TrackedLink>
                   ))}
@@ -212,10 +208,10 @@ export default function RootLayout({
               <div>
                 <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Support</div>
                 <div className="mt-3 grid gap-2">
-                  <TrackedLink href="/faq" eventName="site_nav_click" category="navigation" label="footer-faq-top" location="footer.nav" className="text-mist hover:text-ink transition">
+                  <TrackedLink href="/faq" className="text-mist hover:text-ink transition">
                     FAQ
                   </TrackedLink>
-                  <TrackedLink href="/contact" eventName="site_nav_click" category="navigation" label="footer-contact" location="footer.nav" className="text-mist hover:text-ink transition">
+                  <TrackedLink href="/contact" className="text-mist hover:text-ink transition">
                     Contact
                   </TrackedLink>
                 </div>
@@ -227,13 +223,13 @@ export default function RootLayout({
             <div className="lg:col-span-12 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-mist">
               <div>© {new Date().getFullYear()} Gumon Technology. All rights reserved.</div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <TrackedLink href="/faq" eventName="footer_link_click" category="navigation" label="footer-faq" location="footer.legal" className="hover:text-ink transition">FAQ</TrackedLink>
+                <TrackedLink href="/faq" className="hover:text-ink transition">FAQ</TrackedLink>
                 {legalLinks.map((item) => (
-                  <TrackedLink key={item.href} href={item.href} eventName="footer_link_click" category="navigation" label={`footer-${item.label.toLowerCase()}`} location="footer.legal" className="hover:text-ink transition">
+                  <TrackedLink key={item.href} href={item.href} className="hover:text-ink transition">
                     {item.label}
                   </TrackedLink>
                 ))}
-                <TrackedLink href="mailto:contact@gumon.io" eventName="footer_link_click" category="contact" label="footer-email" location="footer.legal" className="hover:text-ink transition">contact@gumon.io</TrackedLink>
+                <TrackedLink href="mailto:contact@gumon.io" className="hover:text-ink transition">contact@gumon.io</TrackedLink>
               </div>
             </div>
           </div>

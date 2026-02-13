@@ -75,10 +75,6 @@ export default function DevelopersPage() {
             <div className="mt-5 grid md:grid-cols-2 gap-4">
               <TrackedLink
                 href="https://docs.gumon.io/"
-                eventName="developers_resource_click"
-                category="docs"
-                label="developers-docs"
-                location="developers.resources"
                 target="_blank"
                 rel="noreferrer"
                 className="route-card block"
@@ -88,10 +84,6 @@ export default function DevelopersPage() {
               </TrackedLink>
               <TrackedLink
                 href="https://wiki.gumon.io/"
-                eventName="developers_resource_click"
-                category="docs"
-                label="developers-wiki"
-                location="developers.resources"
                 target="_blank"
                 rel="noreferrer"
                 className="route-card block"
@@ -110,10 +102,10 @@ export default function DevelopersPage() {
               สามารถส่งบริบทมาเพื่อประเมิน baseline ที่เหมาะสม.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <TrackedLink href="/platform" eventName="developers_platform_reference_click" category="navigation" label="developers-platform" location="developers.next-step" className="btn-secondary">
+              <TrackedLink href="/platform" className="btn-secondary">
                 ดู Platform Overview
               </TrackedLink>
-              <TrackedLink href="/contact" eventName="developers_contact_click" category="contact" label="developers-contact" location="developers.next-step" className="btn-primary">
+              <TrackedLink href="/contact" className="btn-primary">
                 คุยกับทีมเทคนิค
               </TrackedLink>
             </div>

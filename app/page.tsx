@@ -77,8 +77,8 @@ export default function Page() {
 
         <Reveal delay={80}>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <TrackedLink href="/platform" eventName="home_primary_cta_click" category="cta" label="home-hero-platform" location="home.hero" className="btn-primary">สำรวจ Platform Architecture</TrackedLink>
-            <TrackedLink href="/developers" eventName="home_secondary_cta_click" category="navigation" label="home-hero-developers" location="home.hero" className="btn-secondary">เริ่มเส้นทาง Developers</TrackedLink>
+            <TrackedLink href="/platform" className="btn-primary">สำรวจ Platform Architecture</TrackedLink>
+            <TrackedLink href="/developers" className="btn-secondary">เริ่มเส้นทาง Developers</TrackedLink>
           </div>
         </Reveal>
 
@@ -123,10 +123,6 @@ export default function Page() {
                   <p className="mt-3 text-sm text-mist leading-relaxed">{card.body}</p>
                   <TrackedLink
                     href={card.href}
-                    eventName="home_audience_path_click"
-                    category="cta"
-                    label={`audience-${card.title.toLowerCase()}`}
-                    location="home.role-paths"
                     className="mt-5 inline-block text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink"
                   >
                     {card.cta}
@@ -143,7 +139,7 @@ export default function Page() {
               <p className="ui-kicker">Trusted Partners</p>
               <h2 className="mt-2 ui-h2">เครือข่ายพาร์ตเนอร์ที่ต่อยอดบนมาตรฐานเดียวกัน</h2>
             </div>
-            <TrackedLink href="/partners" eventName="home_partner_section_click" category="navigation" label="partner-section-detail" location="home.partner-section" className="btn-secondary w-fit">ดูแนวทางการร่วมงาน</TrackedLink>
+            <TrackedLink href="/partners" className="btn-secondary w-fit">ดูแนวทางการร่วมงาน</TrackedLink>
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -165,10 +161,6 @@ export default function Page() {
                 <div>
                   <TrackedLink
                     href={partner.website}
-                    eventName="home_partner_outbound_click"
-                    category="cta"
-                    label={`partner-${partner.name.toLowerCase().replace(/\s+/g, "-")}`}
-                    location="home.partner-list"
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-medium leading-snug underline underline-offset-4 decoration-accent hover:decoration-ink transition"
@@ -191,8 +183,8 @@ export default function Page() {
               ทีม Gumon สามารถช่วยวางเส้นทางเริ่มต้นที่เหมาะกับบริบทองค์กรของคุณ.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <TrackedLink href="/contact" eventName="home_nextstep_click" category="contact" label="nextstep-contact" location="home.next-step" className="btn-primary">คุยกับทีม Gumon</TrackedLink>
-              <TrackedLink href="/resources" eventName="home_nextstep_click" category="navigation" label="nextstep-resources" location="home.next-step" className="btn-secondary">เปิด Resource Hub</TrackedLink>
+              <TrackedLink href="/contact" className="btn-primary">คุยกับทีม Gumon</TrackedLink>
+              <TrackedLink href="/resources" className="btn-secondary">เปิด Resource Hub</TrackedLink>
             </div>
           </div>
         </Reveal>

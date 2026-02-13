@@ -47,7 +47,7 @@ export default function ContactPage() {
             <div key={item.title} className="route-card h-full">
               <h2 className="ui-h3">{item.title}</h2>
               <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
-              <TrackedLink href={item.href} eventName="contact_route_click" category="navigation" label={`contact-${item.title.toLowerCase().replace(/\s+/g, "-")}`} location="contact.routes" className="mt-5 inline-block text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink">
+              <TrackedLink href={item.href} className="mt-5 inline-block text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink">
                 {item.action}
               </TrackedLink>
             </div>
@@ -70,11 +70,11 @@ export default function ContactPage() {
             <p className="ui-kicker">Direct Contact</p>
             <h2 className="mt-3 ui-h3">ช่องทางติดต่อหลัก</h2>
             <div className="mt-4 grid gap-3 text-sm">
-              <TrackedLink href="mailto:contact@gumon.io" eventName="contact_channel_click" category="contact" label="contact-email" location="contact.channels" className="card p-4 hover:border-ink/30 transition">
+              <TrackedLink href="mailto:contact@gumon.io" className="card p-4 hover:border-ink/30 transition">
                 <div className="text-[11px] tracking-[0.16em] uppercase text-mist">Email</div>
                 <div className="mt-1 text-ink">contact@gumon.io</div>
               </TrackedLink>
-              <TrackedLink href="https://www.linkedin.com/company/gumon" eventName="contact_channel_click" category="contact" label="contact-linkedin" location="contact.channels" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
+              <TrackedLink href="https://www.linkedin.com/company/gumon" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
                 <div className="text-[11px] tracking-[0.16em] uppercase text-mist">LinkedIn</div>
                 <div className="mt-1 text-ink">linkedin.com/company/gumon</div>
               </TrackedLink>
@@ -83,8 +83,8 @@ export default function ContactPage() {
             <div className="mt-6">
               <p className="ui-kicker">Knowledge Channels</p>
               <div className="mt-3 flex flex-col gap-3">
-                <TrackedLink href="https://docs.gumon.io/" eventName="contact_docs_click" category="docs" label="contact-docs" location="contact.knowledge" target="_blank" rel="noreferrer" className="btn-secondary">Developer Documentation</TrackedLink>
-                <TrackedLink href="https://wiki.gumon.io/" eventName="contact_docs_click" category="docs" label="contact-knowledge-base" location="contact.knowledge" target="_blank" rel="noreferrer" className="btn-secondary">Knowledge Base</TrackedLink>
+                <TrackedLink href="https://docs.gumon.io/" target="_blank" rel="noreferrer" className="btn-secondary">Developer Documentation</TrackedLink>
+                <TrackedLink href="https://wiki.gumon.io/" target="_blank" rel="noreferrer" className="btn-secondary">Knowledge Base</TrackedLink>
               </div>
             </div>
           </div>

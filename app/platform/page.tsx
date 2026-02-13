@@ -100,10 +100,10 @@ export default function PlatformPage() {
               ))}
             </ul>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <TrackedLink href="/developers" eventName="platform_nextstep_click" category="navigation" label="platform-to-developers" location="platform.next-step" className="btn-primary">
+              <TrackedLink href="/developers" className="btn-primary">
                 ไปที่ Developer Path
               </TrackedLink>
-              <TrackedLink href="/contact" eventName="platform_nextstep_click" category="contact" label="platform-to-contact" location="platform.next-step" className="btn-secondary">
+              <TrackedLink href="/contact" className="btn-secondary">
                 คุยโจทย์กับทีม
               </TrackedLink>
             </div>

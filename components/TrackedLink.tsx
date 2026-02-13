@@ -5,10 +5,6 @@ import type { ReactNode } from "react";
 
 type TrackedLinkProps = {
   href: string;
-  eventName?: string;
-  category?: "cta" | "docs" | "contact" | "navigation";
-  label?: string;
-  location?: string;
   className?: string;
   children: ReactNode;
   target?: string;
