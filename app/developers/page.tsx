@@ -42,7 +42,7 @@ export default function DevelopersPage() {
           <h1 className="ui-h1">เส้นทางสำหรับทีมพัฒนาที่ต้องการสร้างระบบให้เร็วและคุมมาตรฐานได้ตั้งแต่ต้น</h1>
           <p className="mt-6 max-w-3xl ui-p">
             หน้านี้รวมเส้นทางทำงานสำหรับทีมพัฒนาที่ต้องการย้ายจากการเริ่มใหม่ทุกครั้ง
-            ไปสู่การพัฒนาบนมาตรฐานตั้งต้นเดียวกันเพื่อให้ส่งมอบซ้ำได้จริง.
+            ไปสู่การพัฒนาบนมาตรฐานตั้งต้นเดียวกันเพื่อให้ส่งมอบซ้ำได้จริง
           </p>
         </Reveal>
 
@@ -71,13 +71,13 @@ export default function DevelopersPage() {
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 card p-7 shadow-soft">
             <p className="ui-kicker">Core Resources</p>
-            <h2 className="mt-3 ui-h2">เริ่มจากเครื่องมือที่ทีมใช้จริง</h2>
-            <div className="mt-5 grid md:grid-cols-2 gap-4">
+            <h2 className="mt-3 ui-h3 md:text-2xl">เริ่มจากเครื่องมือที่ทีมใช้จริง</h2>
+            <div className="mt-5 grid md:grid-cols-2 2xl:grid-cols-4 gap-4">
               <TrackedLink
                 href="https://docs.gumon.io/"
                 target="_blank"
                 rel="noreferrer"
-                className="route-card block"
+                className="route-card block h-full"
               >
                 <h3 className="ui-h3">Developer Docs</h3>
                 <p className="mt-2 text-sm text-mist leading-relaxed">คู่มือเริ่มต้น คำสั่งสำคัญ และเอกสารอ้างอิงเชิงเทคนิค</p>
@@ -86,10 +86,28 @@ export default function DevelopersPage() {
                 href="https://wiki.gumon.io/"
                 target="_blank"
                 rel="noreferrer"
-                className="route-card block"
+                className="route-card block h-full"
               >
                 <h3 className="ui-h3">Knowledge Base</h3>
                 <p className="mt-2 text-sm text-mist leading-relaxed">แนวปฏิบัติและแนวทางแก้ปัญหาเชิงปฏิบัติการ</p>
+              </TrackedLink>
+              <TrackedLink
+                href="https://work.gumon.io/"
+                target="_blank"
+                rel="noreferrer"
+                className="route-card block h-full"
+              >
+                <h3 className="ui-h3">Gumon Work</h3>
+                <p className="mt-2 text-sm text-mist leading-relaxed">Project/Task management สำหรับทีมพัฒนาและทีมส่งมอบ</p>
+              </TrackedLink>
+              <TrackedLink
+                href="https://github.com/gumon-tech"
+                target="_blank"
+                rel="noreferrer"
+                className="route-card block h-full"
+              >
+                <h3 className="ui-h3">GitHub</h3>
+                <p className="mt-2 text-sm text-mist leading-relaxed">source code, templates และตัวอย่างโปรเจกต์สำหรับทีมพัฒนา</p>
               </TrackedLink>
             </div>
           </div>
@@ -99,7 +117,7 @@ export default function DevelopersPage() {
             <h2 className="mt-3 ui-h3">ต้องการประเมินระบบเดิมก่อนเริ่มย้ายโครงสร้าง</h2>
             <p className="mt-3 text-sm text-mist leading-relaxed">
               หากทีมมีระบบเดิมอยู่แล้วและต้องการวางแผนย้ายระบบแบบค่อยเป็นค่อยไป
-              สามารถส่งข้อมูลระบบปัจจุบันมาเพื่อประเมินมาตรฐานตั้งต้นที่เหมาะสม.
+              สามารถส่งข้อมูลระบบปัจจุบันมาเพื่อประเมินมาตรฐานตั้งต้นที่เหมาะสม
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <TrackedLink href="/platform" className="btn-secondary">

@@ -50,46 +50,50 @@ export default function PlatformPage() {
           <h1 className="ui-h1">สถาปัตยกรรมที่ทำให้ทีมพัฒนาเริ่มเร็ว ส่งมอบไว และควบคุมมาตรฐานได้</h1>
           <p className="mt-6 max-w-3xl ui-p">
             Gumon Platform ถูกออกแบบเพื่อแก้ปัญหาโครงสร้างซ้ำซ้อนที่เกิดขึ้นในทุกโครงการ
-            โดยทำให้ทีมเริ่มจากมาตรฐานตั้งต้นที่พร้อมใช้งานและขยายต่อได้ในระยะยาว.
+            โดยทำให้ทีมเริ่มจากมาตรฐานตั้งต้นที่พร้อมใช้งานและขยายต่อได้ในระยะยาว
           </p>
         </Reveal>
 
-        <div className="mt-10 card p-4 shadow-soft">
-          <Image
-            src="/assets/from-gumon/gumon_arc.png"
-            alt="Gumon platform architecture"
-            width={1600}
-            height={900}
-            sizes="(min-width: 1024px) 1100px, 94vw"
-            priority
-            className="mx-auto w-full h-auto max-h-[52vh] md:max-h-[60vh] lg:max-h-[68vh] object-contain rounded-xl border border-line/40 bg-bg1"
-          />
-          <div className="mt-3 px-1">
-            <TrackedLink
-              href="/assets/from-gumon/gumon_arc.png"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center text-xs md:text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink"
-            >
-              เปิดภาพ Architecture ขนาดเต็ม
-            </TrackedLink>
+        <div className="mt-10 grid lg:grid-cols-12 gap-5 lg:items-stretch">
+          <div className="lg:col-span-8 card p-4 shadow-soft h-full">
+            <div className="rounded-xl border border-line/40 bg-bg1 overflow-hidden">
+              <Image
+                src="/assets/from-gumon/gumon_arc.png"
+                alt="Gumon platform architecture"
+                width={1600}
+                height={900}
+                sizes="(min-width: 1024px) 760px, 94vw"
+                priority
+                className="w-full h-auto object-contain lg:h-[56vh] lg:object-cover lg:object-center"
+              />
+            </div>
+            <div className="mt-3 px-1">
+              <TrackedLink
+                href="/assets/from-gumon/gumon_arc.png"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center text-xs md:text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink"
+              >
+                เปิดภาพ Architecture ขนาดเต็ม
+              </TrackedLink>
+            </div>
+            <p className="mt-4 px-1 text-xs md:text-sm text-mist leading-relaxed">
+              Architecture reference นี้ใช้เพื่อจัดแนวทางคิดร่วมกันระหว่างทีม ไม่ได้บังคับรูปแบบพัฒนาเพียงแบบเดียว
+              แต่ช่วยลดความคลาดเคลื่อนในการออกแบบและส่งมอบ
+            </p>
           </div>
-          <p className="mt-4 px-1 text-xs md:text-sm text-mist leading-relaxed">
-            Architecture reference นี้ใช้เพื่อจัดแนวทางคิดร่วมกันระหว่างทีม ไม่ได้บังคับรูปแบบพัฒนาเพียงแบบเดียว
-            แต่ช่วยลดความคลาดเคลื่อนในการออกแบบและส่งมอบ.
-          </p>
-        </div>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-5">
-          {architectureLayers.map((layer, index) => (
-            <Reveal key={layer.title} delay={index * 70}>
-              <div className="route-card h-full">
-                <p className="ui-kicker">Layer</p>
-                <h2 className="mt-3 ui-h3">{layer.title}</h2>
-                <p className="mt-2 text-sm text-mist leading-relaxed">{layer.body}</p>
-              </div>
-            </Reveal>
-          ))}
+          <div className="lg:col-span-4 grid sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:h-full lg:grid-rows-3">
+            {architectureLayers.map((layer, index) => (
+              <Reveal key={layer.title} delay={index * 70} className="h-full">
+                <div className="route-card h-full">
+                  <p className="ui-kicker">Layer</p>
+                  <h2 className="mt-3 ui-h3">{layer.title}</h2>
+                  <p className="mt-2 text-sm text-mist leading-relaxed">{layer.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 grid lg:grid-cols-2 gap-5">

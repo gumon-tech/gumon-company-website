@@ -16,6 +16,7 @@ const resourceGroups = [
     items: [
       ["Developer Documentation", "คู่มือ setup, API reference และ command usage", "https://docs.gumon.io/", true],
       ["Knowledge Base", "playbooks และแนวทางปฏิบัติการเชิงเทคนิค", "https://wiki.gumon.io/", true],
+      ["GitHub", "source code, templates และตัวอย่างโปรเจกต์สำหรับทีมพัฒนา", "https://github.com/gumon-tech", true],
     ],
   },
   {
@@ -23,13 +24,21 @@ const resourceGroups = [
     items: [
       ["Partner Collaboration", "แนวทางร่วมงานและขอบเขตการส่งมอบ", "/partners", false],
       ["Company Overview", "หลักการองค์กรและ operating model", "/company", false],
+      ["Gumon Work", "Project/Task management สำหรับทีมส่งมอบ", "https://work.gumon.io/", true],
     ],
   },
   {
-    title: "Action",
+    title: "Getting Started",
     items: [
       ["Platform Overview", "เริ่มเข้าใจสถาปัตยกรรมและองค์ประกอบหลัก", "/platform", false],
       ["Contact Team", "ส่งโจทย์เพื่อเริ่มวางเส้นทางใช้งาน", "/contact", false],
+    ],
+  },
+  {
+    title: "Community",
+    items: [
+      ["DKS Center", "ศูนย์คอร์สและกิจกรรมอบรมด้านเทคโนโลยี พร้อมตารางเรียนและลงทะเบียนออนไลน์", "https://dkscenter.gumon.io/th", true],
+      ["Gaming Hub", "อีกมุมของ Gumon community สำหรับกิจกรรมและการเชื่อมผู้คนผ่านการเล่น", "https://game.gumon.io/", true],
     ],
   },
 ] as const;
@@ -79,11 +88,11 @@ export default function ResourcesPage() {
           <p className="ui-kicker">Resources / Hub</p>
           <h1 className="ui-h1">ศูนย์รวมทรัพยากรที่ทีมใช้งานจริงบ่อยที่สุด</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            หน้านี้จัดกลุ่มข้อมูลตามวัตถุประสงค์การใช้งาน เพื่อลดเวลาค้นหาเอกสารและเส้นทางที่ควรเริ่มก่อน.
+            หน้านี้จัดกลุ่มข้อมูลตามวัตถุประสงค์การใช้งาน เพื่อลดเวลาค้นหาเอกสารและเส้นทางที่ควรเริ่มก่อน
           </p>
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-3 gap-5">
+        <div className="mt-12 grid md:grid-cols-2 2xl:grid-cols-4 gap-5">
           {resourceGroups.map((group, groupIndex) => (
             <Reveal key={group.title} delay={groupIndex * 80}>
               <div className="card p-6 shadow-soft h-full">

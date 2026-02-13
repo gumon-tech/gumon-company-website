@@ -42,7 +42,7 @@ export default function TeamPage() {
           <p className="ui-kicker">Company / Team</p>
           <h1 className="ui-h1">ทีม Gumon Technology</h1>
           <p className="mt-6 max-w-3xl ui-p">
-            ทีมงานจากหลายบทบาทที่ร่วมกันขับเคลื่อนงานวิจัย การพัฒนาแพลตฟอร์ม และการส่งมอบเทคโนโลยีให้เกิดผลจริง.
+            ทีมงานจากหลายบทบาทที่ร่วมกันขับเคลื่อนงานวิจัย การพัฒนาแพลตฟอร์ม และการส่งมอบเทคโนโลยีให้เกิดผลจริง
           </p>
         </Reveal>
 
@@ -53,7 +53,7 @@ export default function TeamPage() {
           <h2 className="mt-3 ui-h2">ต้องการคุยเรื่องการร่วมงานกับทีม Gumon</h2>
           <p className="mt-3 text-sm text-mist leading-relaxed max-w-3xl">
             หากคุณต้องการหารือเรื่องการวางโรดแมปแพลตฟอร์ม การส่งมอบผ่านพาร์ตเนอร์ หรือความร่วมมือเชิงเทคโนโลยี
-            สามารถส่งข้อมูลโครงการของคุณมาได้โดยตรง.
+            สามารถส่งข้อมูลโครงการของคุณมาได้โดยตรง
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <TrackedLink href="/contact" className="btn-primary">

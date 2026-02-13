@@ -58,7 +58,7 @@ const partnerNetwork = [
 const trustSignals = [
   { label: "Partner Organizations", value: `${partnerNetwork.length}+` },
   { label: "Operating Countries", value: `${new Set(partnerNetwork.map((item) => item.country)).size}` },
-  { label: "Enablement Channels", value: "Docs + Wiki" },
+  { label: "Enablement Channels", value: "Docs + Wiki + Work + Training" },
 ];
 
 const collaborationOutcomes = [
@@ -86,7 +86,7 @@ export default function PartnersPage() {
           <h1 className="ui-h1">โมเดลความร่วมมือที่ช่วยให้พาร์ตเนอร์ส่งมอบได้เร็วและรักษามาตรฐานได้จริง</h1>
           <p className="mt-6 max-w-3xl ui-p">
             เราแบ่งบทบาทให้ชัดตั้งแต่ต้น: Gumon พัฒนาแพลตฟอร์มและมาตรฐานกลาง
-            ส่วนพาร์ตเนอร์นำไปส่งมอบงานในตลาดจริงได้อย่างมั่นใจ.
+            ส่วนพาร์ตเนอร์นำไปส่งมอบงานในตลาดจริงได้อย่างมั่นใจ
           </p>
         </Reveal>
 
@@ -149,33 +149,30 @@ export default function PartnersPage() {
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {partnerNetwork.map((partner) => (
-              <div key={partner.name} className="partner-item">
-                <div className="partner-logo-wrap">
-                  <div className={`partner-logo-badge ${partner.logoFrameClass ?? "partner-logo-badge-circle"}`}>
-                    <Image
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      width={112}
-                      height={40}
-                      sizes="112px"
-                      loading="lazy"
-                      decoding="async"
-                      className={`partner-logo ${partner.logoScaleClass}`}
-                    />
-                  </div>
+              <TrackedLink
+                key={partner.name}
+                href={partner.website}
+                target="_blank"
+                rel="noreferrer"
+                className="partner-item"
+              >
+                <div className={`partner-logo-badge ${partner.logoFrameClass ?? "partner-logo-badge-circle"}`}>
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    width={112}
+                    height={40}
+                    sizes="112px"
+                    loading="lazy"
+                    decoding="async"
+                    className={`partner-logo ${partner.logoScaleClass}`}
+                  />
                 </div>
                 <div>
-                  <TrackedLink
-                    href={partner.website}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-medium leading-snug underline underline-offset-4 decoration-accent hover:decoration-ink transition"
-                  >
-                    {partner.name}
-                  </TrackedLink>
+                  <div className="text-sm font-medium leading-snug text-ink">{partner.name}</div>
                   <div className="text-xs text-mist mt-0.5">{partner.country}</div>
                 </div>
-              </div>
+              </TrackedLink>
             ))}
           </div>
         </div>
@@ -200,25 +197,43 @@ export default function PartnersPage() {
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 card p-7 shadow-soft">
             <p className="ui-kicker">Partner Resources</p>
-            <h2 className="mt-3 ui-h2">ชุดความรู้และเอกสารสำหรับทีมส่งมอบ</h2>
-            <div className="mt-5 grid md:grid-cols-2 gap-4">
+            <h2 className="mt-3 ui-h3 md:text-2xl">ชุดเครื่องมือสำหรับทีมส่งมอบ</h2>
+            <div className="mt-5 grid md:grid-cols-2 2xl:grid-cols-4 gap-4">
               <TrackedLink
                 href="https://wiki.gumon.io/"
                 target="_blank"
                 rel="noreferrer"
-                className="route-card block"
+                className="route-card block h-full"
               >
                 <h3 className="ui-h3">Knowledge Base</h3>
-                <p className="mt-2 text-sm text-mist leading-relaxed">แนวทางการส่งมอบและคู่มือปฏิบัติงาน</p>
+                <p className="mt-2 text-sm text-mist leading-relaxed">แนวทางการส่งมอบและคู่มือใช้งานสำหรับทีมงาน</p>
               </TrackedLink>
               <TrackedLink
                 href="https://docs.gumon.io/"
                 target="_blank"
                 rel="noreferrer"
-                className="route-card block"
+                className="route-card block h-full"
               >
                 <h3 className="ui-h3">Technical Docs</h3>
-                <p className="mt-2 text-sm text-mist leading-relaxed">เอกสารอ้างอิงสำหรับทีมเทคนิคที่พัฒนาร่วมกับแพลตฟอร์ม</p>
+                <p className="mt-2 text-sm text-mist leading-relaxed">เอกสารอ้างอิงเชิงเทคนิคสำหรับทีมพัฒนา</p>
+              </TrackedLink>
+              <TrackedLink
+                href="https://work.gumon.io/"
+                target="_blank"
+                rel="noreferrer"
+                className="route-card block h-full"
+              >
+                <h3 className="ui-h3">Gumon Work</h3>
+                <p className="mt-2 text-sm text-mist leading-relaxed">Project/Task management สำหรับติดตามงานและวางแผนร่วมกัน</p>
+              </TrackedLink>
+              <TrackedLink
+                href="https://dkscenter.gumon.io/th"
+                target="_blank"
+                rel="noreferrer"
+                className="route-card block h-full"
+              >
+                <h3 className="ui-h3">Partner Training</h3>
+                <p className="mt-2 text-sm text-mist leading-relaxed">คอร์สและ workshop สำหรับทีมพาร์ตเนอร์ เพื่อยกระดับการส่งมอบ</p>
               </TrackedLink>
             </div>
           </div>
@@ -228,7 +243,7 @@ export default function PartnersPage() {
             <h2 className="mt-3 ui-h3">พร้อมเริ่มประเมินโอกาสร่วมงานแล้วหรือยัง</h2>
             <p className="mt-3 text-sm text-mist leading-relaxed">
               ส่งข้อมูลอุตสาหกรรม, โครงสร้างทีม และเป้าหมายเชิงธุรกิจของคุณมาได้
-              เพื่อให้ทีมช่วยวางแนวทางร่วมงานที่เหมาะสมได้ทันที.
+              เพื่อให้ทีมช่วยวางแนวทางร่วมงานที่เหมาะสมได้ทันที
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <TrackedLink href="/contact" className="btn-primary">

@@ -38,12 +38,14 @@ export default function CookieConsentBanner() {
   return (
     <div className="fixed bottom-4 left-1/2 z-[80] w-[min(760px,calc(100%-24px))] -translate-x-1/2 rounded-xl2 border border-line/30 bg-bg0/95 px-3 py-2.5 sm:px-4 sm:py-3 shadow-soft backdrop-blur-md">
       <div className="flex items-center justify-between gap-3">
-        <p className="min-w-0 text-[11px] sm:text-xs text-mist leading-snug">
-          เว็บไซต์นี้ใช้คุกกี้เพื่อการทำงานของระบบ{" "}
-          <Link href="/cookies" className="text-ink underline underline-offset-4 decoration-accent hover:decoration-ink transition">
-            Cookie Notice
-          </Link>
-        </p>
+        <div className="min-w-0 flex min-h-[36px] items-center">
+          <p className="text-[11px] sm:text-xs text-mist leading-snug">
+            เว็บไซต์นี้ใช้คุกกี้เพื่อการทำงานของระบบ{" "}
+            <Link href="/cookies" className="text-ink underline underline-offset-4 decoration-accent hover:decoration-ink transition">
+              Cookie Notice
+            </Link>
+          </p>
+        </div>
         <button
           type="button"
           onClick={acceptCookies}

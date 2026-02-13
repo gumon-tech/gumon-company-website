@@ -9,6 +9,7 @@ function encode(value: string) {
 export default function ContactLeadForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [topic, setTopic] = useState("technical");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -32,7 +33,7 @@ export default function ContactLeadForm() {
     setSuccess("");
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setError("กรุณากรอกข้อมูลให้ครบก่อนส่งคำขอ");
+      setError("กรุณากรอกข้อมูลให้ครบก่อนส่งข้อความ");
       return;
     }
 
@@ -42,9 +43,18 @@ export default function ContactLeadForm() {
       return;
     }
 
+    if (phone.trim()) {
+      const phonePattern = /^[0-9+\-\s()]{7,20}$/;
+      if (!phonePattern.test(phone.trim())) {
+        setError("รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง");
+        return;
+      }
+    }
+
     const lines = [
       `Name: ${name.trim()}`,
       `Email: ${email.trim()}`,
+      `Phone: ${phone.trim() || "-"}`,
       `Topic: ${topicLabel}`,
       `Submitted At: ${new Date().toISOString()}`,
       `Current URL: ${typeof window !== "undefined" ? window.location.href : ""}`,
@@ -72,6 +82,7 @@ export default function ContactLeadForm() {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
+          phone: phone.trim(),
           topic,
           topic_label: topicLabel,
           message: message.trim(),
@@ -85,9 +96,10 @@ export default function ContactLeadForm() {
         throw new Error(`Webhook failed: ${response.status}`);
       }
 
-      setSuccess("ส่งคำขอสำเร็จแล้ว ทีมจะติดต่อกลับโดยเร็วที่สุด");
+      setSuccess("ส่งข้อความสำเร็จแล้ว ทีมจะติดต่อกลับโดยเร็วที่สุด");
       setName("");
       setEmail("");
+      setPhone("");
       setMessage("");
     } catch {
       window.location.href = mailtoHref;
@@ -123,6 +135,19 @@ export default function ContactLeadForm() {
       </div>
 
       <div className="grid gap-2">
+        <label htmlFor="contact-phone" className="text-xs tracking-[0.14em] uppercase text-mist">เบอร์โทรศัพท์</label>
+        <input
+          id="contact-phone"
+          name="phone"
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="rounded-lg border border-line/40 bg-bg1/80 px-3 py-2 text-sm text-ink outline-none focus:border-accent/70"
+          placeholder="08x-xxx-xxxx"
+        />
+      </div>
+
+      <div className="grid gap-2">
         <label htmlFor="contact-topic" className="text-xs tracking-[0.14em] uppercase text-mist">หัวข้อ</label>
         <select
           id="contact-topic"
@@ -154,7 +179,7 @@ export default function ContactLeadForm() {
       {success ? <p className="text-xs text-accent">{success}</p> : null}
 
       <button type="submit" disabled={isSubmitting} className="btn-primary w-full sm:w-fit disabled:opacity-70 disabled:cursor-not-allowed">
-        {isSubmitting ? "กำลังส่ง..." : "ส่งคำขอ"}
+        {isSubmitting ? "กำลังส่ง…" : "ส่งข้อความ"}
       </button>
       <p className="text-xs text-mist">
         ข้อมูลของคุณจะถูกใช้เพื่อการติดต่อกลับและการประเมินแนวทางเริ่มต้นเท่านั้น

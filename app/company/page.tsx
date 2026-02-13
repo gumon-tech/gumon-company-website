@@ -1,6 +1,7 @@
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Link from "next/link";
+import { companyInfo } from "@/lib/companyInfo";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -90,7 +91,7 @@ export default function CompanyPage() {
           <h1 className="ui-h1">Gumon Technology สร้างโครงสร้างพื้นฐานซอฟต์แวร์ที่ทีมใช้งานได้จริงในงานประจำวัน</h1>
           <p className="mt-6 max-w-3xl ui-p">
             เราเป็นองค์กรเทคโนโลยีที่โฟกัส platform engineering และมาตรฐานการทำงานร่วมกัน
-            เพื่อให้ทีมพัฒนาและทีมธุรกิจเดินไปในทิศทางเดียวกันได้เร็วขึ้น.
+            เพื่อให้ทีมพัฒนาและทีมธุรกิจเดินไปในทิศทางเดียวกันได้เร็วขึ้น
           </p>
         </Reveal>
 
@@ -186,6 +187,25 @@ export default function CompanyPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+
+        <div id="legal-information" className="mt-12 card p-7 shadow-soft">
+          <p className="ui-kicker">Legal Information</p>
+          <h2 className="mt-3 ui-h2">ข้อมูลนิติบุคคล</h2>
+          <div className="mt-5 grid gap-3 text-sm text-mist leading-relaxed">
+            <div>
+              <span className="text-ink font-medium">ชื่อบริษัท:</span> {companyInfo.legalName}
+            </div>
+            <div>
+              <span className="text-ink font-medium">ที่อยู่จดทะเบียน:</span> {companyInfo.address}
+            </div>
+            <div>
+              <span className="text-ink font-medium">เลขทะเบียนนิติบุคคล:</span> {companyInfo.registrationNumber}
+            </div>
+            <div>
+              <span className="text-ink font-medium">วันที่จดทะเบียน:</span> {companyInfo.registeredAt}
+            </div>
           </div>
         </div>
       </div>

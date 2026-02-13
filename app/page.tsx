@@ -252,7 +252,7 @@ export default function Page() {
             <h2 className="mt-3 ui-h2 max-w-4xl">ภาพการทำงานร่วมกับหน่วยงานและพาร์ตเนอร์ในโครงการจริง</h2>
             <p className="ui-lead">
               คัดภาพจากกิจกรรมภาคสนามที่สะท้อนแนวทางทำงานของ Gumon ตั้งแต่การวางมาตรฐาน
-              การทำงานข้ามทีม ไปจนถึงการส่งมอบในสภาพแวดล้อมจริง.
+              การทำงานข้ามทีม ไปจนถึงการส่งมอบในสภาพแวดล้อมจริง
             </p>
           </Reveal>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -320,14 +320,20 @@ export default function Page() {
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="ui-kicker">Trusted Partners</p>
-              <h2 className="mt-2 ui-h2 max-w-4xl">เครือข่ายพาร์ตเนอร์ที่ทำงานบนมาตรฐานเดียวกันและส่งมอบได้จริง</h2>
+              <h2 className="mt-2 ui-h2 max-w-4xl">เครือข่ายพาร์ตเนอร์มาตรฐานเดียวที่ส่งมอบได้จริง</h2>
             </div>
             <TrackedLink href="/partners" className="btn-secondary-strong w-fit">ดูแนวทางการร่วมงาน</TrackedLink>
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {partners.map((partner) => (
-              <div key={partner.name} className="partner-item">
+              <TrackedLink
+                key={partner.name}
+                href={partner.website}
+                target="_blank"
+                rel="noreferrer"
+                className="partner-item"
+              >
 
                 {partner.logo ? (
                   <div className={`partner-logo-badge ${partner.logoFrameClass ?? "partner-logo-badge-circle"}`}>
@@ -347,17 +353,10 @@ export default function Page() {
                 )}
 
                 <div>
-                  <TrackedLink
-                    href={partner.website}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm font-medium leading-snug underline underline-offset-4 decoration-accent hover:decoration-ink transition"
-                  >
-                    {partner.name}
-                  </TrackedLink>
+                  <div className="text-sm font-medium leading-snug text-ink">{partner.name}</div>
                   <div className="text-xs text-mist mt-0.5">{partner.country}</div>
                 </div>
-              </div>
+              </TrackedLink>
             ))}
           </div>
 
@@ -413,7 +412,7 @@ export default function Page() {
             <h2 className="mt-3 ui-h2 max-w-4xl">พร้อมวางแผนเริ่มต้นให้โครงการเดินได้จริงในรอบถัดไปหรือยัง</h2>
             <p className="ui-lead">
               ส่งข้อมูลทีมและระบบปัจจุบันของคุณมาได้เลย เราจะช่วยวางแนวทางเริ่มต้นที่เหมาะกับเป้าหมายธุรกิจ
-              และข้อจำกัดขององค์กรคุณ.
+              และข้อจำกัดขององค์กรคุณ
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <TrackedLink href="/contact" className="btn-primary">นัดคุยกับทีมงาน</TrackedLink>
