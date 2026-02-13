@@ -8,10 +8,9 @@ const LEGACY_PREFIXES = [
   `app${path.sep}learning${path.sep}`,
   `app${path.sep}investors${path.sep}`,
   `app${path.sep}solutions${path.sep}`,
-  `app${path.sep}team${path.sep}`,
 ];
 
-const legacyRoutePattern = /href\s*=\s*["'`]\/(ecosystem|learning|investors|solutions|team)(?:\/["'`]|["'`])/g;
+const legacyRoutePattern = /href\s*=\s*["'`]\/(ecosystem|learning|investors|solutions)(?:\/["'`]|["'`])/g;
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;

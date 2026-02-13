@@ -32,12 +32,19 @@ export const metadata: Metadata = {
     description:
       "Open Platform ที่ออกแบบเพื่อการส่งมอบจริง เชื่อมทีมเทคโนโลยี พาร์ตเนอร์ และการเติบโตเชิงธุรกิจเข้าด้วยกัน",
     url: "/",
+    images: [
+      {
+        url: "/assets/from-gumon/gumon_arc.png",
+        alt: "Gumon Technology",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Gumon Technology",
     description:
       "Open Platform ที่ออกแบบเพื่อการส่งมอบจริง เชื่อมทีมเทคโนโลยี พาร์ตเนอร์ และการเติบโตเชิงธุรกิจเข้าด้วยกัน",
+    images: ["/assets/from-gumon/gumon_arc.png"],
   },
 };
 
