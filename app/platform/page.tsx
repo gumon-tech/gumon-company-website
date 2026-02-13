@@ -60,6 +60,8 @@ export default function PlatformPage() {
             alt="Gumon platform architecture"
             width={1600}
             height={900}
+            sizes="(min-width: 1024px) 1100px, 94vw"
+            priority
             className="mx-auto w-full h-auto max-h-[52vh] md:max-h-[60vh] lg:max-h-[68vh] object-contain rounded-xl border border-line/40 bg-bg1"
           />
           <div className="mt-3 px-1">

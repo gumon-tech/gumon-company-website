@@ -9,12 +9,19 @@ export default function CookieConsentBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let timer: number | undefined;
     try {
       const saved = window.localStorage.getItem(STORAGE_KEY);
-      setVisible(saved !== "accepted");
+      if (saved !== "accepted") {
+        // Delay a bit so the banner does not compete with above-the-fold content during initial paint.
+        timer = window.setTimeout(() => setVisible(true), 1200);
+      }
     } catch {
-      setVisible(true);
+      timer = window.setTimeout(() => setVisible(true), 1200);
     }
+    return () => {
+      if (timer) window.clearTimeout(timer);
+    };
   }, []);
 
   const acceptCookies = () => {
@@ -29,17 +36,24 @@ export default function CookieConsentBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-[80] w-[min(980px,calc(100%-24px))] -translate-x-1/2 rounded-xl2 border border-line/30 bg-bg0/95 p-4 shadow-soft backdrop-blur-md">
-      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div className="text-sm text-mist leading-relaxed">
-          เว็บไซต์นี้ใช้คุกกี้เพื่อให้ระบบทำงานได้เหมาะสมและปรับปรุงประสบการณ์การใช้งาน
-          ดูรายละเอียดได้ที่{" "}
+    <div className="fixed bottom-4 left-1/2 z-[80] w-[min(760px,calc(100%-24px))] -translate-x-1/2 rounded-xl2 border border-line/30 bg-bg0/95 px-3 py-2.5 sm:px-4 sm:py-3 shadow-soft backdrop-blur-md">
+      <div className="flex items-center justify-between gap-3">
+        <p className="min-w-0 text-[11px] sm:text-xs text-mist leading-snug">
+          เว็บไซต์นี้ใช้คุกกี้เพื่อการทำงานของระบบ{" "}
           <Link href="/cookies" className="text-ink underline underline-offset-4 decoration-accent hover:decoration-ink transition">
             Cookie Notice
           </Link>
-        </div>
-        <button type="button" onClick={acceptCookies} className="btn-primary w-full md:w-auto">
-          ยอมรับคุกกี้
+        </p>
+        <button
+          type="button"
+          onClick={acceptCookies}
+          className="shrink-0 inline-flex items-center justify-center rounded-full border border-transparent px-3.5 py-1.5 text-xs font-semibold text-bg0"
+          style={{
+            background: "linear-gradient(120deg, rgb(var(--accent)) 0%, rgb(var(--accent2)) 100%)",
+            boxShadow: "0 6px 16px rgb(var(--accent) / 0.26)",
+          }}
+        >
+          ยอมรับ
         </button>
       </div>
     </div>

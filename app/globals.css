@@ -82,11 +82,11 @@ h4 {
 }
 
 .ui-h1 {
-  @apply mt-4 text-[clamp(1.95rem,7.8vw,3.55rem)] font-semibold leading-[1.2] tracking-[-0.01em] md:leading-[1.14];
+  @apply mt-4 text-[clamp(1.72rem,7.2vw,3.55rem)] font-semibold leading-[1.4] tracking-[-0.01em] md:leading-[1.3];
 }
 
 .ui-h2 {
-  @apply text-[clamp(1.55rem,5.4vw,2.2rem)] font-semibold leading-[1.22] tracking-[-0.01em];
+  @apply text-[clamp(1.35rem,5vw,2.2rem)] font-semibold leading-[1.28] tracking-[-0.01em];
 }
 
 .ui-h3 {
@@ -94,11 +94,19 @@ h4 {
 }
 
 .ui-p {
-  @apply text-[15px] md:text-lg text-ink/90 leading-relaxed;
+  @apply text-[15px] md:text-lg text-ink/90 leading-7 md:leading-relaxed;
+}
+
+.ui-lead {
+  @apply mt-3 text-sm md:text-base text-mist leading-7 md:leading-relaxed max-w-[36ch] sm:max-w-2xl lg:max-w-3xl;
 }
 
 .ui-small {
   @apply text-[13px] text-mist leading-relaxed;
+}
+
+.section-break {
+  @apply mt-16 md:mt-14 border-t border-line/20 pt-8 md:border-0 md:pt-0;
 }
 
 .glass {
@@ -266,27 +274,32 @@ h4 {
   @apply btn-base border-line/60 bg-bg1/85 text-ink hover:bg-surf/80 hover:border-line/80;
 }
 
+.btn-secondary-strong {
+  @apply btn-base border-line/70 bg-surf/80 text-ink hover:bg-surf hover:border-accent/55;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.06),
+    0 8px 20px rgb(2 8 16 / 0.36);
+}
+
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-mist hover:text-ink hover:bg-surf/65 transition;
   }
 
   .partner-item {
     @apply rounded-xl border border-line/35 bg-surf/50 p-4 flex items-center gap-3 transition;
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
   }
 
   .partner-item:hover {
-    @apply border-line/60 bg-surf/70;
+    @apply border-line/70 bg-surf/70;
   }
 
   .partner-logo-wrap {
-    @apply relative h-12 w-20 shrink-0 rounded-lg border border-line/45 grid place-items-center overflow-hidden px-1.5;
-    background:
-      radial-gradient(120% 90% at 12% 15%, rgb(var(--accent) / 0.14), transparent 65%),
-      linear-gradient(160deg, rgb(var(--bg1) / 0.96), rgb(var(--bg0) / 0.94));
+    @apply relative h-16 w-24 shrink-0 rounded-lg border border-line/45 grid place-items-center overflow-hidden p-2;
+    background: linear-gradient(180deg, rgb(var(--bg1) / 0.9), rgb(var(--bg0) / 0.92));
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.06),
-      0 8px 18px rgb(1 7 15 / 0.32);
+      0 8px 20px rgb(1 7 15 / 0.26);
   }
 
   .partner-logo-wrap::after {
@@ -298,16 +311,33 @@ h4 {
     pointer-events: none;
   }
 
-  .partner-logo {
-    @apply relative z-[1] h-10 w-full object-contain rounded-md;
-    background: linear-gradient(180deg, rgb(var(--bg0) / 0.34), rgb(var(--bg0) / 0.12));
-    border: 1px solid rgb(var(--line) / 0.2);
-    padding: 4px 6px;
-    filter: contrast(1.08) saturate(1.06) drop-shadow(0 2px 8px rgb(4 10 18 / 0.5));
+  .partner-logo-badge {
+    @apply relative z-[1] h-[52px] w-[52px] bg-white grid place-items-center overflow-hidden;
+    border: 1px solid rgb(203 213 225 / 0.95);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.78),
+      0 8px 14px rgb(2 8 16 / 0.16);
   }
 
-  .partner-logo-fallback {
-    @apply h-9 w-9 rounded-md bg-accent/20 text-accent text-xs font-semibold tracking-[0.08em] grid place-items-center;
+  .partner-logo-badge-circle {
+    border-radius: 999px;
+  }
+
+  .partner-logo-badge-square {
+    border-radius: 0.8rem;
+  }
+
+  @media (min-width: 1024px) {
+    .partner-logo-wrap {
+      height: 4.5rem;
+      width: 7rem;
+      padding: 0.45rem;
+    }
+
+    .partner-logo-badge {
+      height: 3.7rem;
+      width: 3.7rem;
+    }
   }
 
   .route-card {
@@ -317,6 +347,22 @@ h4 {
 
   .feature-list li {
     @apply text-sm text-mist leading-relaxed;
+  }
+}
+
+@media (max-width: 767px) {
+  .ui-section {
+    @apply py-12;
+  }
+
+  .mobile-menu-panel {
+    top: 68px;
+    border-radius: 18px;
+    padding: 14px;
+  }
+
+  .route-card {
+    @apply p-5;
   }
 }
 

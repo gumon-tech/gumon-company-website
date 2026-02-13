@@ -5,7 +5,7 @@ import Image from "next/image";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
-  title: "Home",
+  title: "Open Platform for Delivery Teams",
   description:
     "Gumon Technology คือแพลตฟอร์มเทคโนโลยีสำหรับองค์กรที่ต้องการเริ่มโครงการได้เร็ว คุมมาตรฐานการพัฒนา และส่งมอบระบบได้ต่อเนื่อง",
   path: "/",
@@ -91,10 +91,10 @@ const outcomeSnapshots = [
 ];
 
 const partners = [
-  { name: "Asia Connect Corporation", country: "Thailand", website: "https://www.asiaconnectth.com", short: "AC", logo: "/assets/partners/asia-connect.png" },
-  { name: "AC Academys", country: "Thailand", website: "https://acacademys.com", short: "AC", logo: "/assets/partners/ac-academys.png" },
-  { name: "Olufy-X", country: "Thailand", website: "https://olufy.com", short: "OX", logo: "/assets/partners/olufy-x.png" },
-  { name: "Taitam-D", country: "United Kingdom", website: "https://taitam-d.com", short: "TD", logo: "/assets/partners/taitam-d.png" },
+  { name: "Asia Connect Corporation", country: "Thailand", website: "https://www.asiaconnectth.com", short: "AC", logo: "/assets/partners/asia-connect.png", logoScaleClass: "partner-logo-scale-98", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "AC Academys", country: "Thailand", website: "https://acacademys.com", short: "AC", logo: "/assets/partners/ac-academys.png", logoScaleClass: "partner-logo-scale-92", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "Olufy-X", country: "Thailand", website: "https://olufy.com", short: "OX", logo: "/assets/partners/olufy-x.png", logoScaleClass: "partner-logo-scale-90", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "Taitam-D", country: "United Kingdom", website: "https://taitam-d.com", short: "TD", logo: "/assets/partners/taitam-d.png", logoScaleClass: "partner-logo-scale-88", logoFrameClass: "partner-logo-badge-circle" },
 ];
 
 const trustStats = [
@@ -180,18 +180,18 @@ export default function Page() {
       <BreadcrumbJsonLd items={[]} />
       <div className="ui-container">
         <Reveal>
-          <p className="ui-kicker">OPEN PLATFORM สำหรับองค์กรที่ต้องการส่งมอบงานได้เร็วและคุมมาตรฐานได้จริง</p>
-          <h1 className="ui-h1">ยกระดับจากการทำโปรเจกต์แบบแยกส่วน ไปสู่รอบส่งมอบที่ต่อเนื่องและคาดการณ์ได้</h1>
-          <p className="mt-6 max-w-3xl ui-p">
-            Gumon ช่วยรวมเวิร์กโฟลว์ของทีมเทคโนโลยีและพาร์ตเนอร์ไว้บนมาตรฐานเดียว
-            ตั้งแต่การออกแบบโครงสร้าง การเชื่อมต่อบริการ จนถึงการปล่อยงานจริงในรอบที่วัดผลได้.
+          <p className="ui-kicker">OPEN PLATFORM ที่วัดผลได้จริง</p>
+          <h1 className="ui-h1">ส่งมอบได้เร็วขึ้น ลดความเสี่ยงเชิงโครงสร้าง และพร้อมขยายระบบอย่างมั่นใจ</h1>
+          <p className="mt-6 max-w-[34ch] sm:max-w-2xl lg:max-w-3xl ui-p">
+            Gumon รวมมาตรฐานเทคโนโลยี เอกสาร และแนวปฏิบัติไว้บนแพลตฟอร์มเดียว
+            ช่วยให้องค์กรเดินงานได้ไวขึ้น ควบคุมคุณภาพได้ต่อเนื่อง และวัดผลได้จริง
           </p>
         </Reveal>
 
         <Reveal delay={80}>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <TrackedLink href="/contact" className="btn-primary">ปรึกษาทีม Gumon</TrackedLink>
-            <TrackedLink href="/platform" className="btn-secondary">ดูโครงสร้างแพลตฟอร์ม</TrackedLink>
+            <TrackedLink href="/platform" className="btn-secondary-strong">ดูผลลัพธ์การใช้งาน</TrackedLink>
           </div>
         </Reveal>
 
@@ -206,10 +206,10 @@ export default function Page() {
           ))}
         </div>
 
-        <div className="mt-14 card p-7 shadow-soft">
+        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">Platform Foundation</p>
-            <h2 className="mt-3 ui-h2">โครงสร้าง 3 ชั้นที่ช่วยให้ทีมทำงานเร็วขึ้นโดยไม่เสียมาตรฐาน</h2>
+            <h2 className="mt-3 ui-h2 max-w-4xl">โครงสร้าง 3 ชั้นที่ช่วยให้ทีมทำงานเร็วขึ้นโดยไม่เสียมาตรฐาน</h2>
           </Reveal>
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {foundationBlocks.map((block, index) => (
@@ -223,10 +223,10 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="section-break">
           <Reveal>
             <p className="ui-kicker">Role Paths</p>
-            <h2 className="mt-3 ui-h2">เลือกแนวทางที่ตรงกับบทบาทของคุณ แล้วเริ่มงานได้ทันที</h2>
+            <h2 className="mt-3 ui-h2 max-w-4xl">เลือกแนวทางที่ตรงกับบทบาทของคุณ แล้วเริ่มงานได้ทันที</h2>
           </Reveal>
           <div className="mt-6 grid md:grid-cols-3 gap-5">
             {roleCards.map((card, index) => (
@@ -246,16 +246,16 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="section-break">
           <Reveal>
             <p className="ui-kicker">Selected Field Works</p>
-            <h2 className="mt-3 ui-h2">ภาพการทำงานร่วมกับหน่วยงานและพาร์ตเนอร์ในโครงการจริง</h2>
-            <p className="mt-3 text-sm md:text-base text-mist leading-relaxed max-w-3xl">
+            <h2 className="mt-3 ui-h2 max-w-4xl">ภาพการทำงานร่วมกับหน่วยงานและพาร์ตเนอร์ในโครงการจริง</h2>
+            <p className="ui-lead">
               คัดภาพจากกิจกรรมภาคสนามที่สะท้อนแนวทางทำงานของ Gumon ตั้งแต่การวางมาตรฐาน
               การทำงานข้ามทีม ไปจนถึงการส่งมอบในสภาพแวดล้อมจริง.
             </p>
           </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {selectedFieldWorks.map((item, index) => (
               <Reveal key={item.title} delay={index * 60}>
                 <article className="card p-4 shadow-soft h-full">
@@ -265,6 +265,9 @@ export default function Page() {
                       alt={item.title}
                       width={1200}
                       height={800}
+                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 47vw, 92vw"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-48 object-cover"
                     />
                   </div>
@@ -277,10 +280,10 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14 card p-7 shadow-soft">
+        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">Delivery Workflow</p>
-            <h2 className="mt-3 ui-h2">แนวทางเริ่มต้น 3 ขั้นตอนสำหรับทำให้การส่งมอบเดินต่อได้จริง</h2>
+            <h2 className="mt-3 ui-h2 max-w-4xl">แนวทางเริ่มต้น 3 ขั้นตอนสำหรับทำให้การส่งมอบเดินต่อได้จริง</h2>
           </Reveal>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {deliveryWorkflow.map((item, index) => (
@@ -295,10 +298,10 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="section-break">
           <Reveal>
             <p className="ui-kicker">Proof Metrics</p>
-            <h2 className="mt-3 ui-h2">ตัวชี้วัดตั้งต้นที่ใช้ติดตามความพร้อมก่อนขยายโครงการ</h2>
+            <h2 className="mt-3 ui-h2 max-w-4xl">ตัวชี้วัดตั้งต้นที่ใช้ติดตามความพร้อมก่อนขยายโครงการ</h2>
           </Reveal>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {proofMetrics.map((item, index) => (
@@ -313,31 +316,36 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14 card p-7 shadow-soft">
+        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="ui-kicker">Trusted Partners</p>
-              <h2 className="mt-2 ui-h2">เครือข่ายพาร์ตเนอร์ที่ทำงานบนมาตรฐานเดียวกันและส่งมอบได้จริง</h2>
+              <h2 className="mt-2 ui-h2 max-w-4xl">เครือข่ายพาร์ตเนอร์ที่ทำงานบนมาตรฐานเดียวกันและส่งมอบได้จริง</h2>
             </div>
-            <TrackedLink href="/partners" className="btn-secondary w-fit">ดูแนวทางการร่วมงาน</TrackedLink>
+            <TrackedLink href="/partners" className="btn-secondary-strong w-fit">ดูแนวทางการร่วมงาน</TrackedLink>
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {partners.map((partner) => (
               <div key={partner.name} className="partner-item">
-                <div className="partner-logo-wrap">
-                  {partner.logo ? (
+
+                {partner.logo ? (
+                  <div className={`partner-logo-badge ${partner.logoFrameClass ?? "partner-logo-badge-circle"}`}>
                     <Image
                       src={partner.logo}
                       alt={`${partner.name} logo`}
                       width={112}
                       height={40}
-                      className="partner-logo"
+                      sizes="112px"
+                      loading="lazy"
+                      decoding="async"
+                      className={`partner-logo ${partner.logoScaleClass}`}
                     />
-                  ) : (
-                    <div className="partner-logo-fallback" aria-label={`${partner.name} monogram`}>{partner.short}</div>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  <div className="partner-logo-fallback" aria-label={`${partner.name} monogram`}>{partner.short}</div>
+                )}
+
                 <div>
                   <TrackedLink
                     href={partner.website}
@@ -362,10 +370,10 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14 card p-7 shadow-soft">
+        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">Mini Cases</p>
-            <h2 className="mt-3 ui-h2">ตัวอย่างโจทย์ที่ใช้กรอบเดียวกันในการส่งมอบ</h2>
+            <h2 className="mt-3 ui-h2 max-w-4xl">ตัวอย่างโจทย์ที่ใช้กรอบเดียวกันในการส่งมอบ</h2>
           </Reveal>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {miniCases.map((item, index) => (
@@ -381,10 +389,10 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="section-break">
           <Reveal>
             <p className="ui-kicker">Outcome Snapshot</p>
-            <h2 className="mt-3 ui-h2">ผลลัพธ์ที่ทีมผู้บริหารและทีมเทคโนโลยีต้องเห็นร่วมกัน</h2>
+            <h2 className="mt-3 ui-h2 max-w-4xl">ผลลัพธ์ที่ทีมผู้บริหารและทีมเทคโนโลยีต้องเห็นร่วมกัน</h2>
           </Reveal>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {outcomeSnapshots.map((item, index) => (
@@ -400,16 +408,16 @@ export default function Page() {
         </div>
 
         <Reveal delay={120}>
-          <div className="mt-14 card p-7 shadow-soft">
+          <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
             <p className="ui-kicker">Next Step</p>
-            <h2 className="mt-3 ui-h2">พร้อมวางแผนเริ่มต้นให้โครงการเดินได้จริงในรอบถัดไปหรือยัง</h2>
-            <p className="mt-3 text-sm md:text-base text-mist leading-relaxed max-w-3xl">
+            <h2 className="mt-3 ui-h2 max-w-4xl">พร้อมวางแผนเริ่มต้นให้โครงการเดินได้จริงในรอบถัดไปหรือยัง</h2>
+            <p className="ui-lead">
               ส่งข้อมูลทีมและระบบปัจจุบันของคุณมาได้เลย เราจะช่วยวางแนวทางเริ่มต้นที่เหมาะกับเป้าหมายธุรกิจ
               และข้อจำกัดขององค์กรคุณ.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <TrackedLink href="/contact" className="btn-primary">นัดคุยกับทีมงาน</TrackedLink>
-              <TrackedLink href="/resources" className="btn-secondary">ดูข้อมูลเพิ่มเติม</TrackedLink>
+              <TrackedLink href="/resources" className="btn-secondary-strong">ดูข้อมูลเพิ่มเติม</TrackedLink>
             </div>
           </div>
         </Reveal>

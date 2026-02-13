@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     default: "Gumon Technology | Open Platform for Delivery Teams",
     template: "%s | Gumon Technology",
   },
+  icons: {
+    icon: "/assets/logo/gumon-mark.png",
+    shortcut: "/assets/logo/gumon-mark.png",
+    apple: "/assets/logo/gumon-mark.png",
+  },
   description:
     "แพลตฟอร์มเทคโนโลยีแบบเปิดสำหรับองค์กรที่ต้องการส่งมอบซอฟต์แวร์ได้เร็วขึ้น มาตรฐานชัดเจน และขยายระบบได้อย่างยั่งยืน",
   alternates: {
@@ -132,12 +137,12 @@ export default function RootLayout({
           <div className="ui-container h-16 lg:h-[72px] flex items-center justify-between gap-3">
             <Link href="/" className="flex items-center gap-3">
               <span className="logo-swap" aria-label="Gumon mark">
-                <Image src="/assets/logo/gumon-white.png" alt="Gumon" width={36} height={36} className="logo-inst" />
-                <Image src="/assets/logo/gumon-slate.png" alt="Gumon" width={36} height={36} className="logo-field" />
-                <Image src="/assets/logo/gumon-olive.png" alt="Gumon" width={36} height={36} className="logo-lab" />
+                <Image src="/assets/logo/gumon-white.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-inst" />
+                <Image src="/assets/logo/gumon-slate.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-field" />
+                <Image src="/assets/logo/gumon-olive.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-lab" />
               </span>
               <div className="leading-tight">
-                <div className="text-sm font-semibold">Gumon Technology</div>
+                <div className="text-[13px] sm:text-sm font-semibold">Gumon Technology</div>
                 <div className="hidden lg:block text-[10px] tracking-[0.24em] uppercase text-mist">
                   Open Source Platform Systems
                 </div>
@@ -151,16 +156,16 @@ export default function RootLayout({
             </nav>
 
             <details className="mobile-menu xl:hidden">
-              <summary className="btn-ghost px-3 py-1.5 list-none cursor-pointer [&::-webkit-details-marker]:hidden">
+              <summary className="inline-flex items-center rounded-full border border-line/55 bg-bg1/75 px-3.5 py-2 text-sm font-medium text-ink list-none cursor-pointer hover:bg-surf/70 transition [&::-webkit-details-marker]:hidden">
                 เมนู
               </summary>
               <div className="mobile-menu-panel">
-                <div className="grid gap-3 text-sm">
+                <div className="grid gap-3 text-[15px]">
                   {navItems.map((item) => (
                     <TrackedLink
                       key={item.href}
                       href={item.href}
-                      className="rounded-lg px-3 py-2 text-mist hover:text-ink hover:bg-bg1/60 transition"
+                      className="rounded-lg px-3 py-2.5 text-mist hover:text-ink hover:bg-bg1/60 transition"
                     >
                       {item.label}
                     </TrackedLink>
@@ -170,7 +175,7 @@ export default function RootLayout({
                     href="https://docs.gumon.io/"
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-lg px-3 py-2 text-mist hover:text-ink hover:bg-bg1/60 transition"
+                    className="rounded-lg px-3 py-2.5 text-mist hover:text-ink hover:bg-bg1/60 transition"
                   >
                     Docs
                   </TrackedLink>
@@ -178,7 +183,7 @@ export default function RootLayout({
                     href="https://wiki.gumon.io/"
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-lg px-3 py-2 text-mist hover:text-ink hover:bg-bg1/60 transition"
+                    className="rounded-lg px-3 py-2.5 text-mist hover:text-ink hover:bg-bg1/60 transition"
                   >
                     Knowledge Base
                   </TrackedLink>

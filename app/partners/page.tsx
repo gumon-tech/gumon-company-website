@@ -49,10 +49,10 @@ const fairPlayPrinciples = [
 ];
 
 const partnerNetwork = [
-  { name: "Asia Connect Corporation", country: "Thailand", website: "https://www.asiaconnectth.com", logo: "/assets/partners/asia-connect.png" },
-  { name: "AC Academys", country: "Thailand", website: "https://acacademys.com", logo: "/assets/partners/ac-academys.png" },
-  { name: "Olufy-X", country: "Thailand", website: "https://olufy.com", logo: "/assets/partners/olufy-x.png" },
-  { name: "Taitam-D", country: "United Kingdom", website: "https://taitam-d.com", logo: "/assets/partners/taitam-d.png" },
+  { name: "Asia Connect Corporation", country: "Thailand", website: "https://www.asiaconnectth.com", logo: "/assets/partners/asia-connect.png", logoScaleClass: "partner-logo-scale-98", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "AC Academys", country: "Thailand", website: "https://acacademys.com", logo: "/assets/partners/ac-academys.png", logoScaleClass: "partner-logo-scale-92", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "Olufy-X", country: "Thailand", website: "https://olufy.com", logo: "/assets/partners/olufy-x.png", logoScaleClass: "partner-logo-scale-90", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "Taitam-D", country: "United Kingdom", website: "https://taitam-d.com", logo: "/assets/partners/taitam-d.png", logoScaleClass: "partner-logo-scale-88", logoFrameClass: "partner-logo-badge-circle" },
 ];
 
 const trustSignals = [
@@ -151,13 +151,18 @@ export default function PartnersPage() {
             {partnerNetwork.map((partner) => (
               <div key={partner.name} className="partner-item">
                 <div className="partner-logo-wrap">
-                  <Image
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    width={112}
-                    height={40}
-                    className="partner-logo"
-                  />
+                  <div className={`partner-logo-badge ${partner.logoFrameClass ?? "partner-logo-badge-circle"}`}>
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={112}
+                      height={40}
+                      sizes="112px"
+                      loading="lazy"
+                      decoding="async"
+                      className={`partner-logo ${partner.logoScaleClass}`}
+                    />
+                  </div>
                 </div>
                 <div>
                   <TrackedLink

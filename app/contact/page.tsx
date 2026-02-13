@@ -134,6 +134,9 @@ export default function ContactPage() {
                         alt={`${item.name} logo`}
                         width={20}
                         height={20}
+                        sizes="20px"
+                        loading="lazy"
+                        decoding="async"
                         className="opacity-90 brightness-0 invert"
                       />
                     </div>
