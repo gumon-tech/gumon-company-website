@@ -30,6 +30,7 @@ npm run build
 - `/cookies`
 
 ## Content + KPI docs
+- `docs/release-note-ia-migration.md`
 - `docs/web-redesign-structure-theme.md`
 - `docs/content-matrix.md`
 - `docs/kpi-tracking-plan.md`
