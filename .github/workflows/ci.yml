@@ -25,13 +25,7 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: IA Guard
-        run: npm run check:ia
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Build
+      - name: Release Checks
         env:
           NEXT_PUBLIC_SITE_URL: https://web.gumon.dev
-        run: npm run build
+        run: npm run check:release

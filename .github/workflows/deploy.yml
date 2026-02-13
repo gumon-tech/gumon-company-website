@@ -30,16 +30,10 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: IA Guard
-        run: npm run check:ia
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Build (static export)
+      - name: Release Checks (includes build)
         env:
           NEXT_PUBLIC_SITE_URL: https://web.gumon.dev
-        run: npm run build
+        run: npm run check:release
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
