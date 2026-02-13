@@ -12,25 +12,25 @@ export const metadata = buildPageMetadata({
 });
 
 const teamMembers = [
-  { name: "Komphet Meesab", role: "Chief Executive Officer", image: "https://gumon.io/images/team/komphet.jpg" },
-  { name: "Panitchai Chaenglek", role: "Head of Research and Development Division", image: "https://gumon.io/images/team/o.jpg" },
-  { name: "Kritsada Suriyachan", role: "Head of Technology Solutions Division", image: "https://gumon.io/images/team/newDev.jpg" },
-  { name: "Niti Kosutao", role: "Backend Developer", image: "https://gumon.io/images/team/drink.png" },
-  { name: "Apirat Jamnongrat", role: "Frontend Developer", image: "https://gumon.io/images/team/palm.jpg" },
-  { name: "Pongsathon Tungkanakul", role: "Frontend Developer", image: "https://gumon.io/images/team/peach.jpg" },
-  { name: "Poomchanok Sangprasert", role: "Frontend Developer", image: "https://gumon.io/images/team/Pea.jfif" },
-  { name: "Sorawit Poemponsri", role: "UX/UI Designer", image: "https://gumon.io/images/team/F.jpg" },
-  { name: "Sittipong Sainum", role: "Digital and Technology Social Network Officer", image: "https://gumon.io/images/team/ken.jpg" },
-  { name: "Suvapat Pimklang", role: "Mobile Developer", image: "https://gumon.io/images/team/Stamp.jpg" },
-  { name: "Witsawachit Wangklang", role: "Project Manager", image: "https://gumon.io/images/team/Mark.jpg" },
-  { name: "Noppon Changchai", role: "Media Staff", image: "https://gumon.io/images/team/Nop.jpg" },
-  { name: "Pramin Wangwun", role: "Fullstack Developer", image: "https://gumon.io/images/team/Owen.png" },
-  { name: "Thanathorn Chulay", role: "Fullstack Developer", image: "https://gumon.io/images/team/Petch.png" },
-  { name: "Parichat Hongsa", role: "Fullstack Developer", image: "https://gumon.io/images/team/Donut.png" },
-  { name: "Irin Maysasittiroj", role: "Fullstack Developer", image: "https://gumon.io/images/team/View.png" },
-  { name: "Nuntakarn Paonariang", role: "Business Analyst", image: "https://gumon.io/images/team/Pure.png" },
-  { name: "Suriya Thanee", role: "Media Staff", image: "https://gumon.io/images/team/Pjent.png" },
-  { name: "Wichayoot Wongsason", role: "Media Staff", image: "https://gumon.io/images/team/Shi-ryu.jpg" },
+  { name: "Komphet Meesab", role: "Chief Executive Officer", image: "https://gumon.io/images/team/komphet.jpg", crop: "50% 12%" },
+  { name: "Panitchai Chaenglek", role: "Head of Research and Development Division", image: "https://gumon.io/images/team/o.jpg", crop: "50% 12%" },
+  { name: "Kritsada Suriyachan", role: "Head of Technology Solutions Division", image: "https://gumon.io/images/team/newDev.jpg", crop: "50% 10%" },
+  { name: "Niti Kosutao", role: "Backend Developer", image: "https://gumon.io/images/team/drink.png", crop: "50% 12%" },
+  { name: "Apirat Jamnongrat", role: "Frontend Developer", image: "https://gumon.io/images/team/palm.jpg", crop: "50% 14%" },
+  { name: "Pongsathon Tungkanakul", role: "Frontend Developer", image: "https://gumon.io/images/team/peach.jpg", crop: "50% 14%" },
+  { name: "Poomchanok Sangprasert", role: "Frontend Developer", image: "https://gumon.io/images/team/Pea.jfif", crop: "50% 14%" },
+  { name: "Sorawit Poemponsri", role: "UX/UI Designer", image: "https://gumon.io/images/team/F.jpg", crop: "50% 12%" },
+  { name: "Sittipong Sainum", role: "Digital and Technology Social Network Officer", image: "https://gumon.io/images/team/ken.jpg", crop: "50% 12%" },
+  { name: "Suvapat Pimklang", role: "Mobile Developer", image: "https://gumon.io/images/team/Stamp.jpg", crop: "50% 12%" },
+  { name: "Witsawachit Wangklang", role: "Project Manager", image: "https://gumon.io/images/team/Mark.jpg", crop: "50% 12%" },
+  { name: "Noppon Changchai", role: "Media Staff", image: "https://gumon.io/images/team/Nop.jpg", crop: "50% 12%" },
+  { name: "Pramin Wangwun", role: "Fullstack Developer", image: "https://gumon.io/images/team/Owen.png", crop: "50% 10%" },
+  { name: "Thanathorn Chulay", role: "Fullstack Developer", image: "https://gumon.io/images/team/Petch.png", crop: "50% 10%" },
+  { name: "Parichat Hongsa", role: "Fullstack Developer", image: "https://gumon.io/images/team/Donut.png", crop: "50% 10%" },
+  { name: "Irin Maysasittiroj", role: "Fullstack Developer", image: "https://gumon.io/images/team/View.png", crop: "50% 10%" },
+  { name: "Nuntakarn Paonariang", role: "Business Analyst", image: "https://gumon.io/images/team/Pure.png", crop: "50% 10%" },
+  { name: "Suriya Thanee", role: "Media Staff", image: "https://gumon.io/images/team/Pjent.png", crop: "50% 10%" },
+  { name: "Wichayoot Wongsason", role: "Media Staff", image: "https://gumon.io/images/team/Shi-ryu.jpg", crop: "50% 10%" },
 ];
 
 export default function TeamPage() {
@@ -46,17 +46,18 @@ export default function TeamPage() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {teamMembers.map((member, index) => (
             <Reveal key={member.name} delay={index * 50}>
               <article className="route-card h-full">
-                <div className="relative overflow-hidden rounded-xl border border-line/30 bg-bg1/60 aspect-[4/3]">
+                <div className="relative overflow-hidden rounded-xl border border-line/30 bg-bg1/60 aspect-square">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 100vw"
                     className="object-cover"
+                    style={{ objectPosition: member.crop }}
                   />
                 </div>
                 <h2 className="mt-4 ui-h3">{member.name}</h2>

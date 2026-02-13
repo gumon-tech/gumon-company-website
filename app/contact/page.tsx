@@ -31,6 +31,19 @@ const routes = [
   },
 ];
 
+const socialChannels = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/gumon",
+    handle: "linkedin.com/company/gumon",
+  },
+  {
+    name: "Facebook",
+    href: "https://facebook.com/gumon.tech",
+    handle: "facebook.com/gumon.tech",
+  },
+];
+
 export default function ContactPage() {
   return (
     <section className="ui-section">
@@ -74,10 +87,24 @@ export default function ContactPage() {
                 <div className="text-[11px] tracking-[0.16em] uppercase text-mist">Email</div>
                 <div className="mt-1 text-ink">contact@gumon.io</div>
               </TrackedLink>
-              <TrackedLink href="https://www.linkedin.com/company/gumon" target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition">
-                <div className="text-[11px] tracking-[0.16em] uppercase text-mist">LinkedIn</div>
-                <div className="mt-1 text-ink">linkedin.com/company/gumon</div>
-              </TrackedLink>
+            </div>
+
+            <div className="mt-6">
+              <p className="ui-kicker">Social Media</p>
+              <div className="mt-3 grid gap-3 text-sm">
+                {socialChannels.map((item) => (
+                  <TrackedLink
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="card p-4 hover:border-ink/30 transition"
+                  >
+                    <div className="text-[11px] tracking-[0.16em] uppercase text-mist">{item.name}</div>
+                    <div className="mt-1 text-ink">{item.handle}</div>
+                  </TrackedLink>
+                ))}
+              </div>
             </div>
 
             <div className="mt-6">
