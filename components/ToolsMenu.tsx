@@ -54,7 +54,7 @@ export default function ToolsMenu() {
         <>
           <button
             type="button"
-            aria-label="Close tools menu backdrop"
+            aria-label={copy.closeToolsMenuBackdropAria}
             className="fixed inset-0 top-[72px] z-[100] bg-[rgb(2_5_10/0.32)]"
             onClick={closeMenu}
           />

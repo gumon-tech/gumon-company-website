@@ -28,6 +28,9 @@ export type HomeCopy = {
   resourceCta: string;
   miniCasesKicker: string;
   miniCasesHeading: string;
+  caseProblemLabel: string;
+  caseApproachLabel: string;
+  caseOutcomeLabel: string;
   nextStepKicker: string;
   nextStepHeading: string;
   nextStepLead: string;
@@ -88,6 +91,9 @@ export const homeContent: Partial<Record<Locale, HomeCopy>> = {
     resourceCta: "ดูข้อมูลเพิ่มเติม",
     miniCasesKicker: "Mini Cases",
     miniCasesHeading: "ตัวอย่างโจทย์ที่ใช้กรอบเดียวกันในการส่งมอบ",
+    caseProblemLabel: "ปัญหา",
+    caseApproachLabel: "แนวทาง",
+    caseOutcomeLabel: "ผลลัพธ์",
     nextStepKicker: "Next Step",
     nextStepHeading: "พร้อมวางแผนเริ่มต้นให้โครงการเดินได้จริงในรอบถัดไปหรือยัง",
     nextStepLead: "ส่งข้อมูลทีมและระบบปัจจุบันของคุณมาได้เลย เราจะช่วยวางแนวทางเริ่มต้นที่เหมาะกับเป้าหมายธุรกิจ และข้อจำกัดขององค์กรคุณ",
@@ -177,6 +183,9 @@ export const homeContent: Partial<Record<Locale, HomeCopy>> = {
     resourceCta: "View More Resources",
     miniCasesKicker: "Mini Cases",
     miniCasesHeading: "Representative use cases delivered through the same framework",
+    caseProblemLabel: "Problem",
+    caseApproachLabel: "Approach",
+    caseOutcomeLabel: "Outcome",
     nextStepKicker: "Next Step",
     nextStepHeading: "Ready to plan your next practical delivery cycle?",
     nextStepLead: "Share your team context and current systems. We will propose a practical onboarding path aligned to your business goals and operational constraints.",

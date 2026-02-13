@@ -15,6 +15,8 @@ export type UiCopy = {
   copy: string;
   copied: string;
   language: string;
+  closeMenuBackdropAria: string;
+  closeToolsMenuBackdropAria: string;
   teamFilters: {
     all: string;
     leadership: string;
@@ -42,6 +44,8 @@ export const uiCopyByLocale: Record<"th" | "en", UiCopy> = {
     copy: "Copy",
     copied: "Copied",
     language: "Language",
+    closeMenuBackdropAria: "Close menu backdrop",
+    closeToolsMenuBackdropAria: "Close tools menu backdrop",
     teamFilters: {
       all: "All",
       leadership: "Leadership",
@@ -67,6 +71,8 @@ export const uiCopyByLocale: Record<"th" | "en", UiCopy> = {
     copy: "คัดลอก",
     copied: "คัดลอกแล้ว",
     language: "ภาษา",
+    closeMenuBackdropAria: "ปิดพื้นหลังเมนู",
+    closeToolsMenuBackdropAria: "ปิดพื้นหลังเมนูเครื่องมือ",
     teamFilters: {
       all: "ทั้งหมด",
       leadership: "ผู้บริหาร",

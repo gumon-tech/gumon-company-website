@@ -1,0 +1,21 @@
+# Translation Readiness
+
+This folder defines the working standards before full multilingual translation.
+
+## Scope
+
+- Source freeze snapshot for locale content (`source-freeze.json`)
+- Term glossary and naming rules (`glossary.md`)
+- Language rollout strategy (`language-rollout.md`)
+- Translation style guide (`style-guide.md`)
+- QA checklist for localization and UI (`qa-checklist.md`)
+
+## Commands
+
+- Freeze source content: `npm run i18n:freeze`
+- Run readiness checks: `npm run check:i18n`
+
+## Current policy
+
+- Fully localized locales: `th`, `en`
+- Additional locales render fallback notice while translation is in progress.

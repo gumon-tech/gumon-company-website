@@ -69,7 +69,7 @@ export default function MobileMenu() {
         <>
           <button
             type="button"
-            aria-label="Close menu backdrop"
+            aria-label={copy.closeMenuBackdropAria}
             className="mobile-menu-backdrop"
             onClick={closeMenu}
           />

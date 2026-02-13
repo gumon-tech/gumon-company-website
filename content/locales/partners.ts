@@ -16,6 +16,9 @@ export type PartnersCopy = {
   trustHeading: string;
   casesKicker: string;
   casesHeading: string;
+  caseProblemLabel: string;
+  caseApproachLabel: string;
+  caseOutcomeLabel: string;
   resourcesKicker: string;
   resourcesHeading: string;
   nextKicker: string;
@@ -29,6 +32,7 @@ export type PartnersCopy = {
   governance: { title: string; body: string }[];
   trustSignals: { label: string; value: string }[];
   cases: { title: string; problem: string; approach: string; outcome: string }[];
+  resourceCards: { title: string; body: string; href: string }[];
 };
 
 export const partnerNetwork = [
@@ -55,6 +59,9 @@ export const partnersContent: Partial<Record<Locale, PartnersCopy>> = {
     trustHeading: "หลักฐานการทำงานร่วมกันในโครงการส่งมอบจริง",
     casesKicker: "Mini Cases",
     casesHeading: "ตัวอย่างผลลัพธ์จากการทำงานร่วมกันแบบ shared model",
+    caseProblemLabel: "ปัญหา",
+    caseApproachLabel: "แนวทาง",
+    caseOutcomeLabel: "ผลลัพธ์",
     resourcesKicker: "Partner Resources",
     resourcesHeading: "ชุดเครื่องมือสำหรับทีมส่งมอบ",
     nextKicker: "Next Step",
@@ -88,6 +95,12 @@ export const partnersContent: Partial<Record<Locale, PartnersCopy>> = {
       { title: "Public Sector Delivery", problem: "ทีมส่งมอบหลายชุดใช้มาตรฐานต่างกัน ทำให้คุณภาพงานไม่คงที่", approach: "จัด shared standards และรีวิวคุณภาพร่วมกับทีมแพลตฟอร์มก่อนปล่อยงาน", outcome: "ยกระดับความสม่ำเสมอของงานส่งมอบระหว่างทีมพาร์ตเนอร์" },
       { title: "Cross-Border Collaboration", problem: "การทำงานข้ามประเทศทำให้การส่งต่อความรู้และเอกสารไม่ต่อเนื่อง", approach: "ใช้ docs + knowledge base ชุดเดียวกันและตั้งรอบ sync กลาง", outcome: "ลดงานซ้ำจากความเข้าใจไม่ตรงกันและเร่งการเริ่มงานรอบใหม่" },
     ],
+    resourceCards: [
+      { title: "Knowledge Base", body: "คู่มือการส่งมอบและองค์ความรู้เชิงปฏิบัติการ", href: "https://wiki.gumon.io/" },
+      { title: "Technical Docs", body: "เอกสารอ้างอิงทางเทคนิคสำหรับทีมวิศวกรรม", href: "https://docs.gumon.io/" },
+      { title: "Gumon Work", body: "ระบบติดตามโครงการและงานสำหรับการทำงานร่วมกัน", href: "https://work.gumon.io/" },
+      { title: "Partner Training", body: "คอร์สและเวิร์กชอปสำหรับยกระดับความพร้อมพาร์ตเนอร์", href: "https://dkscenter.gumon.io/th" },
+    ],
   },
   en: {
     title: "Partners",
@@ -105,6 +118,9 @@ export const partnersContent: Partial<Record<Locale, PartnersCopy>> = {
     trustHeading: "Signals from practical delivery collaborations",
     casesKicker: "Mini Cases",
     casesHeading: "Examples from shared delivery execution",
+    caseProblemLabel: "Problem",
+    caseApproachLabel: "Approach",
+    caseOutcomeLabel: "Outcome",
     resourcesKicker: "Partner Resources",
     resourcesHeading: "Tooling and enablement channels for partner teams",
     nextKicker: "Next Step",
@@ -137,6 +153,12 @@ export const partnersContent: Partial<Record<Locale, PartnersCopy>> = {
     cases: [
       { title: "Public Sector Delivery", problem: "Multiple delivery teams worked with inconsistent standards.", approach: "Introduced shared standards and joint quality reviews before release.", outcome: "Improved consistency across partner delivery teams." },
       { title: "Cross-Border Collaboration", problem: "Cross-country collaboration caused handover gaps.", approach: "Used shared docs and knowledge base with recurring sync cycles.", outcome: "Reduced duplicated work and improved ramp-up speed." },
+    ],
+    resourceCards: [
+      { title: "Knowledge Base", body: "Delivery guidance and operational references.", href: "https://wiki.gumon.io/" },
+      { title: "Technical Docs", body: "Technical references for engineering teams.", href: "https://docs.gumon.io/" },
+      { title: "Gumon Work", body: "Project and task tracking for aligned execution.", href: "https://work.gumon.io/" },
+      { title: "Partner Training", body: "Courses and workshops for partner enablement.", href: "https://dkscenter.gumon.io/th" },
     ],
   },
 };

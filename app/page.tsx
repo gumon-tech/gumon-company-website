@@ -195,9 +195,9 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
               <Reveal key={item.title} delay={index * 80}>
                 <div className="route-card h-full">
                   <div className="text-xs tracking-[0.16em] uppercase text-mist">{item.title}</div>
-                  <p className="mt-3 text-sm text-mist leading-relaxed"><span className="text-ink">Problem:</span> {item.problem}</p>
-                  <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">Approach:</span> {item.approach}</p>
-                  <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">Outcome:</span> {item.outcome}</p>
+                  <p className="mt-3 text-sm text-mist leading-relaxed"><span className="text-ink">{copy.caseProblemLabel}:</span> {item.problem}</p>
+                  <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">{copy.caseApproachLabel}:</span> {item.approach}</p>
+                  <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">{copy.caseOutcomeLabel}:</span> {item.outcome}</p>
                 </div>
               </Reveal>
             ))}

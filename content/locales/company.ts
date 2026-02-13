@@ -27,6 +27,9 @@ export type CompanyCopy = {
   isNotItems: string[];
   casesKicker: string;
   casesHeading: string;
+  caseProblemLabel: string;
+  caseApproachLabel: string;
+  caseOutcomeLabel: string;
   cases: { title: string; problem: string; approach: string; outcome: string }[];
   legalKicker: string;
   legalHeading: string;
@@ -91,6 +94,9 @@ export const companyContent: Partial<Record<Locale, CompanyCopy>> = {
     ],
     casesKicker: "Mini Cases",
     casesHeading: "ตัวอย่างการตัดสินใจเชิงระบบที่ช่วยให้ส่งมอบได้ต่อเนื่อง",
+    caseProblemLabel: "ปัญหา",
+    caseApproachLabel: "แนวทาง",
+    caseOutcomeLabel: "ผลลัพธ์",
     cases: [
       {
         title: "Standardized Delivery Setup",
@@ -166,6 +172,9 @@ export const companyContent: Partial<Record<Locale, CompanyCopy>> = {
     ],
     casesKicker: "Mini Cases",
     casesHeading: "System-level decisions that improved delivery continuity",
+    caseProblemLabel: "Problem",
+    caseApproachLabel: "Approach",
+    caseOutcomeLabel: "Outcome",
     cases: [
       {
         title: "Standardized Delivery Setup",

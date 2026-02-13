@@ -111,9 +111,9 @@ export default async function PartnersPage({ params }: { params?: Promise<{ loca
             {copy.cases.map((item) => (
               <div key={item.title} className="route-card h-full">
                 <div className="text-xs tracking-[0.16em] uppercase text-mist">{item.title}</div>
-                <p className="mt-3 text-sm text-mist leading-relaxed"><span className="text-ink">Problem:</span> {item.problem}</p>
-                <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">Approach:</span> {item.approach}</p>
-                <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">Outcome:</span> {item.outcome}</p>
+                <p className="mt-3 text-sm text-mist leading-relaxed"><span className="text-ink">{copy.caseProblemLabel}:</span> {item.problem}</p>
+                <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">{copy.caseApproachLabel}:</span> {item.approach}</p>
+                <p className="mt-2 text-sm text-mist leading-relaxed"><span className="text-ink">{copy.caseOutcomeLabel}:</span> {item.outcome}</p>
               </div>
             ))}
           </div>
@@ -124,10 +124,12 @@ export default async function PartnersPage({ params }: { params?: Promise<{ loca
             <p className="ui-kicker">{copy.resourcesKicker}</p>
             <h2 className="mt-3 ui-h3 md:text-2xl">{copy.resourcesHeading}</h2>
             <div className="mt-5 grid md:grid-cols-2 2xl:grid-cols-4 gap-4">
-              <TrackedLink href="https://wiki.gumon.io/" target="_blank" rel="noreferrer" className="route-card block h-full"><h3 className="ui-h3">Knowledge Base</h3><p className="mt-2 text-sm text-mist leading-relaxed">Delivery guidance and operational references.</p></TrackedLink>
-              <TrackedLink href="https://docs.gumon.io/" target="_blank" rel="noreferrer" className="route-card block h-full"><h3 className="ui-h3">Technical Docs</h3><p className="mt-2 text-sm text-mist leading-relaxed">Technical references for engineering teams.</p></TrackedLink>
-              <TrackedLink href="https://work.gumon.io/" target="_blank" rel="noreferrer" className="route-card block h-full"><h3 className="ui-h3">Gumon Work</h3><p className="mt-2 text-sm text-mist leading-relaxed">Project and task tracking for aligned execution.</p></TrackedLink>
-              <TrackedLink href="https://dkscenter.gumon.io/th" target="_blank" rel="noreferrer" className="route-card block h-full"><h3 className="ui-h3">Partner Training</h3><p className="mt-2 text-sm text-mist leading-relaxed">Courses and workshops for partner enablement.</p></TrackedLink>
+              {copy.resourceCards.map((card) => (
+                <TrackedLink key={card.href} href={card.href} target="_blank" rel="noreferrer" className="route-card block h-full">
+                  <h3 className="ui-h3">{card.title}</h3>
+                  <p className="mt-2 text-sm text-mist leading-relaxed">{card.body}</p>
+                </TrackedLink>
+              ))}
             </div>
           </div>
 

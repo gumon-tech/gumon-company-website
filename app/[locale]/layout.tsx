@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { isSupportedLocale, supportedLocales } from "@/lib/i18n";
+import { getLocaleMeta } from "@/lib/localeMeta";
 
 export const dynamicParams = false;
 
@@ -20,5 +21,11 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return children;
+  const localeMeta = getLocaleMeta(locale);
+
+  return (
+    <div lang={localeMeta.htmlLang} dir={localeMeta.dir}>
+      {children}
+    </div>
+  );
 }

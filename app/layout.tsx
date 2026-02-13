@@ -14,10 +14,12 @@ import AnalyticsBootstrap from "@/components/AnalyticsBootstrap";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FooterTagline from "@/components/FooterTagline";
 import FooterLegalLine from "@/components/FooterLegalLine";
+import LocaleDocumentAttributes from "@/components/LocaleDocumentAttributes";
 import { layoutCopy } from "@/content/locales/layout";
 import { footerSectionLabels } from "@/content/locales/navigation";
 import { companyInfo } from "@/lib/companyInfo";
-import { supportedLocales } from "@/lib/i18n";
+import { defaultLocale, supportedLocales } from "@/lib/i18n";
+import { getLocaleMeta } from "@/lib/localeMeta";
 import {
   communityLinks,
   legalLinks,
@@ -83,6 +85,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const defaultLocaleMeta = getLocaleMeta(defaultLocale);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gumon.io";
   const structuredData = {
     "@context": "https://schema.org",
@@ -127,8 +130,13 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${sarabun.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang={defaultLocaleMeta.htmlLang}
+      dir={defaultLocaleMeta.dir}
+      className={`${sarabun.variable} ${spaceGrotesk.variable}`}
+    >
       <body data-mode="institutional">
+        <LocaleDocumentAttributes />
         <HeaderScrollBehavior />
         <script
           type="application/ld+json"
@@ -141,7 +149,7 @@ export default function RootLayout({
         <header className="site-header sticky top-0 z-[90] border-b border-line/60 bg-bg0/92 shadow-[0_10px_24px_rgba(3,6,12,0.45)] supports-[backdrop-filter]:bg-bg0/84 supports-[backdrop-filter]:backdrop-blur-xl">
           <div className="ui-container h-16 lg:h-[72px] flex items-center justify-between gap-3">
             <TrackedLink href="/" className="flex items-center gap-3">
-              <span className="logo-swap" aria-label="Gumon mark">
+              <span className="logo-swap" aria-label={layoutCopy.logoMarkAriaLabel}>
                 <Image src="/assets/logo/gumon-white.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-inst" />
                 <Image src="/assets/logo/gumon-slate.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-field" />
                 <Image src="/assets/logo/gumon-olive.png" alt="Gumon" width={36} height={36} sizes="36px" className="logo-lab" />
