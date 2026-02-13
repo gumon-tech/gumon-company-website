@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 export default function NavLink({
   href,
@@ -19,6 +20,15 @@ export default function NavLink({
   return (
     <Link
       href={href}
+      onClick={() =>
+        trackEvent({
+          name: "site_nav_click",
+          category: "navigation",
+          label: `header-${label.toLowerCase().replace(/\s+/g, "-")}`,
+          location: "header.nav.desktop",
+          href,
+        })
+      }
       aria-current={isActive ? "page" : undefined}
       className={[
         "relative hover:text-ink transition-colors",

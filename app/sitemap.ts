@@ -9,6 +9,11 @@ export default function sitemap() {
   return [
     { url: `${base}/`, lastModified: now, changeFrequency: weekly, priority: 1.0 },
     { url: `${base}/platform/`, lastModified: now, changeFrequency: weekly, priority: 0.9 },
+    { url: `${base}/solutions/`, lastModified: now, changeFrequency: weekly, priority: 0.9 },
+    { url: `${base}/solutions/government/`, lastModified: now, changeFrequency: monthly, priority: 0.8 },
+    { url: `${base}/solutions/healthcare/`, lastModified: now, changeFrequency: monthly, priority: 0.8 },
+    { url: `${base}/solutions/education/`, lastModified: now, changeFrequency: monthly, priority: 0.8 },
+    { url: `${base}/solutions/enterprise/`, lastModified: now, changeFrequency: monthly, priority: 0.8 },
     { url: `${base}/developers/`, lastModified: now, changeFrequency: weekly, priority: 0.9 },
     { url: `${base}/partners/`, lastModified: now, changeFrequency: weekly, priority: 0.9 },
     { url: `${base}/ecosystem/`, lastModified: now, changeFrequency: weekly, priority: 0.85 },

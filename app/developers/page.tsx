@@ -18,6 +18,12 @@ const steps = [
   "ออก release รอบแรกพร้อม checklist ที่ทีมใช้ร่วมกัน",
 ];
 
+const focusAreas = [
+  "เริ่มโปรเจกต์ใหม่ได้เร็วขึ้นด้วย baseline เดียวกัน",
+  "รักษา code quality และ review quality ข้ามหลายทีม",
+  "ขยายจากระบบเดิมสู่หลายบริการโดยคุม technical debt",
+];
+
 const supports = [
   {
     title: "Developer Documentation",
@@ -50,66 +56,83 @@ export default function Page() {
           </p>
         </Reveal>
 
+        <div className="mt-12 card p-7 shadow-soft">
+          <p className="ui-kicker">Engagement Focus</p>
+          <h2 className="mt-3 ui-h2">เป้าหมายหลักของทีมที่มักเริ่มจากหน้านี้</h2>
+          <ul className="mt-5 grid gap-2 feature-list">
+            {focusAreas.map((item) => (
+              <li key={item}>- {item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 card p-7 shadow-soft">
+          <p className="ui-kicker">Readiness Checklist</p>
+          <h2 className="mt-3 ui-h2">ลำดับเริ่มต้นที่ทีมส่วนใหญ่ใช้ได้ทันที</h2>
+          <ul className="mt-5 grid gap-2 feature-list">
+            {steps.map((step) => (
+              <li key={step}>- {step}</li>
+            ))}
+          </ul>
+        </div>
+
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 card p-7 shadow-soft">
-            <p className="ui-kicker">Recommended Workflow</p>
-            <h2 className="mt-3 ui-h2">ลำดับเริ่มต้นที่ทีมส่วนใหญ่ใช้ได้ทันที</h2>
-            <ul className="mt-5 grid gap-2 feature-list">
-              {steps.map((step) => (
-                <li key={step}>- {step}</li>
+            <p className="ui-kicker">Enablement Resources</p>
+            <h2 className="mt-3 ui-h2">แหล่งข้อมูลที่ช่วยให้เริ่มงานได้เร็วขึ้น</h2>
+            <div className="mt-5 grid md:grid-cols-3 gap-4">
+              {supports.map((item, index) => (
+                <Reveal key={item.title} delay={index * 70}>
+                  {item.href.startsWith("http") ? (
+                    <TrackedLink
+                      href={item.href}
+                      eventName="developers_resource_click"
+                      category="docs"
+                      label={`developers-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      location="developers.resources"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="route-card block h-full"
+                    >
+                      <h3 className="ui-h3">{item.title}</h3>
+                      <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
+                    </TrackedLink>
+                  ) : (
+                    <TrackedLink
+                      href={item.href}
+                      eventName="developers_resource_click"
+                      category="navigation"
+                      label={`developers-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      location="developers.resources"
+                      className="route-card block h-full"
+                    >
+                      <h3 className="ui-h3">{item.title}</h3>
+                      <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
+                    </TrackedLink>
+                  )}
+                </Reveal>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div className="lg:col-span-5 card p-7 shadow-soft">
-            <p className="ui-kicker">What You Get</p>
-            <h2 className="mt-3 ui-h3">เมื่อเริ่มจาก baseline เดียวกัน</h2>
-            <ul className="mt-4 grid gap-2 feature-list">
+            <p className="ui-kicker">Next Step</p>
+            <h2 className="mt-3 ui-h3">เริ่มต้นจากเอกสารหลักหรือคุยโจทย์กับทีม</h2>
+            <ul className="mt-5 grid gap-2 feature-list">
               <li>- ลดเวลาการ setup project และลด error จากการตั้งค่าด้วยมือ</li>
               <li>- ทำ code review ง่ายขึ้นเพราะ conventions ชัดเจน</li>
               <li>- onboard นักพัฒนาใหม่ได้เร็วขึ้น</li>
               <li>- วางแผนขยายบริการได้โดยไม่เพิ่ม technical debt เร็วเกินไป</li>
             </ul>
-            <div className="mt-6">
-              <TrackedLink href="/platform" eventName="developers_platform_reference_click" category="navigation" label="developers-platform-architecture" location="developers.value-card" className="text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink">
-                ดูภาพรวม Platform Architecture →
+            <div className="mt-6 flex flex-col gap-3">
+              <TrackedLink href="https://docs.gumon.io/" eventName="developers_resource_click" category="docs" label="developers-docs-primary" location="developers.next-step" target="_blank" rel="noreferrer" className="btn-primary">
+                เปิด Developer Documentation
+              </TrackedLink>
+              <TrackedLink href="/platform" eventName="developers_platform_reference_click" category="navigation" label="developers-platform-architecture" location="developers.next-step" className="btn-secondary">
+                ดูภาพรวม Platform Architecture
               </TrackedLink>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 grid md:grid-cols-3 gap-5">
-          {supports.map((item, index) => (
-            <Reveal key={item.title} delay={index * 70}>
-              {item.href.startsWith("http") ? (
-                <TrackedLink
-                  href={item.href}
-                  eventName="developers_resource_click"
-                  category={item.title === "Learning Path" ? "navigation" : "docs"}
-                  label={`developers-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  location="developers.resources"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="route-card block h-full"
-                >
-                  <h3 className="ui-h3">{item.title}</h3>
-                  <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
-                </TrackedLink>
-              ) : (
-                <TrackedLink
-                  href={item.href}
-                  eventName="developers_resource_click"
-                  category="navigation"
-                  label={`developers-${item.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  location="developers.resources"
-                  className="route-card block h-full"
-                >
-                  <h3 className="ui-h3">{item.title}</h3>
-                  <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
-                </TrackedLink>
-              )}
-            </Reveal>
-          ))}
         </div>
       </div>
     </section>

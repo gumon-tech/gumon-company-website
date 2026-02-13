@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NavLink from "@/components/NavLink";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import TrackedLink from "@/components/TrackedLink";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://web.gumon.dev"),
@@ -42,11 +43,17 @@ export const metadata: Metadata = {
 
 const navGroups = [
   {
-    label: "Solutions",
+    label: "Platform",
     items: [
-      { href: "/platform", label: "Platform" },
+      { href: "/platform", label: "Overview" },
       { href: "/ecosystem", label: "Ecosystem" },
       { href: "/learning", label: "Learning" },
+    ],
+  },
+  {
+    label: "Solutions",
+    items: [
+      { href: "/solutions", label: "Solutions Hub" },
     ],
   },
   {
@@ -62,7 +69,13 @@ const navGroups = [
     items: [
       { href: "/company", label: "Company" },
       { href: "/team", label: "Team" },
+    ],
+  },
+  {
+    label: "Resources",
+    items: [
       { href: "/resources", label: "Resources" },
+      { href: "/faq", label: "FAQ" },
     ],
   },
 ];
@@ -138,7 +151,7 @@ export default function RootLayout({
               </div>
             </Link>
 
-            <nav className="hidden xl:flex items-center gap-7 text-sm text-mist">
+            <nav className="hidden xl:flex items-center gap-5 text-sm text-mist">
               {navGroups.map((group) => (
                 <div key={group.label} className="flex items-center gap-3">
                   <span className="text-[10px] tracking-[0.2em] uppercase text-mist/80">{group.label}</span>
@@ -162,35 +175,39 @@ export default function RootLayout({
                       <div className="px-2 text-[10px] tracking-[0.2em] uppercase text-mist">{group.label}</div>
                       <div className="mt-1 grid gap-1">
                         {group.items.map((item) => (
-                          <Link
+                          <TrackedLink
                             key={item.href}
                             href={item.href}
+                            eventName="site_nav_click"
+                            category="navigation"
+                            label={`mobile-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+                            location="header.nav.mobile"
                             className="rounded-lg px-3 py-2 text-mist hover:text-ink hover:bg-bg1/60 transition"
                           >
                             {item.label}
-                          </Link>
+                          </TrackedLink>
                         ))}
                       </div>
                     </div>
                   ))}
                   <div className="hr" />
-                  <Link href="/contact" className="btn-primary w-full">
+                  <TrackedLink href="/contact" eventName="header_cta_click" category="contact" label="mobile-contact" location="header.cta.mobile" className="btn-primary w-full">
                     ติดต่อทีมงาน
-                  </Link>
+                  </TrackedLink>
                 </div>
               </div>
             </details>
 
             <div className="hidden xl:flex items-center gap-2">
-              <a href="https://docs.gumon.io/" target="_blank" rel="noreferrer" className="btn-ghost">
+              <TrackedLink href="https://docs.gumon.io/" eventName="header_quicklink_click" category="docs" label="desktop-docs" location="header.quicklinks.desktop" target="_blank" rel="noreferrer" className="btn-ghost">
                 Docs
-              </a>
-              <a href="https://wiki.gumon.io/" target="_blank" rel="noreferrer" className="btn-ghost">
+              </TrackedLink>
+              <TrackedLink href="https://wiki.gumon.io/" eventName="header_quicklink_click" category="docs" label="desktop-knowledge-base" location="header.quicklinks.desktop" target="_blank" rel="noreferrer" className="btn-ghost">
                 Knowledge Base
-              </a>
-              <Link href="/contact" className="btn-primary">
+              </TrackedLink>
+              <TrackedLink href="/contact" eventName="header_cta_click" category="contact" label="desktop-contact" location="header.quicklinks.desktop" className="btn-primary">
                 Contact
-              </Link>
+              </TrackedLink>
             </div>
           </div>
         </header>
@@ -206,15 +223,15 @@ export default function RootLayout({
               </p>
             </div>
 
-            <div className="lg:col-span-8 grid sm:grid-cols-3 gap-6 text-sm">
+            <div className="lg:col-span-8 grid sm:grid-cols-2 lg:grid-cols-5 gap-6 text-sm">
               {navGroups.map((group) => (
                 <div key={group.label}>
                   <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{group.label}</div>
                   <div className="mt-3 grid gap-2">
                     {group.items.map((item) => (
-                      <Link key={item.href} href={item.href} className="text-mist hover:text-ink transition">
+                      <TrackedLink key={item.href} href={item.href} eventName="site_nav_click" category="navigation" label={`footer-${item.label.toLowerCase().replace(/\s+/g, "-")}`} location="footer.nav" className="text-mist hover:text-ink transition">
                         {item.label}
-                      </Link>
+                      </TrackedLink>
                     ))}
                   </div>
                 </div>
@@ -226,13 +243,13 @@ export default function RootLayout({
             <div className="lg:col-span-12 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-mist">
               <div>© {new Date().getFullYear()} Gumon Technology. All rights reserved.</div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <Link href="/faq" className="hover:text-ink transition">FAQ</Link>
+                <TrackedLink href="/faq" eventName="footer_link_click" category="navigation" label="footer-faq" location="footer.legal" className="hover:text-ink transition">FAQ</TrackedLink>
                 {legalLinks.map((item) => (
-                  <Link key={item.href} href={item.href} className="hover:text-ink transition">
+                  <TrackedLink key={item.href} href={item.href} eventName="footer_link_click" category="navigation" label={`footer-${item.label.toLowerCase()}`} location="footer.legal" className="hover:text-ink transition">
                     {item.label}
-                  </Link>
+                  </TrackedLink>
                 ))}
-                <a href="mailto:contact@gumon.io" className="hover:text-ink transition">contact@gumon.io</a>
+                <TrackedLink href="mailto:contact@gumon.io" eventName="footer_link_click" category="contact" label="footer-email" location="footer.legal" className="hover:text-ink transition">contact@gumon.io</TrackedLink>
               </div>
             </div>
           </div>

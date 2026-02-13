@@ -35,6 +35,12 @@ const roadmap = [
   "Phase 3: Ecosystem Marketplace Readiness - เตรียม governance สำหรับการเติบโตระดับ ecosystem",
 ];
 
+const readinessChecklist = [
+  "เข้าใจว่าเนื้อหาหน้านี้เป็น Public Summary และใช้เพื่อคัดกรองความสนใจเบื้องต้น",
+  "มีประเด็นประเมินที่ชัดเจน เช่น growth framework, governance, หรือ market expansion",
+  "พร้อมเข้าสู่กระบวนการรับ Investor Brief ตามความเหมาะสมของข้อมูล",
+];
+
 export default function Page() {
   return (
     <section className="ui-section">
@@ -53,7 +59,7 @@ export default function Page() {
           {focusAreas.map((item, index) => (
             <Reveal key={item.title} delay={index * 70}>
               <div className="route-card h-full">
-                <p className="ui-kicker">Strategic Focus</p>
+                <p className="ui-kicker">Engagement Focus</p>
                 <h2 className="mt-3 ui-h3">{item.title}</h2>
                 <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
               </div>
@@ -62,18 +68,38 @@ export default function Page() {
         </div>
 
         <div className="mt-12 card p-7 shadow-soft">
-          <p className="ui-kicker">3-Phase Growth Roadmap</p>
-          <h2 className="mt-3 ui-h2">ลำดับการเติบโตจากฐานแพลตฟอร์มสู่ ecosystem scale</h2>
+          <p className="ui-kicker">Readiness Checklist</p>
+          <h2 className="mt-3 ui-h2">ความพร้อมก่อนเข้าสู่การประเมินเชิงลึก</h2>
           <ul className="mt-5 grid gap-2 feature-list">
-            {roadmap.map((item) => (
+            {readinessChecklist.map((item) => (
               <li key={item}>- {item}</li>
             ))}
           </ul>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link href="/contact" className="btn-primary">Request Investor Brief</Link>
-            <Link href="/company" className="btn-secondary">ดูหลักการองค์กร</Link>
+        </div>
+
+        <div className="mt-12 grid lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-7 card p-7 shadow-soft">
+            <p className="ui-kicker">Enablement Resources</p>
+            <h2 className="mt-3 ui-h2">กรอบข้อมูลที่ใช้ประเมินการเติบโต</h2>
+            <ul className="mt-5 grid gap-2 feature-list">
+              {roadmap.map((item) => (
+                <li key={item}>- {item}</li>
+              ))}
+            </ul>
           </div>
-          <p className="mt-4 text-xs text-mist">Last updated: February 13, 2026</p>
+
+          <div className="lg:col-span-5 card p-7 shadow-soft">
+            <p className="ui-kicker">Next Step</p>
+            <h2 className="mt-3 ui-h3">ขอ Investor Brief หรือดูหลักการองค์กรเพิ่มเติม</h2>
+            <p className="mt-3 text-sm text-mist leading-relaxed">
+              ทีมงานจะพิจารณาและส่งข้อมูลตามระดับที่เหมาะสมกับบริบทการประเมิน.
+            </p>
+            <div className="mt-6 flex flex-col gap-3">
+              <Link href="/contact" className="btn-primary">Request Investor Brief</Link>
+              <Link href="/company" className="btn-secondary">ดูหลักการองค์กร</Link>
+            </div>
+            <p className="mt-4 text-xs text-mist">Last updated: February 13, 2026</p>
+          </div>
         </div>
       </div>
     </section>

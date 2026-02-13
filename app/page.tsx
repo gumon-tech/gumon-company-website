@@ -34,19 +34,19 @@ const audiencePaths = [
 
 const solutionPillars = [
   {
-    title: "Platform Foundation",
-    body: "โครงสร้าง 3 ชั้นที่ช่วยให้ทีมพัฒนาออกแบบ API, Data, และ Application บนมาตรฐานเดียวกัน",
-    href: "/platform",
+    title: "Government",
+    body: "โซลูชันสำหรับหน่วยงานที่ต้องการมาตรฐานเชื่อมระบบและ governance ที่ตรวจสอบได้",
+    href: "/solutions/government",
   },
   {
-    title: "Ecosystem Design",
-    body: "ระบบนิเวศที่แยกบทบาทชัดเจน ระหว่างแพลตฟอร์ม การเรียนรู้ และการส่งมอบเชิงธุรกิจ",
-    href: "/ecosystem",
+    title: "Healthcare",
+    body: "โซลูชันที่รองรับ workflow สุขภาพและการขยายบริการข้ามทีมอย่างเป็นระบบ",
+    href: "/solutions/healthcare",
   },
   {
-    title: "Capability Building",
-    body: "เส้นทางเรียนรู้และการรับรองสำหรับทีมที่ต้องการยกระดับคุณภาพการส่งมอบอย่างเป็นระบบ",
-    href: "/learning",
+    title: "Education & Enterprise",
+    body: "แนวทางยกระดับระบบเรียนรู้และ modernize ระบบองค์กรด้วยโครงสร้างที่ใช้ซ้ำได้",
+    href: "/solutions/education",
   },
 ];
 
@@ -85,16 +85,16 @@ export default function Page() {
               <h2 className="mt-3 ui-h2">Information Architecture ที่จัดใหม่ให้ค้นหาเร็วขึ้น</h2>
               <div className="mt-5 grid sm:grid-cols-3 gap-4 text-sm">
                 <div className="card p-4">
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Solutions</div>
-                  <div className="mt-2">Platform, Ecosystem, Learning</div>
+                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Platform</div>
+                  <div className="mt-2">Overview, Ecosystem, Learning</div>
                 </div>
                 <div className="card p-4">
                   <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Audience</div>
                   <div className="mt-2">Developers, Partners, Investors</div>
                 </div>
                 <div className="card p-4">
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Company</div>
-                  <div className="mt-2">Company, Team, Resources, Contact</div>
+                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">Solutions</div>
+                  <div className="mt-2">Government, Healthcare, Education, Enterprise</div>
                 </div>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function Page() {
         <div className="mt-14 card p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">Solutions</p>
-            <h2 className="mt-3 ui-h2">สามแกนหลักที่เว็บไซต์พาไปได้ชัดเจนขึ้น</h2>
+            <h2 className="mt-3 ui-h2">ตัวอย่างโซลูชันที่จัดตามบริบทธุรกิจ</h2>
           </Reveal>
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             {solutionPillars.map((pillar, index) => (
@@ -207,6 +207,12 @@ export default function Page() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-6">
+            <TrackedLink href="/solutions" eventName="home_solution_card_click" category="navigation" label="solution-hub" location="home.solution-cards" className="btn-secondary">
+              ดู Solutions Hub ทั้งหมด
+            </TrackedLink>
           </div>
         </div>
 

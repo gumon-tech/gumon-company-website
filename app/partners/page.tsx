@@ -32,6 +32,27 @@ const readinessChecklist = [
   "ต้องการขยายงานหลายโครงการโดยควบคุมคุณภาพได้",
 ];
 
+const enablementResources = [
+  {
+    title: "Knowledge Base",
+    body: "แนวทางปฏิบัติและฐานความรู้สำหรับการส่งมอบข้ามหลายโครงการ",
+    href: "https://wiki.gumon.io/",
+    external: true,
+  },
+  {
+    title: "Learning Path",
+    body: "เส้นทางฝึกอบรมและรับรองทักษะเพื่อยกระดับทีมส่งมอบ",
+    href: "/learning",
+    external: false,
+  },
+  {
+    title: "Contact Partner Team",
+    body: "เริ่มประเมินโอกาสความร่วมมือเชิงพาณิชย์กับทีม Gumon",
+    href: "/contact",
+    external: false,
+  },
+];
+
 export default function Page() {
   return (
     <section className="ui-section">
@@ -50,7 +71,7 @@ export default function Page() {
           {partnerModel.map((item, index) => (
             <Reveal key={item.title} delay={index * 70}>
               <div className="route-card h-full">
-                <p className="ui-kicker">Collaboration Model</p>
+                <p className="ui-kicker">Engagement Focus</p>
                 <h2 className="mt-3 ui-h3">{item.title}</h2>
                 <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
               </div>
@@ -58,29 +79,47 @@ export default function Page() {
           ))}
         </div>
 
+        <div className="mt-12 card p-7 shadow-soft">
+          <p className="ui-kicker">Readiness Checklist</p>
+          <h2 className="mt-3 ui-h2">เกณฑ์ความพร้อมเบื้องต้นสำหรับการเริ่มความร่วมมือ</h2>
+          <ul className="mt-5 grid gap-2 feature-list">
+            {readinessChecklist.map((item) => (
+              <li key={item}>- {item}</li>
+            ))}
+          </ul>
+        </div>
+
         <div className="mt-12 grid lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 card p-7 shadow-soft">
-            <p className="ui-kicker">Partner Readiness</p>
-            <h2 className="mt-3 ui-h2">เกณฑ์ความพร้อมเบื้องต้นสำหรับการเริ่มความร่วมมือ</h2>
-            <ul className="mt-5 grid gap-2 feature-list">
-              {readinessChecklist.map((item) => (
-                <li key={item}>- {item}</li>
-              ))}
-            </ul>
+            <p className="ui-kicker">Enablement Resources</p>
+            <h2 className="mt-3 ui-h2">สิ่งที่ช่วยให้พาร์ตเนอร์ส่งมอบงานได้เร็วและสม่ำเสมอ</h2>
+            <div className="mt-5 grid md:grid-cols-3 gap-4">
+              {enablementResources.map((item) =>
+                item.external ? (
+                  <TrackedLink key={item.title} href={item.href} eventName="partners_knowledge_base_click" category="docs" label={`partners-${item.title.toLowerCase().replace(/\s+/g, "-")}`} location="partners.resources" target="_blank" rel="noreferrer" className="route-card block h-full">
+                    <h3 className="ui-h3">{item.title}</h3>
+                    <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
+                  </TrackedLink>
+                ) : (
+                  <TrackedLink key={item.title} href={item.href} eventName="partners_contact_click" category={item.href === "/contact" ? "contact" : "navigation"} label={`partners-${item.title.toLowerCase().replace(/\s+/g, "-")}`} location="partners.resources" className="route-card block h-full">
+                    <h3 className="ui-h3">{item.title}</h3>
+                    <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
+                  </TrackedLink>
+                )
+              )}
+            </div>
           </div>
 
           <div className="lg:col-span-5 card p-7 shadow-soft">
-            <p className="ui-kicker">Enablement</p>
-            <h2 className="mt-3 ui-h3">สิ่งที่พาร์ตเนอร์จะได้รับ</h2>
-            <ul className="mt-4 grid gap-2 feature-list">
-              <li>- คู่มือการส่งมอบบนมาตรฐานเดียวกัน</li>
-              <li>- แนวทาง support escalation ที่ชัดเจน</li>
-              <li>- เส้นทางฝึกอบรมและรับรองทักษะผ่าน DKS Center</li>
-              <li>- ฐานความรู้ร่วมสำหรับการแก้ปัญหาในงานจริง</li>
-            </ul>
+            <p className="ui-kicker">Next Step</p>
+            <h2 className="mt-3 ui-h3">เริ่มกระบวนการร่วมงานกับทีมพาร์ตเนอร์</h2>
+            <p className="mt-3 text-sm text-mist leading-relaxed">
+              เมื่อทีมมีความพร้อมตาม checklist แล้ว สามารถเริ่มหารือรูปแบบการส่งมอบ
+              และแผน enablement ที่เหมาะกับเป้าหมายทางธุรกิจได้ทันที.
+            </p>
             <div className="mt-6 flex flex-col gap-3">
-              <TrackedLink href="https://wiki.gumon.io/" eventName="partners_knowledge_base_click" category="docs" label="partners-knowledge-base" location="partners.enablement" target="_blank" rel="noreferrer" className="btn-secondary">เปิด Knowledge Base</TrackedLink>
-              <TrackedLink href="/contact" eventName="partners_contact_click" category="contact" label="partners-contact" location="partners.enablement" className="btn-primary">คุยกับทีมพาร์ตเนอร์</TrackedLink>
+              <TrackedLink href="/contact" eventName="partners_contact_click" category="contact" label="partners-contact-primary" location="partners.next-step" className="btn-primary">คุยกับทีมพาร์ตเนอร์</TrackedLink>
+              <TrackedLink href="https://wiki.gumon.io/" eventName="partners_knowledge_base_click" category="docs" label="partners-knowledge-base" location="partners.next-step" target="_blank" rel="noreferrer" className="btn-secondary">เปิด Knowledge Base</TrackedLink>
             </div>
           </div>
         </div>

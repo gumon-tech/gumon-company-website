@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --bg0: 11 16 22;
-  --bg1: 16 24 32;
-  --surf: 22 34 44;
+  --bg0: 246 248 246;
+  --bg1: 255 255 253;
+  --surf: 239 243 241;
 
-  --ink: 223 230 228;
-  --mist: 149 164 165;
-  --line: 205 219 221;
+  --ink: 22 33 33;
+  --mist: 88 106 105;
+  --line: 193 206 204;
 
-  --accent: 128 188 170;
-  --accent2: 230 167 89;
+  --accent: 88 140 124;
+  --accent2: 204 145 77;
 
   --info: 148 194 221;
   --warn: 227 190 115;
@@ -49,29 +49,29 @@ h4 {
 }
 
 :root {
-  --veilA: rgba(128, 188, 170, 0.1);
-  --veilB: rgba(230, 167, 89, 0.08);
+  --veilA: rgba(88, 140, 124, 0.14);
+  --veilB: rgba(204, 145, 77, 0.1);
 }
 
 [data-mode="institutional"] {
-  --accent: 128 188 170;
-  --accent2: 230 167 89;
-  --veilA: rgba(128, 188, 170, 0.1);
-  --veilB: rgba(230, 167, 89, 0.08);
+  --accent: 88 140 124;
+  --accent2: 204 145 77;
+  --veilA: rgba(88, 140, 124, 0.14);
+  --veilB: rgba(204, 145, 77, 0.1);
 }
 
 [data-mode="field"] {
-  --accent: 208 220 223;
-  --accent2: 208 220 223;
-  --veilA: rgba(208, 220, 223, 0.08);
+  --accent: 94 120 126;
+  --accent2: 94 120 126;
+  --veilA: rgba(94, 120, 126, 0.1);
   --veilB: rgba(0, 0, 0, 0);
 }
 
 [data-mode="lab"] {
-  --accent: 147 196 176;
-  --accent2: 240 180 111;
-  --veilA: rgba(147, 196, 176, 0.15);
-  --veilB: rgba(240, 180, 111, 0.07);
+  --accent: 101 152 132;
+  --accent2: 214 159 94;
+  --veilA: rgba(101, 152, 132, 0.16);
+  --veilB: rgba(214, 159, 94, 0.1);
 }
 
 .text-accent {
@@ -142,11 +142,11 @@ h4 {
   pointer-events: none;
   z-index: -1;
   background-image:
-    linear-gradient(to right, rgba(214, 219, 216, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(214, 219, 216, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(140, 159, 157, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 159, 157, 0.12) 1px, transparent 1px);
   background-size: 70px 70px;
   mask-image: radial-gradient(closest-side at 50% 18%, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
-  opacity: 0.6;
+  opacity: 0.45;
 }
 
 .bg-veil {
@@ -156,7 +156,7 @@ h4 {
   background:
     radial-gradient(860px 460px at 18% 8%, var(--veilA), rgba(0, 0, 0, 0)),
     radial-gradient(760px 520px at 82% 18%, var(--veilB), rgba(0, 0, 0, 0)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.36) 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(203, 216, 213, 0.2) 100%);
 }
 
 .logo-swap {
@@ -206,8 +206,8 @@ h4 {
 
 .reveal-off {
   opacity: 0;
-  transform: translateY(12px);
-  filter: blur(6px);
+  transform: translateY(8px);
+  filter: blur(2px);
 }
 
 .reveal-on {
