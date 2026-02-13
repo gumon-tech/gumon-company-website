@@ -5,13 +5,13 @@ import TrackedLink from "@/components/TrackedLink";
 import EmailContactCard from "@/components/EmailContactCard";
 import { getCompanyInfo } from "@/lib/companyInfo";
 import { buildPageMetadata } from "@/lib/seo";
-import { resolveLocale, type Locale } from "@/lib/i18n";
+import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
 import { contactContent, contactMeta, socialChannels } from "@/content/locales/contact";
 
 async function getLocaleFromParams(params?: Promise<{ locale?: string }>): Promise<Locale> {
-  if (!params) return resolveLocale("th");
+  if (!params) return fallbackLocale;
   const resolved = await params;
   return resolveLocale(resolved.locale);
 }

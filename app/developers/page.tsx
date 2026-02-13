@@ -3,13 +3,13 @@ import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
 import { buildPageMetadata } from "@/lib/seo";
-import { resolveLocale, type Locale } from "@/lib/i18n";
+import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
 import { developersContent, developersMeta } from "@/content/locales/developers";
 
 async function getLocaleFromParams(params?: Promise<{ locale?: string }>): Promise<Locale> {
-  if (!params) return resolveLocale("th");
+  if (!params) return fallbackLocale;
   const resolved = await params;
   return resolveLocale(resolved.locale);
 }

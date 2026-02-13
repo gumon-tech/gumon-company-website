@@ -37,13 +37,7 @@ function normalizeLanguageTag(input: string) {
   return input.trim().replace(/_/g, "-");
 }
 
-export function isSupportedLocale(value: string): value is Locale {
-  return localeSet.has(value);
-}
-
-export function resolveLocale(input?: string | null): Locale {
-  if (!input) return defaultLocale;
-
+function matchSupportedLocale(input: string): Locale | null {
   const raw = normalizeLanguageTag(input);
   if (isSupportedLocale(raw)) return raw;
 
@@ -52,16 +46,45 @@ export function resolveLocale(input?: string | null): Locale {
     (locale) => locale.toLowerCase() === base.toLowerCase() || locale.toLowerCase().startsWith(`${base.toLowerCase()}-`),
   );
 
-  return matched ?? fallbackLocale;
+  return matched ?? null;
+}
+
+export function isSupportedLocale(value: string): value is Locale {
+  return localeSet.has(value);
+}
+
+export function findSupportedLocale(input?: string | null): Locale | null {
+  if (!input) return null;
+  return matchSupportedLocale(input);
+}
+
+export function resolveLocale(input?: string | null): Locale {
+  if (!input) return defaultLocale;
+  return matchSupportedLocale(input) ?? fallbackLocale;
+}
+
+export function resolveLocaleFromPriority(inputs?: Array<string | null | undefined>): Locale {
+  if (!inputs?.length) return fallbackLocale;
+
+  for (const input of inputs) {
+    const matched = findSupportedLocale(input);
+    if (matched) return matched;
+  }
+
+  return fallbackLocale;
+}
+
+export function getLocalePrefixFromPathname(pathname?: string | null): Locale | null {
+  if (!pathname) return null;
+  const firstSegment = pathname.split("/").filter(Boolean)[0];
+  if (!firstSegment || !isSupportedLocale(firstSegment)) {
+    return null;
+  }
+  return firstSegment;
 }
 
 export function detectLocaleFromPathname(pathname?: string | null): Locale {
-  if (!pathname) return defaultLocale;
-  const firstSegment = pathname.split("/").filter(Boolean)[0];
-  if (!firstSegment || !isSupportedLocale(firstSegment)) {
-    return defaultLocale;
-  }
-  return firstSegment;
+  return getLocalePrefixFromPathname(pathname) ?? defaultLocale;
 }
 
 export function stripLocalePrefix(pathname: string): string {

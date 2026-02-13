@@ -15,6 +15,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FooterTagline from "@/components/FooterTagline";
 import FooterLegalLine from "@/components/FooterLegalLine";
 import LocaleDocumentAttributes from "@/components/LocaleDocumentAttributes";
+import AutoLocaleRedirect from "@/components/AutoLocaleRedirect";
 import { layoutCopy } from "@/content/locales/layout";
 import { footerSectionLabels } from "@/content/locales/navigation";
 import { companyInfo } from "@/lib/companyInfo";
@@ -137,6 +138,7 @@ export default function RootLayout({
       className={`${sarabun.variable} ${spaceGrotesk.variable}`}
     >
       <body data-mode="institutional">
+        <AutoLocaleRedirect />
         <LocaleDocumentAttributes />
         <HeaderScrollBehavior />
         <script
