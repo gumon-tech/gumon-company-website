@@ -1,9 +1,10 @@
 import { sitemapRoutes } from "@/lib/navigation";
 import { supportedLocales } from "@/lib/i18n";
+import { getSiteUrl } from "@/lib/siteUrl";
 export const dynamic = "force-static";
 
 export default function sitemap() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gumon.io";
+  const base = getSiteUrl();
   const now = new Date();
 
   const localizedRoutes = supportedLocales.flatMap((locale) =>

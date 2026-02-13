@@ -21,6 +21,7 @@ import { footerSectionLabels } from "@/content/locales/navigation";
 import { companyInfo } from "@/lib/companyInfo";
 import { defaultLocale, supportedLocales } from "@/lib/i18n";
 import { getLocaleMeta } from "@/lib/localeMeta";
+import { getSiteUrl } from "@/lib/siteUrl";
 import {
   communityLinks,
   legalLinks,
@@ -44,7 +45,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://gumon.io"),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: layoutCopy.metadata.defaultTitle,
     template: layoutCopy.metadata.titleTemplate,
@@ -87,7 +88,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const defaultLocaleMeta = getLocaleMeta(defaultLocale);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gumon.io";
+  const siteUrl = getSiteUrl();
   const normalizedSiteUrl = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
   const shareUrl = `${normalizedSiteUrl}/en`;
   const shareMessage = "Open Platform for Delivery Teams. Deliver faster with clear standards and predictable outcomes.";
