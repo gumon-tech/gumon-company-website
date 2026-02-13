@@ -40,6 +40,7 @@ export const contactMeta: Partial<Record<Locale, { title: string; description: s
 };
 
 export const socialChannels = [
+  { name: "WhatsApp", href: "https://wa.me/66614722055", handle: "+66 61 472 2055 (YCN Group)", icon: "/assets/social/whatsapp.svg" },
   { name: "LINE OA", href: "https://lin.ee/BLe8er3", handle: "lin.ee/BLe8er3", icon: "/assets/social/line.svg" },
   { name: "LinkedIn", href: "https://www.linkedin.com/company/gumon", handle: "linkedin.com/company/gumon", icon: "/assets/social/linkedin.svg" },
   { name: "Facebook", href: "https://facebook.com/gumon.tech", handle: "facebook.com/gumon.tech", icon: "/assets/social/facebook.svg" },
@@ -125,4 +126,3 @@ export const contactContent: Partial<Record<Locale, ContactCopy>> = {
     kbLabel: "Knowledge Base",
   },
 };
-

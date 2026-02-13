@@ -115,6 +115,7 @@ export default function RootLayout({
             "@type": "ContactPoint",
             contactType: "customer support",
             email: "contact@gumon.io",
+            telephone: "+66 61 472 2055",
           },
         ],
       },
