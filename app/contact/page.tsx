@@ -36,18 +36,52 @@ const socialChannels = [
     name: "LINE OA",
     href: "https://lin.ee/BLe8er3",
     handle: "lin.ee/BLe8er3",
+    icon: "line",
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/company/gumon",
     handle: "linkedin.com/company/gumon",
+    icon: "linkedin",
   },
   {
     name: "Facebook",
     href: "https://facebook.com/gumon.tech",
     handle: "facebook.com/gumon.tech",
+    icon: "facebook",
   },
-];
+] as const;
+
+function SocialIcon({ icon }: { icon: "line" | "linkedin" | "facebook" }) {
+  if (icon === "line") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5">
+        <path fill="currentColor" d="M12 2.5c-4.97 0-9 3.37-9 7.53 0 3.73 3.2 6.84 7.52 7.43l-.3 3.58 3.6-3.45h.18c4.97 0 9-3.37 9-7.56 0-4.16-4.03-7.53-9-7.53Z" />
+        <path fill="#0b0f15" d="M8.08 12.86H6.4V8.7h1.03v3.22h.65v.94Zm1.83 0H8.88V8.7h1.03v4.16Zm3.05 0h-.9l-1.14-2.07v2.07h-.97V8.7h.92l1.12 2.04V8.7h.97v4.16Zm2.66 0h-2.74V8.7h2.74v.94h-1.72v.67h1.54v.92h-1.54v.69h1.72v.94Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "linkedin") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5">
+        <path
+          fill="currentColor"
+          d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM8.3 18H5.8v-8h2.5v8ZM7 8.9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm11 9.1h-2.5v-4c0-1-.4-1.8-1.4-1.8s-1.5.8-1.5 1.8v4H10v-8h2.4v1.1c.4-.7 1.1-1.3 2.4-1.3 1.8 0 3.2 1.2 3.2 3.8v4.4Z"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5">
+      <path
+        fill="currentColor"
+        d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.2-1.6 1.5-1.6h1.4V4.8c-.2 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.9V11H8v3h2.5v7h3Z"
+      />
+    </svg>
+  );
+}
 
 export default function ContactPage() {
   return (
@@ -103,10 +137,15 @@ export default function ContactPage() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="card p-4 hover:border-ink/30 transition"
+                    className="card p-4 hover:border-ink/30 transition flex items-center gap-3"
                   >
-                    <div className="text-[11px] tracking-[0.16em] uppercase text-mist">{item.name}</div>
-                    <div className="mt-1 text-ink">{item.handle}</div>
+                    <div className="h-9 w-9 rounded-full border border-line/40 bg-bg1 flex items-center justify-center text-ink/90">
+                      <SocialIcon icon={item.icon} />
+                    </div>
+                    <div>
+                      <div className="text-[11px] tracking-[0.16em] uppercase text-mist">{item.name}</div>
+                      <div className="mt-1 text-ink">{item.handle}</div>
+                    </div>
                   </TrackedLink>
                 ))}
               </div>
