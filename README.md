@@ -42,14 +42,6 @@ NEXT_PUBLIC_CONTACT_WEBHOOK_URL=https://your-webhook-endpoint
 - `/terms`
 - `/cookies`
 
-## Content + KPI docs
-- `docs/release-note-ia-migration.md`
-- `docs/web-redesign-structure-theme.md`
-- `docs/content-matrix.md`
-- `docs/kpi-tracking-plan.md`
-- `docs/analytics-dashboard-query-spec.md`
-- `docs/utm-convention-spec.md`
-
 ## GitHub Pages
 1) Repo Settings → Pages → Source: GitHub Actions
 2) Ensure `public/CNAME` is configured
