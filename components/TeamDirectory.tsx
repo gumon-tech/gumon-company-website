@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Reveal from "@/components/Reveal";
+import ImageLightbox from "@/components/ImageLightbox";
 import { detectLocaleFromPathname, getUiCopy } from "@/lib/i18n";
 
 type TeamMember = {
@@ -95,30 +96,37 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
         {filteredMembers.map((member, index) => (
           <Reveal key={member.name} delay={index * 35}>
             <article className="route-card h-full">
-              <div className="relative overflow-hidden rounded-xl border border-line/30 bg-bg1/60 aspect-square">
-                {failedImages[member.name] ? (
-                  <div className="team-member-fallback h-full w-full flex items-center justify-center">
-                    <span className="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-ink/90">
-                      {getInitials(member.name)}
-                    </span>
-                  </div>
-                ) : (
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 100vw"
-                    className="object-cover"
-                    style={{ objectPosition: member.crop }}
-                    onError={() =>
-                      setFailedImages((prev) => ({
-                        ...prev,
-                        [member.name]: true,
-                      }))
-                    }
-                  />
-                )}
-              </div>
+              <ImageLightbox
+                src={member.image}
+                alt={member.name}
+                caption={member.role}
+                className="block w-full"
+              >
+                <div className="relative overflow-hidden rounded-xl border border-line/30 bg-bg1/60 aspect-square">
+                  {failedImages[member.name] ? (
+                    <div className="team-member-fallback h-full w-full flex items-center justify-center">
+                      <span className="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-ink/90">
+                        {getInitials(member.name)}
+                      </span>
+                    </div>
+                  ) : (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(min-width: 1280px) 30vw, (min-width: 640px) 46vw, 100vw"
+                      className="object-cover"
+                      style={{ objectPosition: member.crop }}
+                      onError={() =>
+                        setFailedImages((prev) => ({
+                          ...prev,
+                          [member.name]: true,
+                        }))
+                      }
+                    />
+                  )}
+                </div>
+              </ImageLightbox>
               <h2 className="mt-4 ui-h3">{member.name}</h2>
               <p className="mt-2 text-xs tracking-[0.14em] uppercase text-mist">{member.role}</p>
             </article>

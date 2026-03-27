@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import ImageLightbox from "@/components/ImageLightbox";
 
 function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
@@ -15,6 +16,12 @@ type InternshipPhotoCardProps = {
   imageClassName?: string;
   sizes: string;
   priority?: boolean;
+  gallery?: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
+  }>;
+  index?: number;
 };
 
 export function InternshipPhotoCard({
@@ -27,9 +34,18 @@ export function InternshipPhotoCard({
   imageClassName,
   sizes,
   priority = false,
+  gallery,
+  index = 0,
 }: InternshipPhotoCardProps) {
   return (
-    <div className={cx("internship-photo-card group", className)}>
+    <ImageLightbox
+      src={src}
+      alt={alt}
+      caption={caption}
+      gallery={gallery}
+      index={index}
+      className={cx("internship-photo-card group", className)}
+    >
       <div className={cx("internship-photo-frame", frameClassName)}>
         <Image
           src={src}
@@ -43,7 +59,7 @@ export function InternshipPhotoCard({
         {chip ? <div className="internship-photo-chip">{chip}</div> : null}
         {caption ? <div className="internship-photo-caption">{caption}</div> : null}
       </div>
-    </div>
+    </ImageLightbox>
   );
 }
 
@@ -89,6 +105,11 @@ type InternshipShowcaseProps = {
 
 export function InternshipShowcase({ kicker, heading, description, items }: InternshipShowcaseProps) {
   const [featured, ...supporting] = items;
+  const galleryItems = items.map((item) => ({
+    src: item.src,
+    alt: item.alt,
+    caption: item.caption,
+  }));
 
   return (
     <section className="mt-12 card p-7 shadow-soft">
@@ -111,6 +132,8 @@ export function InternshipShowcase({ kicker, heading, description, items }: Inte
               sizes="(min-width: 1280px) 42rem, (min-width: 1024px) 56vw, 92vw"
               className="h-full"
               frameClassName="aspect-[4/3] overflow-hidden lg:h-full lg:aspect-[20/14]"
+              gallery={galleryItems}
+              index={0}
               imageClassName={cx(
                 "transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110",
                 featured.imageClassName
@@ -130,6 +153,8 @@ export function InternshipShowcase({ kicker, heading, description, items }: Inte
                 sizes="(min-width: 1280px) 24rem, (min-width: 640px) 44vw, 92vw"
                 className="h-full"
                 frameClassName="aspect-[5/4] overflow-hidden lg:h-full lg:aspect-auto"
+                gallery={galleryItems}
+                index={index + 1}
                 imageClassName={cx(
                   "transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110",
                   item.imageClassName

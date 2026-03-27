@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
+import ImageLightbox from "@/components/ImageLightbox";
 import Image from "next/image";
 import { buildPageMetadata } from "@/lib/seo";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
@@ -40,17 +41,24 @@ export default async function PlatformPage({ params }: { params?: Promise<{ loca
 
         <div className="mt-10 grid lg:grid-cols-12 gap-5 lg:items-stretch">
           <div className="lg:col-span-8 card p-4 shadow-soft h-full">
-            <div className="rounded-xl border border-line/40 bg-bg1 overflow-hidden">
-              <Image
-                src="/assets/from-gumon/gumon_arc.png"
-                alt="Gumon platform architecture"
-                width={1600}
-                height={900}
-                sizes="(min-width: 1024px) 760px, 94vw"
-                priority
-                className="w-full h-auto object-contain lg:h-[56vh] lg:object-cover lg:object-center"
-              />
-            </div>
+            <ImageLightbox
+              src="/assets/from-gumon/gumon_arc.png"
+              alt="Gumon platform architecture"
+              caption={copy.imageCaption}
+              className="block w-full"
+            >
+              <div className="rounded-xl border border-line/40 bg-bg1 overflow-hidden">
+                <Image
+                  src="/assets/from-gumon/gumon_arc.png"
+                  alt="Gumon platform architecture"
+                  width={1600}
+                  height={900}
+                  sizes="(min-width: 1024px) 760px, 94vw"
+                  priority
+                  className="w-full h-auto object-contain lg:h-[56vh] lg:object-cover lg:object-center"
+                />
+              </div>
+            </ImageLightbox>
             <div className="mt-3 px-1">
               <TrackedLink href="/assets/from-gumon/gumon_arc.png" target="_blank" rel="noreferrer" className="inline-flex items-center text-xs md:text-sm text-ink underline underline-offset-4 decoration-accent hover:decoration-ink">
                 {copy.openImage}

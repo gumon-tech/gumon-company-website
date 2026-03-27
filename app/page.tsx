@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
+import ImageLightbox from "@/components/ImageLightbox";
 import Image from "next/image";
 import { buildPageMetadata } from "@/lib/seo";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
@@ -101,9 +102,11 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
             {copy.fieldWorks.map((item, index) => (
               <Reveal key={item.title} delay={index * 60}>
                 <article className="card p-4 shadow-soft h-full">
-                  <div className="overflow-hidden rounded-xl border border-line/30 bg-bg1/70">
-                    <Image src={item.image} alt={item.title} width={1200} height={800} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 47vw, 92vw" loading="lazy" decoding="async" className="w-full h-48 object-cover" />
-                  </div>
+                  <ImageLightbox src={item.image} alt={item.title} caption={item.detail} className="block w-full">
+                    <div className="overflow-hidden rounded-xl border border-line/30 bg-bg1/70">
+                      <Image src={item.image} alt={item.title} width={1200} height={800} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 47vw, 92vw" loading="lazy" decoding="async" className="w-full h-48 object-cover" />
+                    </div>
+                  </ImageLightbox>
                   <div className="mt-4 text-[10px] tracking-[0.18em] uppercase text-accent">{item.category}</div>
                   <h3 className="mt-2 ui-h3">{item.title}</h3>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{item.detail}</p>
