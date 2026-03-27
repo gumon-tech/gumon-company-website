@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import { Sarabun, Space_Grotesk } from "next/font/google";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
@@ -317,7 +318,9 @@ export default function RootLayout({
         </footer>
 
         <CookieConsentBanner />
-        <AnalyticsBootstrap />
+        <Suspense fallback={null}>
+          <AnalyticsBootstrap />
+        </Suspense>
         </ThemeProvider>
       </body>
     </html>

@@ -1,8 +1,11 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { ReactNode, TouchEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import { usePathname } from "next/navigation";
+import { getImageLightboxCopy } from "@/content/locales/components";
+import { detectLocaleFromPathname } from "@/lib/i18n";
 
 type GalleryItem = {
   src: string;
@@ -79,6 +82,9 @@ export default function ImageLightbox({
   gallery,
   index = 0,
 }: ImageLightboxProps) {
+  const pathname = usePathname();
+  const locale = detectLocaleFromPathname(pathname);
+  const copy = getImageLightboxCopy(locale);
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(index);
   const [mounted, setMounted] = useState(false);
@@ -136,11 +142,11 @@ export default function ImageLightbox({
     setActiveIndex((current) => (current + 1) % items.length);
   };
 
-  const onTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+  const onTouchStart = (event: TouchEvent<HTMLElement>) => {
     setTouchStartX(event.changedTouches[0]?.clientX ?? null);
   };
 
-  const onTouchEnd = (event: React.TouchEvent<HTMLElement>) => {
+  const onTouchEnd = (event: TouchEvent<HTMLElement>) => {
     if (touchStartX === null || items.length <= 1) return;
 
     const endX = event.changedTouches[0]?.clientX ?? touchStartX;
@@ -166,7 +172,7 @@ export default function ImageLightbox({
         type="button"
         onClick={open}
         className={cx("image-lightbox-trigger", className)}
-        aria-label={ariaLabel ?? `Open larger image: ${alt}`}
+        aria-label={ariaLabel ?? `${copy.openLargerImage} ${alt}`}
       >
         {children}
       </button>
@@ -186,7 +192,7 @@ export default function ImageLightbox({
                   type="button"
                   onClick={() => setIsOpen(false)}
                   className="image-lightbox-close"
-                  aria-label="Close image viewer"
+                  aria-label={copy.closeImageViewer}
                 >
                   <CloseIcon />
                 </button>
@@ -208,7 +214,7 @@ export default function ImageLightbox({
                         showPrevious();
                       }}
                       className="image-lightbox-nav image-lightbox-nav-left"
-                      aria-label="Show previous image"
+                      aria-label={copy.showPreviousImage}
                     >
                       <ChevronLeftIcon />
                     </button>
@@ -219,7 +225,7 @@ export default function ImageLightbox({
                         showNext();
                       }}
                       className="image-lightbox-nav image-lightbox-nav-right"
-                      aria-label="Show next image"
+                      aria-label={copy.showNextImage}
                     >
                       <ChevronRightIcon />
                     </button>
@@ -240,7 +246,7 @@ export default function ImageLightbox({
                     />
                     {items.length > 1 ? (
                       <div className="image-lightbox-swipe-hint">
-                        Swipe to browse
+                        {copy.swipeToBrowse}
                       </div>
                     ) : null}
                   </div>

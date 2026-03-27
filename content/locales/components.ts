@@ -2,6 +2,13 @@ import type { Locale } from "@/lib/i18n";
 
 type CopyEmailButtonCopy = { label: string; copied: string; aria: string };
 type LegacyRouteNoticeCopy = { kicker: string; heading: string };
+type ImageLightboxCopy = {
+  openLargerImage: string;
+  closeImageViewer: string;
+  showPreviousImage: string;
+  showNextImage: string;
+  swipeToBrowse: string;
+};
 
 export const copyEmailButtonCopyByLocale: Record<Locale, CopyEmailButtonCopy> = {
   th: { label: "คัดลอก", copied: "คัดลอกแล้ว", aria: "คัดลอกอีเมลติดต่อ" },
@@ -55,10 +62,31 @@ export const legacyRouteNoticeCopyByLocale: Record<Locale, LegacyRouteNoticeCopy
   sv: { kicker: "Legacy Route", heading: "Den här sidan har flyttats till den nya strukturen" },
 };
 
+export const imageLightboxCopyByLocale: Partial<Record<Locale, ImageLightboxCopy>> = {
+  th: {
+    openLargerImage: "เปิดภาพขนาดใหญ่:",
+    closeImageViewer: "ปิดตัวแสดงภาพ",
+    showPreviousImage: "แสดงภาพก่อนหน้า",
+    showNextImage: "แสดงภาพถัดไป",
+    swipeToBrowse: "ปัดเพื่อดูภาพ",
+  },
+  en: {
+    openLargerImage: "Open larger image:",
+    closeImageViewer: "Close image viewer",
+    showPreviousImage: "Show previous image",
+    showNextImage: "Show next image",
+    swipeToBrowse: "Swipe to browse",
+  },
+};
+
 export function getCopyEmailButtonCopy(locale: Locale) {
   return copyEmailButtonCopyByLocale[locale] ?? copyEmailButtonCopyByLocale.en;
 }
 
 export function getLegacyRouteNoticeCopy(locale: Locale) {
   return legacyRouteNoticeCopyByLocale[locale] ?? legacyRouteNoticeCopyByLocale.en;
+}
+
+export function getImageLightboxCopy(locale: Locale) {
+  return imageLightboxCopyByLocale[locale] ?? imageLightboxCopyByLocale.en!;
 }
