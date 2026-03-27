@@ -329,52 +329,48 @@ export default function RootLayout({
 
               <div className="lg:col-span-12 hr" />
 
-              <div className="footer-bottom lg:col-span-12 grid gap-6 text-xs text-mist md:grid-cols-[minmax(260px,1fr)_minmax(340px,460px)] md:items-end md:justify-between">
-                <div>
-                  © {new Date().getFullYear()}{" "}
-                  <TrackedLink href="/" className="hover:text-ink transition">
-                    {layoutCopy.siteName}
-                  </TrackedLink>
-                  . {layoutCopy.allRightsReserved}
-                  <div className="mt-1">
-                    <FooterLegalLine />
+              <div className="lg:col-span-12 grid gap-4 text-xs text-mist md:grid-cols-[minmax(320px,1fr)_minmax(320px,1fr)] md:items-center md:gap-6">
+                <div className="flex flex-col gap-3">
+                  <div>
+                    © {new Date().getFullYear()}{" "}
+                    <TrackedLink href="/" className="hover:text-ink transition">
+                      {layoutCopy.siteName}
+                    </TrackedLink>
+                    . {layoutCopy.allRightsReserved}
+                    <div className="mt-1">
+                      <FooterLegalLine />
+                    </div>
                   </div>
+                  <ThemeSwitcher className="footer-theme-switcher footer-theme-switcher-left" />
                 </div>
-                <div className="footer-utility">
-                  <div className="footer-utility-panel">
-                    <div className="footer-utility-row">
-                      <ThemeSwitcher className="footer-theme-switcher" />
-                    </div>
-                    <div className="footer-utility-row">
-                      <div className="flex flex-wrap items-center gap-2 md:justify-end">
-                        <span className="text-[10px] uppercase tracking-[0.16em] text-mist">Share</span>
-                        {socialShareLinks.map((item) => (
-                          <TrackedLink
-                            key={item.href}
-                            href={item.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={item.label}
-                            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line/70 bg-bg0/90 hover:border-ink/40 hover:bg-bg1 transition"
-                          >
-                            {item.icon ? (
-                              <Image
-                                src={item.icon}
-                                alt=""
-                                width={17}
-                                height={17}
-                                aria-hidden
-                                className={item.iconClassName}
-                              />
-                            ) : (
-                              <span className="text-[11px] font-semibold tracking-[0.04em] text-ink/90" aria-hidden>
-                                {item.symbol}
-                              </span>
-                            )}
-                          </TrackedLink>
-                        ))}
-                      </div>
-                    </div>
+                <div className="footer-meta-right flex flex-col gap-3 md:items-end md:text-right">
+                  <div className="footer-meta-tools flex flex-wrap items-center gap-2 md:justify-end">
+                    <span className="text-[10px] uppercase tracking-[0.16em] text-mist">Share</span>
+                    {socialShareLinks.map((item) => (
+                      <TrackedLink
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={item.label}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line/70 bg-bg0/90 hover:border-ink/40 hover:bg-bg1 transition"
+                      >
+                        {item.icon ? (
+                          <Image
+                            src={item.icon}
+                            alt=""
+                            width={17}
+                            height={17}
+                            aria-hidden
+                            className={item.iconClassName}
+                          />
+                        ) : (
+                          <span className="text-[11px] font-semibold tracking-[0.04em] text-ink/90" aria-hidden>
+                            {item.symbol}
+                          </span>
+                        )}
+                      </TrackedLink>
+                    ))}
                   </div>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:justify-end">
                     <TrackedLink href="/faq" className="hover:text-ink transition">{layoutCopy.faqLabel}</TrackedLink>
