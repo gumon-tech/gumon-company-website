@@ -389,14 +389,16 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
           </div>
         </div>
 
-        <div className="mt-12 card p-7 shadow-soft">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-            <div className="order-2 lg:order-1 lg:col-span-7">
-              <p className="ui-kicker">{copy.growthKicker}</p>
-              <h2 className="mt-3 ui-h2">{copy.growthHeading}</h2>
-              <p className="mt-4 max-w-3xl text-sm md:text-base text-mist leading-relaxed">{copy.growthBody}</p>
+        <div className="mt-12 card p-7 shadow-soft lg:p-8">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
+            <div className="order-2 flex flex-col gap-6 lg:order-1 lg:col-span-7 lg:gap-7">
+              <div>
+                <p className="ui-kicker">{copy.growthKicker}</p>
+                <h2 className="mt-3 ui-h2">{copy.growthHeading}</h2>
+                <p className="mt-4 max-w-3xl text-sm md:text-base text-mist leading-relaxed">{copy.growthBody}</p>
+              </div>
 
-              <div className="mt-8 rounded-xl2 border border-line/30 bg-surf/35 p-5">
+              <div className="rounded-xl2 border border-line/30 bg-surf/35 p-5 md:p-6">
                 <p className="ui-kicker">{visual.cultureKicker}</p>
                 <h3 className="mt-3 ui-h3">{visual.cultureHeading}</h3>
                 <p className="mt-3 text-sm md:text-base text-mist leading-relaxed">{visual.cultureBody}</p>
@@ -406,21 +408,9 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
                   ))}
                 </ul>
               </div>
-
-              <div className="mt-6 grid gap-4 lg:grid-cols-3">
-                {copy.growthPath.map((item, index) => (
-                  <Reveal key={item.title} delay={index * 70}>
-                    <div className="route-card h-full">
-                      <div className="text-xs tracking-[0.16em] uppercase text-mist">{index + 1}</div>
-                      <h3 className="mt-3 ui-h3">{item.title}</h3>
-                      <p className="mt-2 text-sm text-mist leading-relaxed">{item.body}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
             </div>
 
-            <Reveal delay={120} className="order-1 lg:order-2 lg:col-span-5">
+            <Reveal delay={120} className="order-1 lg:order-2 lg:col-span-5 lg:self-stretch">
               <InternshipPhotoCard
                 src="/images/internship/internship-team-group-photo.jpg"
                 alt="ภาพทีมและผู้ฝึกงานร่วมกันในบรรยากาศที่เป็นกันเองและจริงใจ"

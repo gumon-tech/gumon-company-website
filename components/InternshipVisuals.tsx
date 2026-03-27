@@ -100,16 +100,17 @@ export function InternshipShowcase({ kicker, heading, description, items }: Inte
         </div>
       </Reveal>
 
-      <div className="mt-8 grid gap-4 lg:grid-cols-12 lg:items-start">
+      <div className="mt-8 grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[1.3fr_0.7fr]">
         {featured ? (
-          <Reveal className="lg:col-span-7">
+          <Reveal className="h-full">
             <InternshipPhotoCard
               src={featured.src}
               alt={featured.alt}
               chip={featured.chip}
               caption={featured.caption}
               sizes="(min-width: 1280px) 42rem, (min-width: 1024px) 56vw, 92vw"
-              frameClassName="aspect-[4/3] lg:aspect-[16/11]"
+              className="h-full"
+              frameClassName="aspect-[4/3] overflow-hidden lg:h-full lg:aspect-[20/14]"
               imageClassName={cx(
                 "transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110",
                 featured.imageClassName
@@ -118,16 +119,17 @@ export function InternshipShowcase({ kicker, heading, description, items }: Inte
           </Reveal>
         ) : null}
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
+        <div className="grid h-full grid-cols-1 gap-4 lg:grid-rows-2">
           {supporting.map((item, index) => (
-            <Reveal key={item.src} delay={(index + 1) * 70}>
+            <Reveal key={item.src} delay={(index + 1) * 70} className="h-full">
               <InternshipPhotoCard
                 src={item.src}
                 alt={item.alt}
                 chip={item.chip}
                 caption={item.caption}
                 sizes="(min-width: 1280px) 24rem, (min-width: 640px) 44vw, 92vw"
-                frameClassName="aspect-[5/4] lg:aspect-[16/9]"
+                className="h-full"
+                frameClassName="aspect-[5/4] overflow-hidden lg:h-full lg:aspect-auto"
                 imageClassName={cx(
                   "transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110",
                   item.imageClassName
