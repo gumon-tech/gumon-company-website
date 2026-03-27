@@ -245,7 +245,7 @@ export default function RootLayout({
           <BackToTopButton />
           <MobileStickyCta />
 
-          <footer className="border-t border-line/20">
+          <footer className="site-footer border-t border-line/20">
             <div className="ui-container py-12 grid gap-8 lg:grid-cols-12">
               <div className="lg:col-span-3">
                 <TrackedLink href="/" className="text-sm font-semibold hover:text-ink/90 transition">
@@ -286,7 +286,7 @@ export default function RootLayout({
                         target="_blank"
                         rel="noreferrer"
                         aria-label={item.label}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line/70 bg-bg0/90 hover:border-ink/40 hover:bg-bg1 transition"
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line/70 bg-bg0/90 hover:border-accent2/35 hover:bg-bg1 transition"
                       >
                         {item.icon ? (
                           <Image
