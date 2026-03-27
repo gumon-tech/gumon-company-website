@@ -66,9 +66,15 @@ export function InternshipPhotoCard({
 type HeroCollageProps = {
   label: string;
   caption: string;
+  gallery?: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
+  }>;
+  index?: number;
 };
 
-export function InternshipHeroCollage({ label, caption }: HeroCollageProps) {
+export function InternshipHeroCollage({ label, caption, gallery, index = 0 }: HeroCollageProps) {
   return (
     <div className="relative mx-auto w-full max-w-[34rem]">
       <div className="pointer-events-none absolute inset-x-8 top-8 h-40 rounded-full bg-accent/10 blur-3xl" />
@@ -81,6 +87,8 @@ export function InternshipHeroCollage({ label, caption }: HeroCollageProps) {
           priority
           sizes="(min-width: 1280px) 32rem, (min-width: 1024px) 40vw, 92vw"
           frameClassName="aspect-[4/3] lg:aspect-[11/8]"
+          gallery={gallery}
+          index={index}
           imageClassName="object-[58%_36%] transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
         />
       </Reveal>
@@ -101,11 +109,24 @@ type InternshipShowcaseProps = {
   heading: string;
   description: string;
   items: ShowcaseItem[];
+  gallery?: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
+  }>;
+  startIndex?: number;
 };
 
-export function InternshipShowcase({ kicker, heading, description, items }: InternshipShowcaseProps) {
+export function InternshipShowcase({
+  kicker,
+  heading,
+  description,
+  items,
+  gallery,
+  startIndex = 0,
+}: InternshipShowcaseProps) {
   const [featured, ...supporting] = items;
-  const galleryItems = items.map((item) => ({
+  const galleryItems = gallery ?? items.map((item) => ({
     src: item.src,
     alt: item.alt,
     caption: item.caption,
@@ -133,7 +154,7 @@ export function InternshipShowcase({ kicker, heading, description, items }: Inte
               className="h-full"
               frameClassName="aspect-[4/3] overflow-hidden lg:h-full lg:aspect-[20/14]"
               gallery={galleryItems}
-              index={0}
+              index={startIndex}
               imageClassName={cx(
                 "transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110",
                 featured.imageClassName
@@ -154,7 +175,7 @@ export function InternshipShowcase({ kicker, heading, description, items }: Inte
                 className="h-full"
                 frameClassName="aspect-[5/4] overflow-hidden lg:h-full lg:aspect-auto"
                 gallery={galleryItems}
-                index={index + 1}
+                index={startIndex + index + 1}
                 imageClassName={cx(
                   "transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110",
                   item.imageClassName

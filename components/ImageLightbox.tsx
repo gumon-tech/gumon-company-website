@@ -82,6 +82,7 @@ export default function ImageLightbox({
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(index);
   const [mounted, setMounted] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   const items = useMemo<GalleryItem[]>(
     () => (gallery && gallery.length > 0 ? gallery : [{ src, alt, caption }]),
@@ -133,6 +134,30 @@ export default function ImageLightbox({
 
   const showNext = () => {
     setActiveIndex((current) => (current + 1) % items.length);
+  };
+
+  const onTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+    setTouchStartX(event.changedTouches[0]?.clientX ?? null);
+  };
+
+  const onTouchEnd = (event: React.TouchEvent<HTMLElement>) => {
+    if (touchStartX === null || items.length <= 1) return;
+
+    const endX = event.changedTouches[0]?.clientX ?? touchStartX;
+    const deltaX = endX - touchStartX;
+
+    if (Math.abs(deltaX) < 44) {
+      setTouchStartX(null);
+      return;
+    }
+
+    if (deltaX < 0) {
+      showNext();
+    } else {
+      showPrevious();
+    }
+
+    setTouchStartX(null);
   };
 
   return (
@@ -204,6 +229,8 @@ export default function ImageLightbox({
                 <figure
                   className="image-lightbox-figure"
                   onClick={(event) => event.stopPropagation()}
+                  onTouchStart={onTouchStart}
+                  onTouchEnd={onTouchEnd}
                 >
                   <div className="image-lightbox-frame">
                     <img
@@ -211,6 +238,11 @@ export default function ImageLightbox({
                       alt={activeItem.alt}
                       className="image-lightbox-image"
                     />
+                    {items.length > 1 ? (
+                      <div className="image-lightbox-swipe-hint">
+                        Swipe to browse
+                      </div>
+                    ) : null}
                   </div>
                   {activeItem.caption ? (
                     <figcaption className="image-lightbox-caption">

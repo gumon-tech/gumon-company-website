@@ -141,6 +141,28 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
   const copy = workAndLearnContent[locale] ?? workAndLearnContent.en!;
   const fallbackNotice = workAndLearnContent[locale] ? null : getFallbackNotice(locale);
   const visual = getVisualCopy(locale);
+  const internshipPageGallery = [
+    {
+      src: "/images/internship/internship-workshop-session.jpg",
+      alt: "Interns joining a workshop session and discussion together",
+      caption: visual.heroCaption,
+    },
+    ...visual.showcaseItems.map((item) => ({
+      src: item.src,
+      alt: item.alt,
+      caption: item.caption,
+    })),
+    {
+      src: "/images/internship/internship-kubernetes-workshop-group.jpg",
+      alt: locale === "th" ? "กลุ่มผู้ฝึกงานหลัง workshop ด้าน Kubernetes และระบบจริง" : "Intern group after a cloud and platform workshop",
+      caption: locale === "th" ? "เรียนรู้จากหัวข้อที่เชื่อมกับระบบจริง" : "Exposure to cloud and platform thinking",
+    },
+    {
+      src: "/images/internship/internship-team-group-photo.jpg",
+      alt: locale === "th" ? "ภาพทีมและผู้ฝึกงานร่วมกันในบรรยากาศที่เป็นกันเองและจริงใจ" : "Team and interns together in a warm and collaborative setting",
+      caption: locale === "th" ? "การเติบโตเกิดขึ้นได้ดีเมื่อมีทีมที่พร้อมทำงานและเรียนรู้ไปด้วยกัน" : "Growth becomes more real when the team around you is real",
+    },
+  ];
 
   return (
     <section className="ui-section">
@@ -165,6 +187,8 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
             <InternshipHeroCollage
               label={visual.heroLabel}
               caption={visual.heroCaption}
+              gallery={internshipPageGallery}
+              index={0}
             />
           </div>
         </div>
@@ -222,6 +246,8 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
           heading={visual.showcaseHeading}
           description={visual.showcaseDescription}
           items={visual.showcaseItems}
+          gallery={internshipPageGallery}
+          startIndex={1}
         />
 
         <div id="how-it-works" className="mt-12 scroll-mt-28">
@@ -311,6 +337,8 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
                   caption={locale === "th" ? "เรียนรู้จากหัวข้อที่เชื่อมกับระบบจริง" : "Exposure to cloud and platform thinking"}
                   sizes="(min-width: 1280px) 36rem, (min-width: 1024px) 48vw, 92vw"
                   frameClassName="aspect-[16/10]"
+                  gallery={internshipPageGallery}
+                  index={4}
                   imageClassName="object-[50%_38%] transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
                 />
               </Reveal>
@@ -404,6 +432,8 @@ export default async function WorkAndLearnPage({ params }: { params?: Promise<{ 
                 caption={locale === "th" ? "การเติบโตเกิดขึ้นได้ดีเมื่อมีทีมที่พร้อมทำงานและเรียนรู้ไปด้วยกัน" : "Growth becomes more real when the team around you is real"}
                 sizes="(min-width: 1280px) 28rem, (min-width: 1024px) 38vw, 92vw"
                 frameClassName="aspect-[4/3] lg:aspect-[5/6]"
+                gallery={internshipPageGallery}
+                index={5}
                 imageClassName="object-[50%_34%] transition duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
               />
             </Reveal>

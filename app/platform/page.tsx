@@ -45,9 +45,9 @@ export default async function PlatformPage({ params }: { params?: Promise<{ loca
               src="/assets/from-gumon/gumon_arc.png"
               alt="Gumon platform architecture"
               caption={copy.imageCaption}
-              className="block w-full"
+              className="editorial-photo-card editorial-photo-card-soft group block w-full"
             >
-              <div className="rounded-xl border border-line/40 bg-bg1 overflow-hidden">
+              <div className="editorial-photo-frame rounded-xl border border-line/40 bg-bg1 overflow-hidden">
                 <Image
                   src="/assets/from-gumon/gumon_arc.png"
                   alt="Gumon platform architecture"
@@ -55,8 +55,9 @@ export default async function PlatformPage({ params }: { params?: Promise<{ loca
                   height={900}
                   sizes="(min-width: 1024px) 760px, 94vw"
                   priority
-                  className="w-full h-auto object-contain lg:h-[56vh] lg:object-cover lg:object-center"
+                  className="editorial-photo-image w-full h-auto object-contain lg:h-[56vh] lg:object-cover lg:object-center"
                 />
+                <div className="editorial-photo-overlay editorial-photo-overlay-soft" />
               </div>
             </ImageLightbox>
             <div className="mt-3 px-1">

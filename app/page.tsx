@@ -26,6 +26,11 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
   const locale = await getLocale(params);
   const copy = pickLocalizedContent(locale, homeContent);
   const fallbackNotice = homeContent[locale] ? null : getFallbackNotice(locale);
+  const fieldWorkGallery = copy.fieldWorks.map((item) => ({
+    src: item.image,
+    alt: item.title,
+    caption: item.detail,
+  }));
 
   return (
     <section className="ui-section">
@@ -102,9 +107,26 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
             {copy.fieldWorks.map((item, index) => (
               <Reveal key={item.title} delay={index * 60}>
                 <article className="card p-4 shadow-soft h-full">
-                  <ImageLightbox src={item.image} alt={item.title} caption={item.detail} className="block w-full">
-                    <div className="overflow-hidden rounded-xl border border-line/30 bg-bg1/70">
-                      <Image src={item.image} alt={item.title} width={1200} height={800} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 47vw, 92vw" loading="lazy" decoding="async" className="w-full h-48 object-cover" />
+                  <ImageLightbox
+                    src={item.image}
+                    alt={item.title}
+                    caption={item.detail}
+                    gallery={fieldWorkGallery}
+                    index={index}
+                    className="editorial-photo-card group block w-full"
+                  >
+                    <div className="editorial-photo-frame h-48 rounded-xl border border-line/30 bg-bg1/70">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={1200}
+                        height={800}
+                        sizes="(min-width: 1024px) 30vw, (min-width: 640px) 47vw, 92vw"
+                        loading="lazy"
+                        decoding="async"
+                        className="editorial-photo-image w-full h-full object-cover"
+                      />
+                      <div className="editorial-photo-overlay" />
                     </div>
                   </ImageLightbox>
                   <div className="mt-4 text-[10px] tracking-[0.18em] uppercase text-accent">{item.category}</div>

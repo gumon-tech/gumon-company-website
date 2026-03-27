@@ -62,6 +62,16 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
     return members.filter((member) => roleToGroup(member.role) === activeFilter);
   }, [activeFilter, members]);
 
+  const galleryItems = useMemo(
+    () =>
+      filteredMembers.map((member) => ({
+        src: member.image,
+        alt: member.name,
+        caption: member.role,
+      })),
+    [filteredMembers]
+  );
+
   const getInitials = (name: string) =>
     name
       .split(" ")
@@ -100,6 +110,8 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
                 src={member.image}
                 alt={member.name}
                 caption={member.role}
+                gallery={galleryItems}
+                index={index}
                 className="block w-full"
               >
                 <div className="relative overflow-hidden rounded-xl border border-line/30 bg-bg1/60 aspect-square">
