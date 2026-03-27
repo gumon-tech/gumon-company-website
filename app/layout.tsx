@@ -225,7 +225,7 @@ export default function RootLayout({
                 </div>
               </TrackedLink>
 
-              <nav className="hidden xl:flex items-center gap-4 text-sm text-ink/90">
+              <nav className="hidden xl:flex items-center gap-3 text-sm text-ink/90 2xl:gap-4">
                 <PrimaryNav />
               </nav>
 
