@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import {
   CONSENT_CHANGED_EVENT,
   readCookieConsent,
   type CookieConsentLevel,
 } from "@/lib/cookieConsent";
+import { analyticsConfig } from "@/lib/analytics";
 
 declare global {
   interface Window {
-    dataLayer?: Record<string, unknown>[];
+    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
   }
 }
@@ -27,10 +29,13 @@ function initGoogleAnalytics(measurementId: string) {
   injectScript(`https://www.googletagmanager.com/gtag/js?id=${measurementId}`, "gumon-ga-script");
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args as unknown as Record<string, unknown>);
+    window.dataLayer?.push(args);
   };
   window.gtag("js", new Date());
-  window.gtag("config", measurementId, { anonymize_ip: true });
+  window.gtag("config", measurementId, {
+    anonymize_ip: true,
+    send_page_view: false,
+  });
 }
 
 function initGoogleTagManager(gtmId: string) {
@@ -42,16 +47,21 @@ function initGoogleTagManager(gtmId: string) {
 
 export default function AnalyticsBootstrap() {
   const initialized = useRef(false);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [consentGranted, setConsentGranted] = useState(false);
 
   useEffect(() => {
-    const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-    const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+    const gaId = analyticsConfig.gaMeasurementId;
+    const gtmId = analyticsConfig.gtmId;
 
     if (!gaId && !gtmId) return;
 
     const bootstrap = (level: CookieConsentLevel | null) => {
-      if (initialized.current) return;
       if (level !== "all") return;
+      setConsentGranted(true);
+
+      if (initialized.current) return;
 
       if (gaId) initGoogleAnalytics(gaId);
       if (gtmId) initGoogleTagManager(gtmId);
@@ -69,6 +79,21 @@ export default function AnalyticsBootstrap() {
     return () => window.removeEventListener(CONSENT_CHANGED_EVENT, onConsentChanged);
   }, []);
 
+  useEffect(() => {
+    if (!initialized.current || !consentGranted || !analyticsConfig.gaMeasurementId || !window.gtag) {
+      return;
+    }
+
+    const search = searchParams.toString();
+    const pagePath = search ? `${pathname}?${search}` : pathname;
+
+    window.gtag("event", "page_view", {
+      page_path: pagePath,
+      page_location: window.location.href,
+      page_title: document.title,
+      send_to: analyticsConfig.gaMeasurementId,
+    });
+  }, [consentGranted, pathname, searchParams]);
+
   return null;
 }
-
