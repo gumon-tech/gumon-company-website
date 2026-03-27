@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Sarabun, Space_Grotesk } from "next/font/google";
-import NavLink from "@/components/NavLink";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import TrackedLink from "@/components/TrackedLink";
 import MobileStickyCta from "@/components/MobileStickyCta";
@@ -10,6 +9,9 @@ import ToolsMenu from "@/components/ToolsMenu";
 import HeaderScrollBehavior from "@/components/HeaderScrollBehavior";
 import MobileMenu from "@/components/MobileMenu";
 import BackToTopButton from "@/components/BackToTopButton";
+import PrimaryNav from "@/components/PrimaryNav";
+import FooterNavigation from "@/components/FooterNavigation";
+import FooterLegalLinks from "@/components/FooterLegalLinks";
 import AnalyticsBootstrap from "@/components/AnalyticsBootstrap";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeProvider from "@/components/ThemeProvider";
@@ -19,19 +21,11 @@ import FooterLegalLine from "@/components/FooterLegalLine";
 import LocaleDocumentAttributes from "@/components/LocaleDocumentAttributes";
 import AutoLocaleRedirect from "@/components/AutoLocaleRedirect";
 import { layoutCopy } from "@/content/locales/layout";
-import { footerSectionLabels } from "@/content/locales/navigation";
 import { companyInfo } from "@/lib/companyInfo";
 import { defaultLocale, supportedLocales } from "@/lib/i18n";
 import { getLocaleMeta } from "@/lib/localeMeta";
 import { getSiteUrl } from "@/lib/siteUrl";
 import { getThemeInitScript } from "@/lib/theme";
-import {
-  communityLinks,
-  legalLinks,
-  primaryNavItems,
-  supportLinks,
-  workToolLinks,
-} from "@/lib/navigation";
 
 const sarabun = Sarabun({
   subsets: ["thai", "latin"],
@@ -232,9 +226,7 @@ export default function RootLayout({
               </TrackedLink>
 
               <nav className="hidden xl:flex items-center gap-4 text-sm text-ink/90">
-                {primaryNavItems.map((item) => (
-                  <NavLink key={item.href} href={item.href} label={item.label} />
-                ))}
+                <PrimaryNav />
               </nav>
 
               <MobileMenu />
@@ -265,66 +257,7 @@ export default function RootLayout({
               </div>
 
               <div className="lg:col-span-9 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 xl:gap-8 text-sm">
-                <div>
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.platform}</div>
-                  <div className="mt-3 grid gap-2">
-                    {primaryNavItems.slice(0, 2).map((item) => (
-                      <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.audience}</div>
-                  <div className="mt-3 grid gap-2">
-                    {primaryNavItems.slice(2, 4).map((item) => (
-                      <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.company}</div>
-                  <div className="mt-3 grid gap-2">
-                    {primaryNavItems.slice(4).map((item) => (
-                      <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.tools}</div>
-                  <div className="mt-3 grid gap-2">
-                    {workToolLinks.map((item) => (
-                      <TrackedLink key={item.href} href={item.href} target="_blank" rel="noreferrer" className="text-mist hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.community}</div>
-                  <div className="mt-3 grid gap-2">
-                    {communityLinks.map((item) => (
-                      <TrackedLink key={item.href} href={item.href} target="_blank" rel="noreferrer" className="text-mist hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[11px] tracking-[0.18em] uppercase text-mist">{footerSectionLabels.support}</div>
-                  <div className="mt-3 grid gap-2">
-                    {supportLinks.map((item) => (
-                      <TrackedLink key={item.href} href={item.href} className="text-mist hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
-                  </div>
-                </div>
+                <FooterNavigation />
               </div>
 
               <div className="lg:col-span-12 hr" />
@@ -375,11 +308,7 @@ export default function RootLayout({
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:justify-end">
                     <TrackedLink href="/faq" className="hover:text-ink transition">{layoutCopy.faqLabel}</TrackedLink>
                     <TrackedLink href="/company#legal-information" className="hover:text-ink transition">{layoutCopy.companyInfoLink}</TrackedLink>
-                    {legalLinks.map((item) => (
-                      <TrackedLink key={item.href} href={item.href} className="hover:text-ink transition">
-                        {item.label}
-                      </TrackedLink>
-                    ))}
+                    <FooterLegalLinks />
                     <TrackedLink href="mailto:contact@gumon.io" className="hover:text-ink transition">{layoutCopy.contactEmail}</TrackedLink>
                   </div>
                 </div>

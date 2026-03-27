@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { communityLinks, workToolLinks } from "@/lib/navigation";
+import { getNavigation } from "@/lib/navigation";
 import { detectLocaleFromPathname, getUiCopy } from "@/lib/i18n";
 
 export default function ToolsMenu() {
@@ -11,6 +11,7 @@ export default function ToolsMenu() {
   const pathname = usePathname();
   const locale = detectLocaleFromPathname(pathname);
   const copy = getUiCopy(locale);
+  const { communityLinks, workToolLinks } = getNavigation(locale);
 
   useEffect(() => {
     if (!open) return;

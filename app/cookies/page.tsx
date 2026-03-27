@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params?: Promise<{ locale?:
 export default async function CookiesPage({ params }: { params?: Promise<{ locale?: string }> }) {
   const locale = await getLocaleFromParams(params);
   const copy = pickLocalizedContent(locale, cookiesContent);
-  const fallbackNotice = getFallbackNotice(locale);
+  const fallbackNotice = cookiesContent[locale] ? null : getFallbackNotice(locale);
 
   return (
     <section className="ui-section">

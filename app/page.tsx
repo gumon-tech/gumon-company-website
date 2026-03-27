@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params?: Promise<{ locale?:
 export default async function HomePage({ params }: { params?: Promise<{ locale?: string }> }) {
   const locale = await getLocale(params);
   const copy = pickLocalizedContent(locale, homeContent);
-  const fallbackNotice = getFallbackNotice(locale);
+  const fallbackNotice = homeContent[locale] ? null : getFallbackNotice(locale);
 
   return (
     <section className="ui-section">

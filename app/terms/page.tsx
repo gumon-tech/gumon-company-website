@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params?: Promise<{ locale?:
 export default async function TermsPage({ params }: { params?: Promise<{ locale?: string }> }) {
   const locale = await getLocaleFromParams(params);
   const copy = pickLocalizedContent(locale, termsContent);
-  const fallbackNotice = getFallbackNotice(locale);
+  const fallbackNotice = termsContent[locale] ? null : getFallbackNotice(locale);
 
   return (
     <section className="ui-section">

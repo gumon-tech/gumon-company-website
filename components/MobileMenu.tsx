@@ -3,12 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import TrackedLink from "@/components/TrackedLink";
 import { usePathname } from "next/navigation";
-import {
-  communityLinks,
-  primaryNavItems,
-  supportLinks,
-  workToolLinks,
-} from "@/lib/navigation";
+import { getNavigation } from "@/lib/navigation";
 import { detectLocaleFromPathname, getUiCopy } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
@@ -19,6 +14,7 @@ export default function MobileMenu() {
   const pathname = usePathname();
   const locale = detectLocaleFromPathname(pathname);
   const copy = getUiCopy(locale);
+  const { communityLinks, primaryNavItems, supportLinks, workToolLinks } = getNavigation(locale);
 
   const closeMenu = () => setOpen(false);
 

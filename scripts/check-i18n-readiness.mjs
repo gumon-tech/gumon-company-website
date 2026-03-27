@@ -54,8 +54,9 @@ async function checkLocaleFileCoverage(issues) {
     const fullPath = path.join(CONTENT_DIR, file);
     const content = await fs.readFile(fullPath, "utf8");
 
-    const hasTh = /\bth\s*:\s*\{/.test(content);
-    const hasEn = /\ben\s*:\s*\{/.test(content);
+    const localeBlockPattern = (locale) => new RegExp(`\\b${locale}\\s*:\\s*(?:[A-Za-z0-9_]+\\()?\\{`);
+    const hasTh = localeBlockPattern("th").test(content);
+    const hasEn = localeBlockPattern("en").test(content);
     if (!hasTh || !hasEn) {
       issues.push(`${toRelative(fullPath)} missing ${!hasTh ? "th" : ""}${!hasTh && !hasEn ? "/" : ""}${!hasEn ? "en" : ""} locale block`);
     }

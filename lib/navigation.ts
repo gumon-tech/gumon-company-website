@@ -1,5 +1,6 @@
 import {
   communityLinks,
+  getNavigation,
   legalLinks,
   primaryNavItems,
   supportLinks,
@@ -11,7 +12,7 @@ export type NavItem = {
   label: string;
 };
 
-export { primaryNavItems, workToolLinks, communityLinks, supportLinks, legalLinks };
+export { getNavigation, primaryNavItems, workToolLinks, communityLinks, supportLinks, legalLinks };
 
 export const stickyCtaEnabledRoutes = new Set([
   "/",
@@ -19,6 +20,7 @@ export const stickyCtaEnabledRoutes = new Set([
   "/developers",
   "/partners",
   "/resources",
+  "/work-and-learn",
   "/company",
   "/team",
 ]);
@@ -29,6 +31,7 @@ export const sitemapRoutes = [
   { path: "/developers", changeFrequency: "weekly" as const, priority: 0.9 },
   { path: "/partners", changeFrequency: "weekly" as const, priority: 0.9 },
   { path: "/resources", changeFrequency: "weekly" as const, priority: 0.8 },
+  { path: "/work-and-learn", changeFrequency: "weekly" as const, priority: 0.78 },
   { path: "/company", changeFrequency: "monthly" as const, priority: 0.75 },
   { path: "/team", changeFrequency: "monthly" as const, priority: 0.72 },
   { path: "/contact", changeFrequency: "monthly" as const, priority: 0.7 },

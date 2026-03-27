@@ -130,5 +130,5 @@ export function localizePath(pathname: string, locale: Locale) {
 export type { UiCopy };
 
 export function getUiCopy(locale: Locale): UiCopy {
-  return locale === "th" ? uiCopyByLocale.th : uiCopyByLocale.en;
+  return uiCopyByLocale[locale] ?? uiCopyByLocale.en;
 }

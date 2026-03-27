@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params?: Promise<{ locale?:
 export default async function PrivacyPage({ params }: { params?: Promise<{ locale?: string }> }) {
   const locale = await getLocaleFromParams(params);
   const copy = pickLocalizedContent(locale, privacyContent);
-  const fallbackNotice = getFallbackNotice(locale);
+  const fallbackNotice = privacyContent[locale] ? null : getFallbackNotice(locale);
 
   return (
     <section className="ui-section">

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params?: Promise<{ locale?:
 export default async function ContactPage({ params }: { params?: Promise<{ locale?: string }> }) {
   const locale = await getLocaleFromParams(params);
   const copy = pickLocalizedContent(locale, contactContent);
-  const fallbackNotice = getFallbackNotice(locale);
+  const fallbackNotice = contactContent[locale] ? null : getFallbackNotice(locale);
   const companyInfo = getCompanyInfo(locale);
 
   return (
@@ -70,7 +70,7 @@ export default async function ContactPage({ params }: { params?: Promise<{ local
               ))}
             </ul>
 
-            <div className="mt-6 rounded-xl border border-dashed border-line/45 bg-bg1/45 p-4 text-sm text-mist">{copy.projectBriefNote}</div>
+            {/* <div className="mt-6 rounded-xl border border-dashed border-line/45 bg-bg1/45 p-4 text-sm text-mist">{copy.projectBriefNote}</div> */}
             <div id="dsar-request" className="mt-4 rounded-xl border border-line/35 bg-bg1/55 p-4 text-sm text-mist scroll-mt-28">
               {copy.dsarIntro}{" "}
               <a href="mailto:data@gumon.io?subject=[DSAR]%20Data%20Subject%20Request" className="text-ink underline underline-offset-4 decoration-accent hover:decoration-ink transition">
