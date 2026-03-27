@@ -55,12 +55,12 @@ export default function ToolsMenu() {
           <button
             type="button"
             aria-label={copy.closeToolsMenuBackdropAria}
-            className="fixed inset-0 top-[72px] z-[100] bg-[rgb(2_5_10/0.32)]"
+            className="tools-menu-backdrop fixed inset-0 top-[72px] z-[100]"
             onClick={closeMenu}
           />
           <div
             role="menu"
-            className="absolute right-0 top-full z-[110] mt-2 w-64 rounded-xl border border-line/45 bg-bg0 p-2 shadow-[0_20px_44px_rgba(2,8,16,0.58)]"
+            className="tools-menu-panel absolute right-0 top-full z-[110] mt-2 w-64 rounded-xl border border-line/45 bg-bg0 p-2"
           >
             <div className="grid gap-1">
               <div className="px-3 pt-1 pb-1 text-[10px] tracking-[0.16em] uppercase text-mist">{copy.workTools}</div>

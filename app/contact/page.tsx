@@ -103,7 +103,7 @@ export default async function ContactPage({ params }: { params?: Promise<{ local
                 {socialChannels.map((item) => (
                   <TrackedLink key={item.name} href={item.href} target="_blank" rel="noreferrer" className="card p-4 hover:border-ink/30 transition flex items-center gap-3">
                     <div className="h-9 w-9 rounded-full border border-line/40 bg-bg1 flex items-center justify-center">
-                      <Image src={item.icon} alt={`${item.name} logo`} width={20} height={20} sizes="20px" loading="lazy" decoding="async" className="opacity-90 brightness-0 invert" />
+                      <Image src={item.icon} alt={`${item.name} logo`} width={20} height={20} sizes="20px" loading="lazy" decoding="async" className="contact-social-icon opacity-90" />
                     </div>
                     <div>
                       <div className="text-[11px] tracking-[0.16em] uppercase text-mist">{item.name}</div>

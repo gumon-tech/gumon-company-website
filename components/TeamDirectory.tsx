@@ -97,7 +97,7 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
             <article className="route-card h-full">
               <div className="relative overflow-hidden rounded-xl border border-line/30 bg-bg1/60 aspect-square">
                 {failedImages[member.name] ? (
-                  <div className="h-full w-full flex items-center justify-center bg-[radial-gradient(circle_at_20%_20%,rgba(124,237,192,0.2),transparent_45%),linear-gradient(145deg,rgba(10,24,42,0.92),rgba(8,18,34,0.96))]">
+                  <div className="team-member-fallback h-full w-full flex items-center justify-center">
                     <span className="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-ink/90">
                       {getInitials(member.name)}
                     </span>

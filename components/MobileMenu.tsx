@@ -11,6 +11,7 @@ import {
 } from "@/lib/navigation";
 import { detectLocaleFromPathname, getUiCopy } from "@/lib/i18n";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -77,6 +78,9 @@ export default function MobileMenu() {
             <div className="grid gap-3 text-[15px]">
               <div className="px-1">
                 <LanguageSwitcher />
+              </div>
+              <div className="px-1">
+                <ThemeSwitcher className="theme-switcher-mobile" />
               </div>
               <div className="hr" />
               {primaryNavItems.map((item) => (

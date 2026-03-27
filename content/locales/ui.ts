@@ -15,6 +15,12 @@ export type UiCopy = {
   copy: string;
   copied: string;
   language: string;
+  theme: {
+    label: string;
+    system: string;
+    dark: string;
+    light: string;
+  };
   closeMenuBackdropAria: string;
   closeToolsMenuBackdropAria: string;
   teamFilters: {
@@ -44,6 +50,12 @@ export const uiCopyByLocale: Record<"th" | "en", UiCopy> = {
     copy: "Copy",
     copied: "Copied",
     language: "Language",
+    theme: {
+      label: "Theme",
+      system: "System",
+      dark: "Dark",
+      light: "Light",
+    },
     closeMenuBackdropAria: "Close menu backdrop",
     closeToolsMenuBackdropAria: "Close tools menu backdrop",
     teamFilters: {
@@ -71,6 +83,12 @@ export const uiCopyByLocale: Record<"th" | "en", UiCopy> = {
     copy: "คัดลอก",
     copied: "คัดลอกแล้ว",
     language: "ภาษา",
+    theme: {
+      label: "ธีม",
+      system: "ระบบ",
+      dark: "มืด",
+      light: "สว่าง",
+    },
     closeMenuBackdropAria: "ปิดพื้นหลังเมนู",
     closeToolsMenuBackdropAria: "ปิดพื้นหลังเมนูเครื่องมือ",
     teamFilters: {

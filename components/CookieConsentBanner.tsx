@@ -65,11 +65,7 @@ export default function CookieConsentBanner() {
           <button
             type="button"
             onClick={acceptAllCookies}
-            className="inline-flex items-center justify-center rounded-full border border-transparent px-3.5 py-1.5 text-xs font-semibold text-bg0"
-            style={{
-              background: "linear-gradient(120deg, rgb(var(--accent)) 0%, rgb(var(--accent2)) 100%)",
-              boxShadow: "0 6px 16px rgb(var(--accent) / 0.26)",
-            }}
+            className="btn-primary-inline inline-flex items-center justify-center rounded-full px-3.5 py-1.5 text-xs font-semibold"
           >
             {copy.cookieAcceptAll}
           </button>

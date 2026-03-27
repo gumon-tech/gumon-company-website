@@ -12,6 +12,7 @@ const config = {
         bg1: "rgb(var(--bg1) / <alpha-value>)",
         surf: "rgb(var(--surf) / <alpha-value>)",
         ink: "rgb(var(--ink) / <alpha-value>)",
+        contrast: "rgb(var(--contrast) / <alpha-value>)",
         mist: "rgb(var(--mist) / <alpha-value>)",
         line: "rgb(var(--line) / <alpha-value>)",
 
@@ -23,9 +24,8 @@ const config = {
         danger: "rgb(var(--danger) / <alpha-value>)",
       },
       boxShadow: {
-        glow: "0 0 0 1px rgb(var(--line) / 0.85), 0 18px 50px rgba(0,0,0,0.35)",
-        // restrained, institutional
-        soft: "0 0 0 1px rgb(var(--line) / 0.85), 0 18px 50px rgba(0,0,0,0.35)",
+        glow: "0 0 0 1px rgb(var(--line) / 0.52), 0 18px 50px rgb(var(--shadow-rgb) / 0.24)",
+        soft: "0 0 0 1px rgb(var(--line) / 0.38), 0 18px 50px rgb(var(--shadow-rgb) / 0.18)",
       },
       borderRadius: {
         xl2: "24px",
