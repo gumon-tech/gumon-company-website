@@ -33,16 +33,18 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
   }));
 
   return (
-    <section className="ui-section">
+    <section className="ui-section home-page">
       <BreadcrumbJsonLd items={[]} />
       <div className="ui-container">
         <Reveal>
+          <div className="home-hero">
           <p className="ui-kicker">{copy.kicker}</p>
           <h1 className="ui-h1">{copy.heading}</h1>
           <p className="mt-6 max-w-[34ch] sm:max-w-2xl lg:max-w-3xl ui-p">{copy.intro}</p>
+          </div>
         </Reveal>
 
-        {fallbackNotice ? <div className="mt-6 rounded-xl border border-line/45 bg-bg1/55 p-4 text-sm text-mist">{fallbackNotice}</div> : null}
+        {fallbackNotice ? <div className="home-fallback mt-6 rounded-xl border border-line/45 bg-bg1/55 p-4 text-sm text-mist">{fallbackNotice}</div> : null}
 
         <Reveal delay={80}>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -51,10 +53,10 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </Reveal>
 
-        <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-4 gap-3">
+          <div className="home-signal-grid mt-10 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {copy.signalPills.map((pill, index) => (
             <Reveal key={pill.label} delay={index * 60}>
-              <div className="glass rounded-xl border border-line/35 px-4 py-3">
+              <div className="home-signal-pill glass rounded-xl border border-line/35 px-4 py-3">
                 <div className="text-[10px] tracking-[0.2em] uppercase text-mist">{pill.label}</div>
                 <div className="mt-2 text-sm font-semibold text-ink">{pill.value}</div>
               </div>
@@ -62,7 +64,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           ))}
         </div>
 
-        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
+        <div className="home-panel mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">{copy.foundationKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.foundationHeading}</h2>
@@ -79,7 +81,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </div>
 
-        <div className="section-break">
+        <div className="section-break home-band">
           <Reveal>
             <p className="ui-kicker">{copy.rolesKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.rolesHeading}</h2>
@@ -97,7 +99,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </div>
 
-        <div className="section-break">
+        <div className="section-break home-band">
           <Reveal>
             <p className="ui-kicker">{copy.worksKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.worksHeading}</h2>
@@ -106,7 +108,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {copy.fieldWorks.map((item, index) => (
               <Reveal key={item.title} delay={index * 60}>
-                <article className="card p-4 shadow-soft h-full">
+                <article className="home-photo-shell card p-4 shadow-soft h-full">
                   <ImageLightbox
                     src={item.image}
                     alt={item.title}
@@ -129,7 +131,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
                       <div className="editorial-photo-overlay" />
                     </div>
                   </ImageLightbox>
-                  <div className="mt-4 text-[10px] tracking-[0.18em] uppercase text-accent">{item.category}</div>
+                  <div className="mt-4 text-[10px] tracking-[0.18em] uppercase text-accent home-photo-meta">{item.category}</div>
                   <h3 className="mt-2 ui-h3">{item.title}</h3>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{item.detail}</p>
                 </article>
@@ -138,7 +140,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </div>
 
-        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
+        <div className="home-panel mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">{copy.workflowKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.workflowHeading}</h2>
@@ -156,7 +158,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </div>
 
-        <div className="section-break">
+        <div className="section-break home-band">
           <Reveal>
             <p className="ui-kicker">{copy.proofKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.proofHeading}</h2>
@@ -164,7 +166,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {copy.proofMetrics.map((item, index) => (
               <Reveal key={item.label} delay={index * 70}>
-                <div className="glass rounded-xl border border-line/35 p-5 h-full">
+                <div className="home-metric-card glass rounded-xl border border-line/35 p-5 h-full">
                   <div className="text-xs text-mist uppercase tracking-[0.14em]">{item.label}</div>
                   <div className="mt-2 text-2xl font-semibold text-ink">{item.value}</div>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{item.detail}</p>
@@ -174,7 +176,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </div>
 
-        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
+        <div className="home-panel mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="ui-kicker">{copy.trustKicker}</p>
@@ -203,14 +205,14 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
 
           <div className="mt-6 flex flex-wrap gap-3">
             {copy.trustStats.map((item) => (
-              <div key={item.label} className="glass rounded-lg border border-line/35 px-3 py-2 text-xs text-mist">
+              <div key={item.label} className="home-trust-chip glass rounded-lg border border-line/35 px-3 py-2 text-xs text-mist">
                 <span className="text-ink font-semibold">{item.value}</span> {item.label}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
+        <div className="home-panel mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
           <Reveal>
             <p className="ui-kicker">{copy.miniCasesKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.miniCasesHeading}</h2>
@@ -229,7 +231,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           </div>
         </div>
 
-        <div className="section-break">
+        <div className="section-break home-band">
           <Reveal>
             <p className="ui-kicker">{copy.outcomesKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.outcomesHeading}</h2>
@@ -237,7 +239,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {copy.outcomes.map((item, index) => (
               <Reveal key={item.metric} delay={index * 80}>
-                <div className="glass rounded-xl border border-line/35 p-5 h-full">
+                <div className="home-metric-card glass rounded-xl border border-line/35 p-5 h-full">
                   <div className="text-xs text-mist uppercase tracking-[0.14em]">{item.metric}</div>
                   <div className="mt-2 text-xl font-semibold text-ink">{item.value}</div>
                   <p className="mt-2 text-sm text-mist leading-relaxed">{item.detail}</p>
@@ -248,7 +250,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
         </div>
 
         <Reveal delay={120}>
-          <div className="mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
+          <div className="home-panel home-final-panel mt-16 md:mt-14 card p-5 md:p-7 shadow-soft">
             <p className="ui-kicker">{copy.nextStepKicker}</p>
             <h2 className="mt-3 ui-h2 max-w-4xl">{copy.nextStepHeading}</h2>
             <p className="ui-lead">{copy.nextStepLead}</p>
