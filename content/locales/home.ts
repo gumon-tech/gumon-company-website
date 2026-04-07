@@ -58,6 +58,7 @@ export type Partner = {
 export const partners: Partner[] = [
   { name: "Asia Connect Corporation", country: "Thailand", website: "https://www.asiaconnectth.com", short: "AC", logo: "/assets/partners/asia-connect.png", logoScaleClass: "partner-logo-scale-98", logoFrameClass: "partner-logo-badge-circle" },
   { name: "AC Academys", country: "Thailand", website: "https://acacademys.com", short: "AC", logo: "/assets/partners/ac-academys.png", logoScaleClass: "partner-logo-scale-92", logoFrameClass: "partner-logo-badge-circle" },
+  { name: "C2 TECH", country: "Thailand", website: "https://c2tech.app/", short: "C2", logo: "/assets/partners/c2tech.png", logoScaleClass: "partner-logo-scale-88", logoFrameClass: "partner-logo-badge-circle" },
   { name: "Olufy-X", country: "Thailand", website: "https://olufy.com", short: "OX", logo: "/assets/partners/olufy-x.png", logoScaleClass: "partner-logo-scale-90", logoFrameClass: "partner-logo-badge-circle" },
   { name: "Taitam-D", country: "United Kingdom", website: "https://taitam-d.com", short: "TD", logo: "/assets/partners/taitam-d.png", logoScaleClass: "partner-logo-scale-88", logoFrameClass: "partner-logo-badge-circle" },
 ];
