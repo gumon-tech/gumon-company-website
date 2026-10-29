@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
-import UkClientsStrip from "@/components/UkClientsStrip";
+import PartnerNetworkGrid from "@/components/PartnerNetworkGrid";
 import ImageLightbox from "@/components/ImageLightbox";
 import Image from "next/image";
 import { buildPageMetadata } from "@/lib/seo";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
-import { homeContent, partners } from "@/content/locales/home";
+import { homeContent } from "@/content/locales/home";
 
 async function getLocale(params?: Promise<{ locale?: string }>): Promise<Locale> {
   if (!params) return fallbackLocale;
@@ -186,25 +186,7 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
             <TrackedLink href="/partners" className="btn-secondary-strong w-fit">{copy.trustCta}</TrackedLink>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {partners.map((partner) => (
-              <TrackedLink key={partner.name} href={partner.website} target="_blank" rel="noreferrer" className="partner-item">
-                {partner.logo ? (
-                  <div className={`partner-logo-badge ${partner.logoFrameClass ?? "partner-logo-badge-circle"}`}>
-                    <Image src={partner.logo} alt={`${partner.name} logo`} width={112} height={40} sizes="112px" loading="lazy" decoding="async" className={`partner-logo ${partner.logoScaleClass}`} />
-                  </div>
-                ) : (
-                  <div className="partner-logo-fallback" aria-label={`${partner.name} monogram`}>{partner.short}</div>
-                )}
-                <div>
-                  <div className="text-sm font-medium leading-snug text-ink">{partner.name}</div>
-                  <div className="text-xs text-mist mt-0.5">{partner.country}</div>
-                </div>
-              </TrackedLink>
-            ))}
-          </div>
-
-          <UkClientsStrip locale={locale} />
+          <PartnerNetworkGrid />
 
           <div className="mt-6 flex flex-wrap gap-3">
             {copy.trustStats.map((item) => (
