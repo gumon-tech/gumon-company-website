@@ -1,9 +1,9 @@
 # HANDOFF — gumon.io (ห้อง KGIO)
 
-อัปเดต 2026-10-29
+อัปเดต 2026-10-29 (ล่าสุด commit 1542685)
 
 ## ขึ้น main แล้ว (commit 4e889ab, 0db6fc0, 0831d91 · Actions เขียว · ตรวจหน้าจริงบน gumon.io แล้ว)
-- **แถบโลโก้ UK** `components/UkClientsStrip.tsx` + `content/locales/ukClients.ts` · อยู่ใน `/partners` (Trust Proof) และกล่อง Trusted Partners ของหน้าแรก · 4 ราย: Pure Essentials London, Sri Siam Thai Therapy & Wellness, Taitam-D, Taitam-D Academy London · หัวแถบและคำบรรยาย 23 ภาษา · ที่มาของไฟล์โลโก้ + sha256 ใน `docs/client-logos.md` · ห้ามแก้สี/รูปทรงโลโก้ลูกค้า
+- **เครือข่ายพาร์ตเนอร์ (รวมพาร์ตเนอร์ + ลูกค้าเป็นรายการเดียว ตามคุณคมเพชร)** `components/PartnerNetworkGrid.tsx` + `content/partnerNetwork.ts` · ไทล์โลโก้ + ชื่อ + ประเทศ · หน้าแรกและ `/partners` · 10 ราย (TH 4, UK 5, Finland 1) · ตัวเลข Partner Organizations / Operating Countries คำนวณจากรายการนี้ · Taitam-D ใช้โลโก้ร้าน (เหรียญทอง) ส่วน Taitam-D Academy London ใช้ตราวงกลมเขียว (คนละโลโก้) · Siam Cruise ลิงก์ Facebook (ยังไม่มีเว็บ) ใช้ไทล์ดำเพราะโลโก้ทองบนดำ · ที่มาของโลโก้ใน `docs/client-logos.md` · ห้ามแก้สี/รูปทรงโลโก้
 - **ปุ่ม WhatsApp** `components/WhatsAppButton.tsx` + `content/locales/whatsapp.ts` · wa.me/66614722055 พร้อมคำทักทายตามภาษา · ข้อความต้องไม่ขึ้นต้นด้วย TTDP-, คำขอเข้าชม/นัด, `[แจ้งปัญหา]` `[ร้องเรียน]` `[สอบถาม] รายงาน HR-` (KBOT: ระบบ Ops แยกเส้นทาง) · เบอร์คนนอกถูกเก็บเป็นเรื่องติดต่อใน gumon_inbox (ไม่ทิ้ง) · ในหน้าติดต่อมีปุ่มเพิ่ม
 - **ทีมเหลือ 2 คน** (Komphet Meesab, Panitchai Chaenglek) ตามคำสั่งคุณคมเพชร · คนอื่นอยู่ใน `hiddenTeamMembers` ใน `content/locales/team.ts` รูปอยู่ `content/team-hidden/images/` (ไม่ถูกเผยแพร่) · วิธีนำกลับอยู่ในคอมเมนต์ในไฟล์นั้น
 
