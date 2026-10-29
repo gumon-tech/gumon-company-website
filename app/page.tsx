@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
+import UkClientsStrip from "@/components/UkClientsStrip";
 import ImageLightbox from "@/components/ImageLightbox";
 import Image from "next/image";
 import { buildPageMetadata } from "@/lib/seo";
@@ -202,6 +203,8 @@ export default async function HomePage({ params }: { params?: Promise<{ locale?:
               </TrackedLink>
             ))}
           </div>
+
+          <UkClientsStrip locale={locale} />
 
           <div className="mt-6 flex flex-wrap gap-3">
             {copy.trustStats.map((item) => (

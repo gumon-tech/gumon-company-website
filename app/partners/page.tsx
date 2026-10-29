@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
+import UkClientsStrip from "@/components/UkClientsStrip";
 import Image from "next/image";
 import { buildPageMetadata } from "@/lib/seo";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
@@ -102,6 +103,8 @@ export default async function PartnersPage({ params }: { params?: Promise<{ loca
               </TrackedLink>
             ))}
           </div>
+
+          <UkClientsStrip locale={locale} />
         </div>
 
         <div className="mt-12 card p-7 shadow-soft">
