@@ -47,13 +47,16 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
   const pathname = usePathname();
   const locale = detectLocaleFromPathname(pathname);
   const copy = getUiCopy(locale);
+  const groupsInUse = new Set<string>(members.map((member) => roleToGroup(member.role)));
   const filterItems = [
     { key: "all", label: copy.teamFilters.all },
     { key: "leadership", label: copy.teamFilters.leadership },
     { key: "engineering", label: copy.teamFilters.engineering },
     { key: "design", label: copy.teamFilters.design },
     { key: "media", label: copy.teamFilters.media },
-  ];
+  ].filter((item) => item.key === "all" || groupsInUse.has(item.key));
+  // A single group gives the same list as "all", so the filter row is only useful with 2+ groups.
+  const showFilters = groupsInUse.size > 1;
 
   const filteredMembers = useMemo(() => {
     if (activeFilter === "all") {
@@ -82,6 +85,7 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
 
   return (
     <>
+      {showFilters ? (
       <div className="mt-8 flex flex-wrap gap-2">
         {filterItems.map((item) => {
           const active = item.key === activeFilter;
@@ -101,6 +105,7 @@ export default function TeamDirectory({ members }: TeamDirectoryProps) {
           );
         })}
       </div>
+      ) : null}
 
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {filteredMembers.map((member, index) => (

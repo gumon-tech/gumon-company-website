@@ -13,85 +13,92 @@ export const teamMembers = [
     image: "/images/team/panitchai-chaenglek.jpg",
     crop: "50% 12%",
   },
+];
+
+// Hidden from the website on 2026-10-29 (owner request: only two team members are shown for now).
+// To bring someone back: move their entry into `teamMembers` above and move the photo from
+// `content/team-hidden/images/` back to `public/images/team/` (then change the path to /images/team/).
+// Photos are kept outside `public/` so they are not published while hidden.
+export const hiddenTeamMembers = [
   {
     name: "Kritsada Suriyachan",
     role: "Head of Technology Solutions Division",
-    image: "/images/team/kritsada-suriyachan.jpg",
+    image: "/images/team-hidden/kritsada-suriyachan.jpg",
     crop: "50% 10%",
   },
   {
     name: "Niti Kosutao",
     role: "Backend Developer",
-    image: "/images/team/niti-kosutao.jpg",
+    image: "/images/team-hidden/niti-kosutao.jpg",
     crop: "50% 12%",
   },
   {
     name: "Apirat Jamnongrat",
     role: "Frontend Developer",
-    image: "/images/team/apirat-jamnongrat.jpg",
+    image: "/images/team-hidden/apirat-jamnongrat.jpg",
     crop: "50% 14%",
   },
   {
     name: "Pongsathon Tungkanakul",
     role: "Frontend Developer",
-    image: "/images/team/pongsathon-tungkanakul.jpg",
+    image: "/images/team-hidden/pongsathon-tungkanakul.jpg",
     crop: "50% 14%",
   },
   {
     name: "Poomchanok Sangprasert",
     role: "Frontend Developer",
-    image: "/images/team/poomchanok-sangprasert.jpg",
+    image: "/images/team-hidden/poomchanok-sangprasert.jpg",
     crop: "50% 14%",
   },
   {
     name: "Sittipong Sainum",
     role: "Digital and Technology Social Network Officer",
-    image: "/images/team/sittipong-sainum.jpg",
+    image: "/images/team-hidden/sittipong-sainum.jpg",
     crop: "50% 12%",
   },
   {
     name: "Noppon Changchai",
     role: "Media Staff",
-    image: "/images/team/noppon-changchai.jpg",
+    image: "/images/team-hidden/noppon-changchai.jpg",
     crop: "50% 12%",
   },
   {
     name: "Pramin Wangwun",
     role: "Fullstack Developer",
-    image: "/images/team/pramin-wangwun.jpg",
+    image: "/images/team-hidden/pramin-wangwun.jpg",
     crop: "50% 10%",
   },
   {
     name: "Thanathorn Chulay",
     role: "Fullstack Developer",
-    image: "/images/team/thanathorn-chulay.jpg",
+    image: "/images/team-hidden/thanathorn-chulay.jpg",
     crop: "50% 10%",
   },
   {
     name: "Parichat Hongsa",
     role: "Fullstack Developer",
-    image: "/images/team/parichat-hongsa.jpg",
+    image: "/images/team-hidden/parichat-hongsa.jpg",
     crop: "50% 10%",
   },
-  // { name: "Irin Maysasittiroj", role: "Fullstack Developer", image: "/images/team/irin-maysasittiroj.jpg", crop: "50% 10%" },
   {
     name: "Nuntakarn Paonariang",
     role: "Business Analyst",
-    image: "/images/team/nuntakarn-paonariang.jpg",
+    image: "/images/team-hidden/nuntakarn-paonariang.jpg",
     crop: "50% 10%",
   },
   {
     name: "Suriya Thanee",
     role: "Media Staff",
-    image: "/images/team/suriya-thanee.jpg",
+    image: "/images/team-hidden/suriya-thanee.jpg",
     crop: "50% 10%",
   },
   {
     name: "Wichayoot Wongsason",
     role: "Media Staff",
-    image: "/images/team/wichayoot-wongsason.jpg",
+    image: "/images/team-hidden/wichayoot-wongsason.jpg",
     crop: "50% 10%",
   },
+  // { name: "Irin Maysasittiroj", role: "Fullstack Developer", image: "/images/team/irin-maysasittiroj.jpg", crop: "50% 10%" },
 ];
 
 export type TeamCopy = {
