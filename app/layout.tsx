@@ -10,6 +10,7 @@ import ToolsMenu from "@/components/ToolsMenu";
 import HeaderScrollBehavior from "@/components/HeaderScrollBehavior";
 import MobileMenu from "@/components/MobileMenu";
 import BackToTopButton from "@/components/BackToTopButton";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import PrimaryNav from "@/components/PrimaryNav";
 import FooterNavigation from "@/components/FooterNavigation";
 import FooterLegalLinks from "@/components/FooterLegalLinks";
@@ -244,6 +245,7 @@ export default function RootLayout({
 
           <main>{children}</main>
           <BackToTopButton />
+          <WhatsAppButton />
           <MobileStickyCta />
 
           <footer className="site-footer border-t border-line/20">

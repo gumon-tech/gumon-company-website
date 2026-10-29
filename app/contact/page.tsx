@@ -9,6 +9,7 @@ import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
 import { contactContent, contactMeta, socialChannels } from "@/content/locales/contact";
+import { getWhatsAppHref, whatsAppCopyByLocale } from "@/content/locales/whatsapp";
 
 async function getLocaleFromParams(params?: Promise<{ locale?: string }>): Promise<Locale> {
   if (!params) return fallbackLocale;
@@ -85,6 +86,10 @@ export default async function ContactPage({ params }: { params?: Promise<{ local
             <h2 className="mt-3 ui-h3">{copy.directContactHeading}</h2>
             <div className="mt-4 grid gap-3 text-sm">
               <EmailContactCard email="contact@gumon.io" subject={copy.emailSubject} />
+              <a href={getWhatsAppHref(locale)} target="_blank" rel="noopener" className="btn-primary w-full gap-2">
+                <Image src="/assets/social/whatsapp.svg" alt="" width={20} height={20} sizes="20px" decoding="async" />
+                {whatsAppCopyByLocale[locale].label}
+              </a>
             </div>
 
             <div className="mt-6">
