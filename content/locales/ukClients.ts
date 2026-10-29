@@ -30,7 +30,7 @@ export const ukClients: UkClient[] = [
   {
     name: "Taitam-D",
     website: "https://taitam-d.com/",
-    logo: "/assets/clients/taitam-d-academy-london.png",
+    logo: "/assets/clients/taitam-d.png",
     width: 512,
     height: 512,
     role: "website",
