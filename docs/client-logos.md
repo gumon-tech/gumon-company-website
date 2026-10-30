@@ -24,3 +24,9 @@ Logos sit on white tiles in both themes; Siam Cruise & Hotel Academy sits on a b
 | `public/assets/clients/siam-cruise-hotel-academy.webp` | Siam Cruise & Hotel Academy, Finland (no website yet; links to https://www.facebook.com/siamcruiseandhotelacademy) | `solution-taitamd-platform/apps/web/public/image/siam-cruise-logo.webp` (500x270, from the JPEG the academy sent the owner; black keyed out) | Byte-identical copy, sha256 `4228a8087a7c14fc77858477c244d42fc13910cd40f682d7872d796062934b7f`. Replace when the academy sends a vector or lossless master |
 
 The "Partner Organizations" and "Operating Countries" stats on the home page and `/partners` are computed from `partnerNetwork`.
+
+## Replaced 2026-10-31 (owner request)
+
+| File | Client | Source | Notes |
+| --- | --- | --- | --- |
+| `public/assets/clients/sri-siam-thai-therapy-wellness.png` | Sri Siam Thai Therapy & Wellness (https://www.srisiamthaitherapyandwellness.co.uk/) | `solution-taitamd-shop-office` `poc/shop-agent/shops/sst/brand/logo.png`, commit 75de57df (the owner-approved new purple-and-gold logo, background removed, 997x1397 RGBA) | Resized to 257x360 with `sips -Z 360` (aspect and transparency kept), sha256 `52ec124d84ed66aa228a0a6500fa4cf890bed1ba8f65a946acca8c97faf396dd`. Replaces the 2026-10-29 Wix header logo (the gold-only mark, row above) |
