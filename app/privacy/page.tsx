@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import ShopAgentNotice from "@/components/ShopAgentNotice";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
@@ -37,6 +38,8 @@ export default async function PrivacyPage({ params }: { params?: Promise<{ local
         <p className="mt-4 ui-small">Last updated: {copy.updatedAt}</p>
 
         {fallbackNotice ? <div className="mt-6 rounded-xl border border-line/45 bg-bg1/55 p-4 text-sm text-mist">{fallbackNotice}</div> : null}
+
+        <ShopAgentNotice locale={locale} />
 
         <div className="mt-10 card p-7 shadow-soft space-y-8 text-sm md:text-base text-mist leading-relaxed">
           <p>{copy.intro}</p>

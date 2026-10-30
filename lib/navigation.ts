@@ -39,4 +39,7 @@ export const sitemapRoutes = [
   { path: "/privacy", changeFrequency: "monthly" as const, priority: 0.5 },
   { path: "/terms", changeFrequency: "monthly" as const, priority: 0.5 },
   { path: "/cookies", changeFrequency: "monthly" as const, priority: 0.5 },
+  { path: "/shop-agent/privacy", changeFrequency: "monthly" as const, priority: 0.4 },
+  { path: "/shop-agent/data-deletion", changeFrequency: "monthly" as const, priority: 0.4 },
+  { path: "/shop-agent/terms", changeFrequency: "monthly" as const, priority: 0.4 },
 ];
