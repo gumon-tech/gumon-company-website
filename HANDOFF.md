@@ -1,6 +1,10 @@
 # HANDOFF — gumon.io (ห้อง KGIO)
 
-อัปเดต 2026-10-29 (ล่าสุด commit 1542685)
+อัปเดต 2026-11-25 (ล่าสุด commit c7db270)
+
+## หน้ากฎหมาย (ขึ้น main แล้ว · ตรวจหน้าจริงแล้ว)
+- **Gumon Ads Automation บน /privacy/** (c7db270 · 25 พ.ย.) ให้ Google OAuth brand verification ของ Cloud project gumon-ads-automation ⇒ **ห้ามย้าย path /privacy/** (ใส่ใน Branding ของ Google แล้ว) · เนื้อ `content/locales/privacyAdsAutomation.ts` (EN+TH ภาษาอื่นแสดง EN) · anchor `#ads-automation` · ประโยค Limited Use ต้องคำต่อคำ · ข้อเท็จจริงตามระบบจริง: v1 ส่ง gclid อย่างเดียว (ไม่มี gbraid/wbraid) · click id ลบเมื่อส่งสำเร็จหรือ 90 วัน · คลิกที่ไม่มีใครทัก ลบที่ 8 วัน (shop-office `poc/shop-agent/app/measurement.py:65`) · ระบบเปลี่ยนเมื่อไร (เพิ่ม gbraid/wbraid, Meta/TikTok, scope ใหม่) ต้องแก้ไฟล์นี้ด้วย · ส่วนเว็บไซต์เดิมของหน้า privacy ไม่ได้แตะ
+- **Gumon Shop Agent** (e08e448 · 30 ต.ค.) `/shop-agent/privacy/` `/shop-agent/data-deletion/` `/shop-agent/terms/` = URL ในหน้า Basic settings ของแอป Meta 1873760646949270 · EN+TH · ห้ามระบุชื่อร้านลูกค้า · ข้อที่ยังเปิด: IDTA ยังไม่เซ็น (หน้าเขียน "ต้องอาศัย" มาตรการ) · ยังไม่รู้ว่า S3 เปิด versioning หรือไม่ · ยังไม่มีขั้นลบซ้ำหลังกู้ข้อมูลสำรอง
 
 ## ขึ้น main แล้ว (commit 4e889ab, 0db6fc0, 0831d91 · Actions เขียว · ตรวจหน้าจริงบน gumon.io แล้ว)
 - **เครือข่ายพาร์ตเนอร์ (รวมพาร์ตเนอร์ + ลูกค้าเป็นรายการเดียว ตามคุณคมเพชร)** `components/PartnerNetworkGrid.tsx` + `content/partnerNetwork.ts` · ไทล์โลโก้ + ชื่อ + ประเทศ · หน้าแรกและ `/partners` · 10 ราย (TH 4, UK 5, Finland 1) · ตัวเลข Partner Organizations / Operating Countries คำนวณจากรายการนี้ · Taitam-D ใช้โลโก้ร้าน (เหรียญทอง) ส่วน Taitam-D Academy London ใช้ตราวงกลมเขียว (คนละโลโก้) · Siam Cruise ลิงก์ Facebook (ยังไม่มีเว็บ) ใช้ไทล์ดำเพราะโลโก้ทองบนดำ · ที่มาของโลโก้ใน `docs/client-logos.md` · ห้ามแก้สี/รูปทรงโลโก้
