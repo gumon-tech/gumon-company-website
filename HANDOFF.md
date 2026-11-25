@@ -1,8 +1,10 @@
 # HANDOFF — gumon.io (ห้อง KGIO)
 
-อัปเดต 2026-11-25 (ล่าสุด commit c7db270)
+อัปเดต 2026-11-25 (ล่าสุด commit fb51854)
 
 ## หน้ากฎหมาย (ขึ้น main แล้ว · ตรวจหน้าจริงแล้ว)
+- **Gumon Ads Automation หน้าแยก** (fb51854 · 25 พ.ย.) `/ads-automation/privacy/` `/ads-automation/data-deletion/` `/ads-automation/terms/` · EN+TH · เนื้อ `content/locales/adsAutomation*.ts` · component กลาง `components/LegalDocumentPage.tsx` (Shop Agent ใช้ตัวเดียวกัน) · privacy ระบุ scope `auth/adwords` + `auth/datamanager` ตามโค้ด KADS ⇒ เพิ่ม scope เมื่อไรต้องแก้หน้า · footer ทุกหน้ามีลิงก์ "Gumon Ads Automation" และ "Gumon Shop Agent" เป็น path ราก (ตรงกับ URL ที่ลงทะเบียนกับ Google/Meta) · Google ตรวจ /privacy/ สองรอบไม่ผ่าน ⇒ KMKT เปลี่ยน privacy link ใน Branding เป็นหน้าแยก · **คงหัวข้อเต็มใน /privacy/#ads-automation ไว้จน Google ผ่าน** แล้วค่อยย่อเหลือย่อหน้าสั้น + ลิงก์ (คำสั่ง KMKT)
+- ข้อสัญญาที่หน้า terms/data-deletion ให้ไว้ (ทีมต้องทำตาม): ลบข้อมูลลูกค้าธุรกิจภายใน 1 เดือนหลังเลิกบริการ/ขอ · แจ้งเปลี่ยนข้อกำหนดล่วงหน้า 30 วัน · เลิกบริการแจ้ง 30 วันถ้าไม่มีสัญญา · ลบบันทึกรายคนภายใน 72 ชม. หลังถึงระบบ
 - **Gumon Ads Automation บน /privacy/** (c7db270 · 25 พ.ย.) ให้ Google OAuth brand verification ของ Cloud project gumon-ads-automation ⇒ **ห้ามย้าย path /privacy/** (ใส่ใน Branding ของ Google แล้ว) · เนื้อ `content/locales/privacyAdsAutomation.ts` (EN+TH ภาษาอื่นแสดง EN) · anchor `#ads-automation` · ประโยค Limited Use ต้องคำต่อคำ · ข้อเท็จจริงตามระบบจริง: v1 ส่ง gclid อย่างเดียว (ไม่มี gbraid/wbraid) · click id ลบเมื่อส่งสำเร็จหรือ 90 วัน · คลิกที่ไม่มีใครทัก ลบที่ 8 วัน (shop-office `poc/shop-agent/app/measurement.py:65`) · ระบบเปลี่ยนเมื่อไร (เพิ่ม gbraid/wbraid, Meta/TikTok, scope ใหม่) ต้องแก้ไฟล์นี้ด้วย · ส่วนเว็บไซต์เดิมของหน้า privacy ไม่ได้แตะ
 - **Gumon Shop Agent** (e08e448 · 30 ต.ค.) `/shop-agent/privacy/` `/shop-agent/data-deletion/` `/shop-agent/terms/` = URL ในหน้า Basic settings ของแอป Meta 1873760646949270 · EN+TH · ห้ามระบุชื่อร้านลูกค้า · ข้อที่ยังเปิด: IDTA ยังไม่เซ็น (หน้าเขียน "ต้องอาศัย" มาตรการ) · ยังไม่รู้ว่า S3 เปิด versioning หรือไม่ · ยังไม่มีขั้นลบซ้ำหลังกู้ข้อมูลสำรอง
 
