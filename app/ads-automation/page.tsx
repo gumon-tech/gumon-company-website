@@ -32,7 +32,7 @@ export default async function AdsAutomationHomePage({ params }: { params?: Promi
       copy={copy}
       path={path}
       fallbackNotice={fallbackNotice}
-      logo={{ src: "/assets/logo/gumon-rose.png", alt: "Gumon logo" }}
+      logo={{ src: "/assets/logo/gumon-app-icon.png", alt: "Gumon Ads Automation logo" }}
     />
   );
 }

@@ -76,7 +76,7 @@ export const privacyAdsAutomationContent: Partial<Record<Locale, PrivacyAdsAutom
         items: [
           "Depending on where you live, you can ask to access or delete data about you, object to its use, or withdraw consent. Because the system holds no names or contact details, please include the business whose ad you clicked and the date of your visit so we can find the record.",
           "Send requests to the client business or to data@gumon.io. We generally acknowledge requests within 72 hours and complete them within legal timelines.",
-          "Client businesses can withdraw Gumon's access at any time by removing Gumon's access in their Google Ads account, or, where access was granted by signing in with Google, by revoking Gumon Ads Automation at https://myaccount.google.com/permissions.",
+          "Gumon accesses a client's Google Ads account through a separate user created for that client only (a Google service account), which is added, by the client or by Gumon with the client's permission, as a user in the client's own Google Ads account with Standard access. Clients do not sign in to Gumon Ads Automation with their Google account. A client business can withdraw Gumon's access at any time by removing that user from its Google Ads account (Admin > Access and security > Users).",
           `Contact: data@gumon.io · ${companyInfoByLocale.en.legalName}, ${companyInfoByLocale.en.address}`,
         ],
       },
@@ -138,7 +138,7 @@ export const privacyAdsAutomationContent: Partial<Record<Locale, PrivacyAdsAutom
         items: [
           "ขึ้นอยู่กับกฎหมายในที่ที่คุณอาศัยอยู่ คุณสามารถขอเข้าถึงหรือลบข้อมูลเกี่ยวกับคุณ คัดค้านการใช้ข้อมูล หรือถอนความยินยอมได้ เนื่องจากระบบไม่เก็บชื่อหรือข้อมูลติดต่อ โปรดระบุธุรกิจที่คุณคลิกโฆษณาและวันที่เข้าชม เพื่อให้เราค้นหาบันทึกได้",
           "ส่งคำขอถึงธุรกิจลูกค้า หรือที่ data@gumon.io โดยทั่วไปเราตอบรับคำขอภายใน 72 ชั่วโมง และดำเนินการให้เสร็จภายในระยะเวลาที่กฎหมายกำหนด",
-          "ธุรกิจลูกค้าถอนสิทธิ์การเข้าถึงของ Gumon ได้ทุกเมื่อ โดยนำสิทธิ์ของ Gumon ออกในบัญชี Google Ads ของตน หรือหากให้สิทธิ์ผ่านการลงชื่อเข้าใช้ด้วย Google ให้เพิกถอน Gumon Ads Automation ที่ https://myaccount.google.com/permissions",
+          "Gumon เข้าบัญชี Google Ads ของลูกค้าผ่านผู้ใช้แยกที่สร้างไว้สำหรับลูกค้ารายนั้นเท่านั้น (service account ของ Google) ซึ่งลูกค้า หรือ Gumon โดยได้รับอนุญาตจากลูกค้า เพิ่มเข้าบัญชี Google Ads ของลูกค้าในระดับสิทธิ์ Standard ลูกค้าไม่ได้ลงชื่อเข้าใช้ Gumon Ads Automation ด้วยบัญชี Google ของตน ธุรกิจลูกค้าถอนสิทธิ์ของ Gumon ได้ทุกเมื่อโดยนำผู้ใช้นั้นออกจากบัญชี Google Ads ของตน (เมนู \"ผู้ดูแลระบบ\" (Admin) > \"การเข้าถึงและความปลอดภัย\" (Access and security) > \"ผู้ใช้\" (Users))",
           `ติดต่อ: data@gumon.io · ${companyInfoByLocale.th.legalName} ${companyInfoByLocale.th.address}`,
         ],
       },

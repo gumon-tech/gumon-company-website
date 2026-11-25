@@ -30,8 +30,8 @@ export const adsAutomationTermsContent: Partial<Record<Locale, LegalDocumentCopy
         title: "2. Your accounts and access",
         items: [
           "The client owns its Google Ads account, its campaigns and its data.",
-          "The client gives Gumon access by adding Gumon to its Google Ads account or by authorising Gumon Ads Automation with Google. Gumon uses that access only for the client's own account.",
-          "The client can remove Gumon's access at any time. Gumon cannot manage the campaigns after access is removed.",
+          "The client gives Gumon access by adding, or allowing Gumon to add, Gumon's user for that client (a Google service account used only for the client's own account) to its Google Ads account with Standard access. The client does not sign in to Gumon Ads Automation with its Google account. Gumon uses that access only for the client's own account.",
+          "The client can remove Gumon's access at any time by removing that user from its Google Ads account. Gumon cannot manage the campaigns after access is removed.",
           "The client keeps its Google Ads account, billing details and payment method in good standing.",
         ],
       },
@@ -147,8 +147,8 @@ export const adsAutomationTermsContent: Partial<Record<Locale, LegalDocumentCopy
         title: "2. บัญชีและสิทธิ์การเข้าถึงของคุณ",
         items: [
           "ลูกค้าเป็นเจ้าของบัญชี Google Ads แคมเปญ และข้อมูลของตน",
-          "ลูกค้าให้สิทธิ์ Gumon โดยเพิ่ม Gumon ในบัญชี Google Ads ของตน หรืออนุญาต Gumon Ads Automation ผ่าน Google Gumon ใช้สิทธิ์นั้นกับบัญชีของลูกค้าเองเท่านั้น",
-          "ลูกค้านำสิทธิ์ของ Gumon ออกได้ทุกเมื่อ หลังนำสิทธิ์ออกแล้ว Gumon จะจัดการแคมเปญไม่ได้",
+          "ลูกค้าให้สิทธิ์ Gumon โดยเพิ่ม หรืออนุญาตให้ Gumon เพิ่ม ผู้ใช้ของ Gumon สำหรับลูกค้ารายนั้น (service account ของ Google ที่ใช้กับบัญชีของลูกค้าเองเท่านั้น) เข้าบัญชี Google Ads ของตนในระดับสิทธิ์ Standard ลูกค้าไม่ได้ลงชื่อเข้าใช้ Gumon Ads Automation ด้วยบัญชี Google ของตน Gumon ใช้สิทธิ์นั้นกับบัญชีของลูกค้าเองเท่านั้น",
+          "ลูกค้านำสิทธิ์ของ Gumon ออกได้ทุกเมื่อโดยนำผู้ใช้นั้นออกจากบัญชี Google Ads ของตน หลังนำสิทธิ์ออกแล้ว Gumon จะจัดการแคมเปญไม่ได้",
           "ลูกค้าดูแลให้บัญชี Google Ads ข้อมูลการเรียกเก็บเงิน และวิธีชำระเงินอยู่ในสถานะใช้งานได้",
         ],
       },

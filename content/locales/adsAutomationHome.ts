@@ -33,7 +33,7 @@ export const adsAutomationHomeContent: Partial<Record<Locale, LegalDocumentCopy>
       {
         title: "Who uses it",
         body:
-          "Only Gumon's own staff operate the app, on behalf of client businesses that have hired Gumon and given Gumon access to their Google Ads account. Client businesses give access by adding Gumon to their own Google Ads account. Client staff receive reports, alerts and approval requests through messaging but do not sign in to the app. It is not offered to the public, and there are no external user accounts or sign-ups.",
+          "Only Gumon's own staff operate the app, on behalf of client businesses that have hired Gumon and given Gumon access to their Google Ads account. Each client's access is a Gumon user created for that client only (a Google service account), added with the client's permission to the client's own Google Ads account with Standard access. The client can remove it at any time. Client staff receive reports, alerts and approval requests through messaging but do not sign in to the app. It is not offered to the public, and there are no external user accounts or sign-ups.",
       },
       {
         title: "Google APIs used",
@@ -83,7 +83,7 @@ export const adsAutomationHomeContent: Partial<Record<Locale, LegalDocumentCopy>
       {
         title: "ผู้ใช้งาน",
         body:
-          "แอปนี้ใช้งานโดยเจ้าหน้าที่ของ Gumon เท่านั้น ในนามธุรกิจลูกค้าที่จ้าง Gumon และให้สิทธิ์ Gumon เข้าถึงบัญชี Google Ads ของตน ธุรกิจลูกค้าให้สิทธิ์โดยเพิ่ม Gumon เข้าบัญชี Google Ads ของตนเอง พนักงานของลูกค้าได้รับรายงาน การแจ้งเตือน และคำขออนุมัติผ่านช่องทางข้อความ แต่ไม่ได้ลงชื่อเข้าใช้แอป แอปไม่เปิดให้บุคคลทั่วไปใช้ และไม่มีบัญชีผู้ใช้ภายนอกหรือการสมัครใช้งาน",
+          "แอปนี้ใช้งานโดยเจ้าหน้าที่ของ Gumon เท่านั้น ในนามธุรกิจลูกค้าที่จ้าง Gumon และให้สิทธิ์ Gumon เข้าถึงบัญชี Google Ads ของตน สิทธิ์ของลูกค้าแต่ละรายคือผู้ใช้ของ Gumon ที่สร้างไว้สำหรับลูกค้ารายนั้นเท่านั้น (service account ของ Google) ซึ่งเพิ่มเข้าบัญชี Google Ads ของลูกค้าเองในระดับสิทธิ์ Standard โดยได้รับอนุญาตจากลูกค้า และลูกค้านำออกได้ทุกเมื่อ พนักงานของลูกค้าได้รับรายงาน การแจ้งเตือน และคำขออนุมัติผ่านช่องทางข้อความ แต่ไม่ได้ลงชื่อเข้าใช้แอป แอปไม่เปิดให้บุคคลทั่วไปใช้ และไม่มีบัญชีผู้ใช้ภายนอกหรือการสมัครใช้งาน",
       },
       {
         title: "Google API ที่ใช้",

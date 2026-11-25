@@ -30,7 +30,7 @@ export const adsAutomationDataDeletionContent: Partial<Record<Locale, LegalDocum
         title: "If you are a client business",
         items: [
           "Email data@gumon.io from an address your business has registered with Gumon, and say what you want deleted: all of your data, or the data for a particular advertising account.",
-          "To stop Gumon's access straight away, remove Gumon's access in your Google Ads account, or, where access was granted by signing in with Google, revoke Gumon Ads Automation at https://myaccount.google.com/permissions.",
+          "To stop Gumon's access straight away, remove Gumon's user (the Google service account added for your business) from your Google Ads account: Admin > Access and security > Users. Gumon Ads Automation does not use Sign in with Google, so there is nothing to revoke in your Google account settings.",
           "Your campaigns stay in your own Google Ads account. On request, we pause the campaigns we manage before our access ends.",
         ],
       },
@@ -72,7 +72,6 @@ export const adsAutomationDataDeletionContent: Partial<Record<Locale, LegalDocum
         links: [
           { href: adsAutomationPaths.privacy, label: "Gumon Ads Automation privacy notice" },
           { href: adsAutomationPaths.terms, label: "Gumon Ads Automation terms of service" },
-          { href: "https://myaccount.google.com/permissions", label: "Google account: third-party access" },
           { href: "https://myadcenter.google.com", label: "Google My Ad Center" },
         ],
       },
@@ -101,7 +100,7 @@ export const adsAutomationDataDeletionContent: Partial<Record<Locale, LegalDocum
         title: "หากคุณเป็นธุรกิจลูกค้า",
         items: [
           "ส่งอีเมลถึง data@gumon.io จากอีเมลที่ธุรกิจของคุณลงทะเบียนไว้กับ Gumon และระบุสิ่งที่ต้องการให้ลบ ได้แก่ ข้อมูลทั้งหมดของคุณ หรือข้อมูลของบัญชีโฆษณาใดบัญชีหนึ่ง",
-          "หากต้องการหยุดการเข้าถึงของ Gumon ทันที ให้นำสิทธิ์ของ Gumon ออกในบัญชี Google Ads ของคุณ หรือหากให้สิทธิ์ผ่านการลงชื่อเข้าใช้ด้วย Google ให้เพิกถอน Gumon Ads Automation ที่ https://myaccount.google.com/permissions",
+          "หากต้องการหยุดการเข้าถึงของ Gumon ทันที ให้นำผู้ใช้ของ Gumon (service account ของ Google ที่เพิ่มไว้สำหรับธุรกิจของคุณ) ออกจากบัญชี Google Ads ของคุณ ที่เมนู \"ผู้ดูแลระบบ\" (Admin) > \"การเข้าถึงและความปลอดภัย\" (Access and security) > \"ผู้ใช้\" (Users) Gumon Ads Automation ไม่ได้ใช้การลงชื่อเข้าใช้ด้วย Google จึงไม่มีสิ่งใดต้องเพิกถอนในการตั้งค่าบัญชี Google ของคุณ",
           "แคมเปญของคุณยังอยู่ในบัญชี Google Ads ของคุณเอง หากคุณขอ เราจะหยุดแคมเปญที่เราจัดการชั่วคราวก่อนการเข้าถึงของเราสิ้นสุด",
         ],
       },
@@ -143,7 +142,6 @@ export const adsAutomationDataDeletionContent: Partial<Record<Locale, LegalDocum
         links: [
           { href: adsAutomationPaths.privacy, label: "ประกาศความเป็นส่วนตัวของ Gumon Ads Automation" },
           { href: adsAutomationPaths.terms, label: "ข้อกำหนดการให้บริการของ Gumon Ads Automation" },
-          { href: "https://myaccount.google.com/permissions", label: "บัญชี Google: การเข้าถึงของบุคคลที่สาม" },
           { href: "https://myadcenter.google.com", label: "Google My Ad Center" },
         ],
       },

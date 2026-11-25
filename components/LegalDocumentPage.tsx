@@ -18,7 +18,7 @@ export default function LegalDocumentPage({
     <section className="ui-section">
       <BreadcrumbJsonLd items={[{ name: copy.crumb, path }]} />
       <div className="ui-container max-w-4xl">
-        {logo ? <Image src={logo.src} alt={logo.alt} width={80} height={80} priority className="mb-6 rounded-2xl" /> : null}
+        {logo ? <Image src={logo.src} alt={logo.alt} width={80} height={80} priority className="mb-6" /> : null}
         <p className="ui-kicker">{copy.kicker}</p>
         <h1 className="ui-h1">{copy.heading}</h1>
         <p className="mt-4 ui-small">{copy.updatedLabel}: {copy.updatedAt}</p>

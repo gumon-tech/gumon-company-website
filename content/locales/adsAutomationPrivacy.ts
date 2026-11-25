@@ -112,13 +112,12 @@ export const adsAutomationPrivacyContent: Partial<Record<Locale, LegalDocumentCo
         items: [
           "Depending on where you live, you can ask to access, correct, delete, restrict or object to the use of data about you, receive a copy of it, or withdraw consent.",
           "If you clicked a client's ad, send requests to that business or to data@gumon.io. Because the system holds no names or contact details, please include the business whose ad you clicked and the date of your visit so we can find the records. If we cannot match the records from these details, we will ask you to make the request through the business's chat.",
-          "Client businesses can withdraw Gumon's access at any time by removing Gumon's access in their Google Ads account, or, where access was granted by signing in with Google, by revoking Gumon Ads Automation at https://myaccount.google.com/permissions.",
+          "Gumon accesses a client's Google Ads account through a separate user created for that client only (a Google service account), which is added, by the client or by Gumon with the client's permission, as a user in the client's own Google Ads account with Standard access. Clients do not sign in to Gumon Ads Automation with their Google account. A client business can withdraw Gumon's access at any time by removing that user from its Google Ads account (Admin > Access and security > Users).",
           "We generally acknowledge requests within 72 hours and complete them within the time the law sets, which is one month under UK GDPR and EU GDPR.",
           "You can also complain to a data protection authority: in the United Kingdom, the Information Commissioner's Office (ico.org.uk); in Thailand, the Personal Data Protection Committee; in the European Economic Area, the authority in your country.",
         ],
         links: [
           { href: adsAutomationPaths.dataDeletion, label: "How to ask for data to be deleted" },
-          { href: "https://myaccount.google.com/permissions", label: "Google account: third-party access" },
           { href: "mailto:data@gumon.io", label: "data@gumon.io" },
         ],
       },
@@ -247,13 +246,12 @@ export const adsAutomationPrivacyContent: Partial<Record<Locale, LegalDocumentCo
         items: [
           "ขึ้นอยู่กับกฎหมายในที่ที่คุณอาศัยอยู่ คุณสามารถขอเข้าถึง แก้ไข ลบ ระงับ หรือคัดค้านการใช้ข้อมูลเกี่ยวกับคุณ ขอรับสำเนาข้อมูล หรือถอนความยินยอมได้",
           "หากคุณคลิกโฆษณาของลูกค้า ส่งคำขอถึงธุรกิจนั้นหรือที่ data@gumon.io เนื่องจากระบบไม่เก็บชื่อหรือข้อมูลติดต่อ โปรดระบุธุรกิจที่คุณคลิกโฆษณาและวันที่เข้าชม เพื่อให้เราค้นหาบันทึกได้ หากจับคู่บันทึกจากข้อมูลนี้ไม่ได้ เราจะขอให้คุณส่งคำขอผ่านแชทของธุรกิจนั้น",
-          "ธุรกิจลูกค้าถอนสิทธิ์การเข้าถึงของ Gumon ได้ทุกเมื่อ โดยนำสิทธิ์ของ Gumon ออกในบัญชี Google Ads ของตน หรือหากให้สิทธิ์ผ่านการลงชื่อเข้าใช้ด้วย Google ให้เพิกถอน Gumon Ads Automation ที่ https://myaccount.google.com/permissions",
+          "Gumon เข้าบัญชี Google Ads ของลูกค้าผ่านผู้ใช้แยกที่สร้างไว้สำหรับลูกค้ารายนั้นเท่านั้น (service account ของ Google) ซึ่งลูกค้า หรือ Gumon โดยได้รับอนุญาตจากลูกค้า เพิ่มเข้าบัญชี Google Ads ของลูกค้าในระดับสิทธิ์ Standard ลูกค้าไม่ได้ลงชื่อเข้าใช้ Gumon Ads Automation ด้วยบัญชี Google ของตน ธุรกิจลูกค้าถอนสิทธิ์ของ Gumon ได้ทุกเมื่อโดยนำผู้ใช้นั้นออกจากบัญชี Google Ads ของตน (เมนู \"ผู้ดูแลระบบ\" (Admin) > \"การเข้าถึงและความปลอดภัย\" (Access and security) > \"ผู้ใช้\" (Users))",
           "โดยทั่วไปเราตอบรับคำขอภายใน 72 ชั่วโมง และดำเนินการให้เสร็จภายในระยะเวลาที่กฎหมายกำหนด ซึ่งภายใต้ UK GDPR และ EU GDPR คือหนึ่งเดือน",
           "คุณยังมีสิทธิร้องเรียนต่อหน่วยงานกำกับดูแลด้านการคุ้มครองข้อมูล ได้แก่ ในสหราชอาณาจักร Information Commissioner's Office (ico.org.uk) ในประเทศไทย สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล และในเขตเศรษฐกิจยุโรป หน่วยงานกำกับดูแลในประเทศของคุณ",
         ],
         links: [
           { href: adsAutomationPaths.dataDeletion, label: "วิธีขอให้ลบข้อมูล" },
-          { href: "https://myaccount.google.com/permissions", label: "บัญชี Google: การเข้าถึงของบุคคลที่สาม" },
           { href: "mailto:data@gumon.io", label: "data@gumon.io" },
         ],
       },
