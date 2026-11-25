@@ -1,4 +1,5 @@
 export const adsAutomationPaths = {
+  home: "/ads-automation",
   privacy: "/ads-automation/privacy",
   dataDeletion: "/ads-automation/data-deletion",
   terms: "/ads-automation/terms",

@@ -6,7 +6,7 @@ import { detectLocaleFromPathname } from "@/lib/i18n";
 import { getNavigation } from "@/lib/navigation";
 
 const productNotices = [
-  { href: "/ads-automation/privacy/", label: "Gumon Ads Automation" },
+  { href: "/ads-automation/", label: "Gumon Ads Automation" },
   { href: "/shop-agent/privacy/", label: "Gumon Shop Agent" },
 ];
 
