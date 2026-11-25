@@ -2,6 +2,14 @@
 
 อัปเดต 2026-11-25 (ล่าสุด commit fb51854)
 
+## สถานะตอนปิดห้อง (2026-11-25 · KWS สั่งหยุด · ห้องใหม่รับต่อ)
+- เสร็จและขึ้นจริงแล้ว: หน้า Ads Automation สามหน้า (fb51854) ตอบ 200 บน gumon.io ทั้ง root และ /th/ · หัวข้อใน /privacy/#ads-automation (c7db270) · footer ลิงก์หน้า privacy ของแอป · แจ้ง KMKT แล้วให้เปลี่ยน privacy/terms link ใน Google Branding และขอตรวจใหม่
+- deploy ล่าสุดผ่านที่ run 45654333414 (หลัง GitHub มีเหตุขัดข้อง 15:55–16:3x UTC ทำให้ deploy ล้ม 3 รอบด้วย 500)
+- **ยังไม่เสร็จ (รอ Google):** ผลตรวจ brand verification รอบใหม่ · เมื่อผ่านแล้ว ย่อหัวข้อ "Gumon Ads Automation" ใน /privacy/ (`content/locales/privacyAdsAutomation.ts` + บล็อกใน `app/privacy/page.tsx`) ให้เหลือย่อหน้าสั้น + ลิงก์ไปหน้าแยก (คำสั่ง KMKT: อย่าลบจน Google ผ่าน)
+- ถ้า Google ขอหน้าแรกของแอปเฉพาะ: ทำหน้า /ads-automation/ ที่อธิบายแอปและลิงก์ privacy/terms
+- ตัวเลขที่ห้องนี้กำหนดเองในหน้า terms/data-deletion (1 เดือน · 30 วัน) ยังไม่มีคนอนุมัติ ⇒ ให้ KMKT/เจ้าของยืนยัน
+- ไม่มีงานค้างที่ยังไม่ commit · ไม่มี executor หรืองานเบื้องหลังที่ยังรัน
+
 ## หน้ากฎหมาย (ขึ้น main แล้ว · ตรวจหน้าจริงแล้ว)
 - **Gumon Ads Automation หน้าแยก** (fb51854 · 25 พ.ย.) `/ads-automation/privacy/` `/ads-automation/data-deletion/` `/ads-automation/terms/` · EN+TH · เนื้อ `content/locales/adsAutomation*.ts` · component กลาง `components/LegalDocumentPage.tsx` (Shop Agent ใช้ตัวเดียวกัน) · privacy ระบุ scope `auth/adwords` + `auth/datamanager` ตามโค้ด KADS ⇒ เพิ่ม scope เมื่อไรต้องแก้หน้า · footer ทุกหน้ามีลิงก์ "Gumon Ads Automation" และ "Gumon Shop Agent" เป็น path ราก (ตรงกับ URL ที่ลงทะเบียนกับ Google/Meta) · Google ตรวจ /privacy/ สองรอบไม่ผ่าน ⇒ KMKT เปลี่ยน privacy link ใน Branding เป็นหน้าแยก · **คงหัวข้อเต็มใน /privacy/#ads-automation ไว้จน Google ผ่าน** แล้วค่อยย่อเหลือย่อหน้าสั้น + ลิงก์ (คำสั่ง KMKT)
 - ข้อสัญญาที่หน้า terms/data-deletion ให้ไว้ (ทีมต้องทำตาม): ลบข้อมูลลูกค้าธุรกิจภายใน 1 เดือนหลังเลิกบริการ/ขอ · แจ้งเปลี่ยนข้อกำหนดล่วงหน้า 30 วัน · เลิกบริการแจ้ง 30 วันถ้าไม่มีสัญญา · ลบบันทึกรายคนภายใน 72 ชม. หลังถึงระบบ
