@@ -2,6 +2,9 @@
 
 อัปเดต 2026-11-25 (ล่าสุด commit fb51854)
 
+## ห้องใหม่รับต่อ (2026-11-25 · [KGIO] Gumon Company Website (air))
+- รับงาน "เพิ่มหัวข้อ Gumon Ads Automation ใน /privacy/" ซ้ำจาก KWS ⇒ ตรวจแล้วว่าห้องเดิมทำครบทุกข้อในสเปกแล้ว (c7db270 · รีวิวอิสระ opus/high แล้ว) · หน้าจริง gumon.io/privacy/ และ /ads-automation/privacy/ ตอบ 200 มี #ads-automation · gclid · 8 วัน · 90 วัน · ประโยค Limited Use ⇒ ไม่แก้เนื้อหา · แจ้ง KMKT ให้กดขอ Google ตรวจใหม่
+
 ## สถานะตอนปิดห้อง (2026-11-25 · KWS สั่งหยุด · ห้องใหม่รับต่อ)
 - เสร็จและขึ้นจริงแล้ว: หน้า Ads Automation สามหน้า (fb51854) ตอบ 200 บน gumon.io ทั้ง root และ /th/ · หัวข้อใน /privacy/#ads-automation (c7db270) · footer ลิงก์หน้า privacy ของแอป · แจ้ง KMKT แล้วให้เปลี่ยน privacy/terms link ใน Google Branding และขอตรวจใหม่
 - deploy ล่าสุดผ่านที่ run 45654333414 (หลัง GitHub มีเหตุขัดข้อง 15:55–16:3x UTC ทำให้ deploy ล้ม 3 รอบด้วย 500)
