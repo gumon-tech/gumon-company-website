@@ -6,6 +6,7 @@ import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
 import { privacyContent, privacyMeta } from "@/content/locales/privacy";
+import { privacyAdsAutomationContent } from "@/content/locales/privacyAdsAutomation";
 
 async function getLocaleFromParams(params?: Promise<{ locale?: string }>): Promise<Locale> {
   if (!params) return fallbackLocale;
@@ -28,6 +29,7 @@ export default async function PrivacyPage({ params }: { params?: Promise<{ local
   const locale = await getLocaleFromParams(params);
   const copy = pickLocalizedContent(locale, privacyContent);
   const fallbackNotice = privacyContent[locale] ? null : getFallbackNotice(locale);
+  const ads = pickLocalizedContent(locale, privacyAdsAutomationContent);
 
   return (
     <section className="ui-section">
@@ -52,6 +54,37 @@ export default async function PrivacyPage({ params }: { params?: Promise<{ local
                 <ul className="mt-3 grid gap-2">
                   {section.items.map((item) => (
                     <li key={item}>- {item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ))}
+        </div>
+
+        <div id="ads-automation" className="mt-10 card p-7 shadow-soft space-y-8 text-sm md:text-base text-mist leading-relaxed scroll-mt-24">
+          <h2 className="ui-h2 text-ink">{ads.heading}</h2>
+          <p className="ui-small">{ads.updated}</p>
+          <p>{ads.intro}</p>
+
+          {ads.sections.map((section) => (
+            <div key={section.title}>
+              <h3 className="ui-h3 text-ink">{section.title}</h3>
+              {section.body ? <p className="mt-2">{section.body}</p> : null}
+              {section.items ? (
+                <ul className="mt-3 grid gap-2">
+                  {section.items.map((item) => (
+                    <li key={item}>- {item}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {section.links ? (
+                <ul className="mt-3 grid gap-2">
+                  {section.links.map((link) => (
+                    <li key={link.href}>
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-4 hover:opacity-80 transition">
+                        {link.label}
+                      </a>
+                    </li>
                   ))}
                 </ul>
               ) : null}
