@@ -2,7 +2,7 @@ import { companyInfoByLocale } from "@/lib/companyInfo";
 import type { Locale } from "@/lib/i18n";
 import type { Section as PrivacySection } from "@/content/locales/privacy";
 
-export const googleUserDataPolicyUrl = "https://developers.google.com/terms/api-services-user-data-policy";
+import { adsAutomationPaths, googleUserDataPolicyUrl } from "@/lib/adsAutomationLegal";
 
 type Section = PrivacySection & { links?: { href: string; label: string }[] };
 
@@ -14,6 +14,8 @@ export type PrivacyAdsAutomationCopy = {
   heading: string;
   updated: string;
   intro: string;
+  documentsLabel: string;
+  documents: { href: string; label: string }[];
   sections: Section[];
 };
 
@@ -23,6 +25,12 @@ export const privacyAdsAutomationContent: Partial<Record<Locale, PrivacyAdsAutom
     updated: "Section added: November 25, 2026",
     intro:
       "This section applies to Gumon Ads Automation, the system Gumon Technology uses to manage online advertising for client businesses that hire Gumon. It explains what data the system accesses through Google APIs, and how that data is used, stored, shared and deleted. The sections above cover the gumon.io website.",
+    documentsLabel: "Full documents for Gumon Ads Automation:",
+    documents: [
+      { href: adsAutomationPaths.privacy, label: "Privacy notice" },
+      { href: adsAutomationPaths.dataDeletion, label: "Data deletion instructions" },
+      { href: adsAutomationPaths.terms, label: "Terms of service" },
+    ],
     sections: [
       {
         title: "Who is responsible",
@@ -79,6 +87,12 @@ export const privacyAdsAutomationContent: Partial<Record<Locale, PrivacyAdsAutom
     updated: "เพิ่มส่วนนี้เมื่อ: 25 พฤศจิกายน 2026",
     intro:
       "ส่วนนี้ใช้กับ Gumon Ads Automation ซึ่งเป็นระบบที่ Gumon Technology ใช้จัดการโฆษณาออนไลน์ให้ธุรกิจลูกค้าที่จ้าง Gumon อธิบายว่าระบบเข้าถึงข้อมูลใดผ่าน Google API และข้อมูลนั้นถูกใช้ จัดเก็บ เปิดเผย และลบอย่างไร ส่วนก่อนหน้านี้ครอบคลุมเว็บไซต์ gumon.io",
+    documentsLabel: "เอกสารฉบับเต็มของ Gumon Ads Automation:",
+    documents: [
+      { href: adsAutomationPaths.privacy, label: "ประกาศความเป็นส่วนตัว" },
+      { href: adsAutomationPaths.dataDeletion, label: "วิธีขอลบข้อมูล" },
+      { href: adsAutomationPaths.terms, label: "ข้อกำหนดการให้บริการ" },
+    ],
     sections: [
       {
         title: "ผู้รับผิดชอบ",

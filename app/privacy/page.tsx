@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ShopAgentNotice from "@/components/ShopAgentNotice";
+import TrackedLink from "@/components/TrackedLink";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { getFallbackNotice } from "@/content/locales/fallbackNotice";
@@ -65,6 +66,18 @@ export default async function PrivacyPage({ params }: { params?: Promise<{ local
           <h2 className="ui-h2 text-ink">{ads.heading}</h2>
           <p className="ui-small">{ads.updated}</p>
           <p>{ads.intro}</p>
+          <div className="rounded-xl border border-line/45 bg-bg1/55 p-4 text-sm">
+            <p>{ads.documentsLabel}</p>
+            <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+              {ads.documents.map((doc) => (
+                <li key={doc.href}>
+                  <TrackedLink href={doc.href} className="text-ink underline underline-offset-4 hover:opacity-80 transition">
+                    {doc.label}
+                  </TrackedLink>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {ads.sections.map((section) => (
             <div key={section.title}>

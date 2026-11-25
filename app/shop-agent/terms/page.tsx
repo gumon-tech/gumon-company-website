@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
-import ShopAgentLegalPage from "@/components/ShopAgentLegalPage";
+import LegalDocumentPage from "@/components/LegalDocumentPage";
 import { fallbackLocale, resolveLocale, type Locale } from "@/lib/i18n";
 import { pickLocalizedContent } from "@/lib/i18nContent";
 import { shopAgentPaths } from "@/lib/shopAgentLegal";
@@ -27,5 +27,5 @@ export default async function ShopAgentTermsPage({ params }: { params?: Promise<
   const copy = pickLocalizedContent(locale, shopAgentTermsContent);
   const fallbackNotice = shopAgentTermsContent[locale] ? null : getFallbackNotice(locale);
 
-  return <ShopAgentLegalPage copy={copy} path={path} fallbackNotice={fallbackNotice} />;
+  return <LegalDocumentPage copy={copy} path={path} fallbackNotice={fallbackNotice} />;
 }

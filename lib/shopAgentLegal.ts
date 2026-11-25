@@ -1,23 +1,6 @@
-export type ShopAgentLegalLink = { href: string; label: string };
+import type { LegalDocumentCopy } from "@/lib/legalDocument";
 
-export type ShopAgentLegalSection = {
-  title: string;
-  body?: string;
-  items?: string[];
-  links?: ShopAgentLegalLink[];
-};
-
-export type ShopAgentLegalCopy = {
-  title: string;
-  description: string;
-  crumb: string;
-  kicker: string;
-  heading: string;
-  updatedLabel: string;
-  updatedAt: string;
-  intro: string;
-  sections: ShopAgentLegalSection[];
-};
+export type ShopAgentLegalCopy = LegalDocumentCopy;
 
 export const shopAgentPaths = {
   privacy: "/shop-agent/privacy",

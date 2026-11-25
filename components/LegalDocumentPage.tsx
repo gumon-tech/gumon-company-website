@@ -1,13 +1,13 @@
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import TrackedLink from "@/components/TrackedLink";
-import type { ShopAgentLegalCopy } from "@/lib/shopAgentLegal";
+import type { LegalDocumentCopy } from "@/lib/legalDocument";
 
-export default function ShopAgentLegalPage({
+export default function LegalDocumentPage({
   copy,
   path,
   fallbackNotice,
 }: {
-  copy: ShopAgentLegalCopy;
+  copy: LegalDocumentCopy;
   path: string;
   fallbackNotice: string | null;
 }) {
