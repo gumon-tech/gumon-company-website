@@ -4,7 +4,8 @@
 
 ## ห้องใหม่รับต่อ (2026-11-25 · [KGIO] Gumon Company Website (air))
 - **หน้าแรกของแอป /ads-automation/** (781433c · ขึ้นจริง 200 ทั้ง root /en/ /th/) ตาม KMKT หลัง Google ตีกลับว่า home page อยู่หลังหน้า login · เนื้อ `content/locales/adsAutomationHome.ts` · ห้ามใส่ปุ่ม sign in · ลิงก์นโยบายเป็น URL เต็ม https://gumon.io/ads-automation/... (TrackedLink เปลี่ยนลิงก์ภายในเป็น /en/ และตัด / ท้าย) · footer ลิงก์ "Gumon Ads Automation" ชี้หน้านี้แล้ว · LegalDocumentPage มี prop `logo` · รอ KMKT เปลี่ยน home ใน Branding + ส่งตรวจใหม่
-- ค้าง: (1) ยืนยันกับ KMKT ว่าไฟล์โลโก้ใน Branding = `gumon-rose.png` (2) หน้า privacy/terms/data-deletion ของแอปยังเขียนว่าลูกค้าอาจให้สิทธิ์ "signing in with Google"/เพิกถอนที่ myaccount.google.com/permissions แต่ระบบจริงใช้ service account ที่ลูกค้าเพิ่มในบัญชี Google Ads (ARCHITECTURE §8) ⇒ ถาม KADS ก่อนแก้ · ถามทั้งสองข้อกับ KMKT แล้ว
+- **6221bfa (ขึ้นจริง):** โลโก้หน้า /ads-automation/ = `public/assets/logo/gumon-app-icon.png` (มาสคอตขาวบนสี่เหลี่ยมเทาเข้ม = โลโก้ใน Branding ตาม KMKT · ไฟล์ต้นทาง ~/Downloads/icon3.4.png) · ทุกหน้า (home, /privacy/ section, privacy, terms, data-deletion) เขียนตรงกันว่าเข้าบัญชีลูกค้าด้วย service account ต่อราย (ระดับ Standard) ไม่มี Sign in with Google · ถอนสิทธิ์ = ลบผู้ใช้ใน Admin > Access and security > Users · ลบลิงก์ myaccount.google.com แล้ว · ถ้าระบบเปลี่ยนวิธีเข้าบัญชี ต้องแก้ทั้ง 5 จุด
+- ไม่ได้ใส่ (ตั้งใจ): สัญญาว่าจะลบ service account เมื่อเลิกบริการ (ไม่มีใน ARCHITECTURE) ⇒ ถ้า KADS ยืนยันว่าลบ ค่อยเพิ่ม
 - รับงาน "เพิ่มหัวข้อ Gumon Ads Automation ใน /privacy/" ซ้ำจาก KWS ⇒ ตรวจแล้วว่าห้องเดิมทำครบทุกข้อในสเปกแล้ว (c7db270 · รีวิวอิสระ opus/high แล้ว) · หน้าจริง gumon.io/privacy/ และ /ads-automation/privacy/ ตอบ 200 มี #ads-automation · gclid · 8 วัน · 90 วัน · ประโยค Limited Use ⇒ ไม่แก้เนื้อหา · แจ้ง KMKT ให้กดขอ Google ตรวจใหม่
 
 ## สถานะตอนปิดห้อง (2026-11-25 · KWS สั่งหยุด · ห้องใหม่รับต่อ)
